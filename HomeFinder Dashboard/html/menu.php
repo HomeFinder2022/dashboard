@@ -48,18 +48,7 @@
     <!--! Template customizer & Theme config files MUST be included after core stylesheets and helpers.js in the <head> section -->
     <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
     <script src="../assets/js/config.js"></script>
-<!-- <script>
-    
-  $(function() {
-    let path = window.location.href;
 
-    $('#nav li a').each(function() {
-     if (this.href === path) {
-      $(this).addClass('active');
-     }
-    });
-  });
-</script> -->
   </head>
 
   <body>
@@ -99,37 +88,44 @@
 
 
             <li class="menu-item">
-              <a href="inquilinos.html" class="menu-link">
+              <a href="inquilinos.php" class="menu-link">
                 <i class="menu-icon tf-icons bx bxs-user"></i>
                 <div data-i18n="Account Settings">Inquilinos</div>
               </a>
             </li>
 
             <li class="menu-item">
-              <a href="arrend.html" class="menu-link">
+              <a href="arrendamentos.php" class="menu-link">
                 <i class="menu-icon tf-icons bx bxs-key"></i>
                 <div data-i18n="Authentications">Arrendamentos</div>
               </a>
             </li>
 
             <li class="menu-item">
+              <a href="cons_reservas.php" class="menu-link">
+                <i class="menu-icon tf-icons bx bxs-hotel"></i>
+                <div data-i18n="Authentications">Reservas</div>
+              </a>
+            </li>
+
+            <!-- <li class="menu-item">
               <a href="javascript:void(0);" class="menu-link menu-toggle">
                 <i class="menu-icon tf-icons bx bxs-hotel"></i>
                 <div data-i18n="Misc">Reservas</div>
               </a>
               <ul class="menu-sub">
                 <li class="menu-item">
-                  <a href="pages-misc-error.html" class="menu-link">
+                  <a href="criar_reserva.php" class="menu-link">
                     <div data-i18n="Error">Criar Reserva</div>
                   </a>
                 </li>
                 <li class="menu-item">
-                  <a href="pages-misc-under-maintenance.html" class="menu-link">
+                  <a href="cons_reservas.php" class="menu-link">
                     <div data-i18n="Under Maintenance">Consultar Reservas</div>
                   </a>
                 </li>
               </ul>
-            </li>
+            </li> -->
 
             <li class="menu-item">
               <a href="invent.html" class="menu-link">
@@ -164,7 +160,7 @@
 
             <li class="menu-item">
               <a href="javascript:void(0)" class="menu-link menu-toggle">
-                <i class="menu-icon tf-icons bx bxs-home-smile"></i>
+                <i class="menu-icon tf-icons bx bxs-wrench"></i>
                 <div data-i18n="Extended UI">Intervenções</div>
               </a>
               <ul class="menu-sub">
@@ -265,7 +261,7 @@
             <div class="navbar-nav align-items-end">
               <div class="nav-item navbar-search mb-0">
                 <div class="input-group rounded">
-                  <input type="search" class="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
+                  <input type="search" class="form-control rounded" placeholder="Pesquise aqui" aria-label="Search" aria-describedby="search-addon" />
                   <span class="input-group-text border-0" id="search-addon">
                     <i class="bx bx-search-alt-2"></i>
                   </span>
