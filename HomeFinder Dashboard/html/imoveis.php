@@ -5,6 +5,8 @@
           <!-- Content wrapper -->
           <div class="content-wrapper">
             <!-- Content -->
+            <div class="container-fluid">
+            <div class="card mt-3">
             <table class="table table-hover table-bordered dataTable mt-3">
               <thead>
                 <tr>
@@ -23,13 +25,15 @@
                       <h4>Não há nada aqui...</h4>
                       <p>Nesta página pode gerir os seus imóveis. Adicione as percentagens de cada propriedade para distribuir as despesas comuns.</p>
                     </div>
-                    <p><button type="button" onclick="window.location.href='/landlord/#buildings/new';" class="btn btn-success">Imóvel novo</button></p>
+                    <p><button type="button" onclick="window.location.href='reg_imovel.php';" class="btn btn-success">Imóvel novo</button></p>
                   </td>
                 </tr>
                   </tbody>
               <tfoot>
                 </tfoot>
             </table>
+            </div>
+            </div>
 
             <!-- / Content -->
 

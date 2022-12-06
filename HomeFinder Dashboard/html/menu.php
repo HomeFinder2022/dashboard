@@ -128,18 +128,18 @@
             </li> -->
 
             <li class="menu-item">
-              <a href="invent.html" class="menu-link">
+              <a href="inventario.php" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-list-ul"></i>
                 <div data-i18n="Basic">Inventários</div>
               </a>
             </li>
 
             <li class="menu-item">
-              <a href="javascript:void(0)" class="menu-link menu-toggle">
+              <a href="javascript:void(0)" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-euro"></i>
                 <div data-i18n="User interface">Finanças</div>
               </a>
-              <ul class="menu-sub">
+              <!-- <ul class="menu-sub">
                 <li class="menu-item">
                   <a href="ui-accordion.html" class="menu-link">
                     <div data-i18n="Accordion">Consultar Balanço</div>
@@ -155,15 +155,15 @@
                     <div data-i18n="Badges">Adicionar Pagamento</div>
                   </a>
                 </li>
-              </ul>
+              </ul> -->
             </li>
 
             <li class="menu-item">
-              <a href="javascript:void(0)" class="menu-link menu-toggle">
+              <a href="intervencoes.php" class="menu-link">
                 <i class="menu-icon tf-icons bx bxs-wrench"></i>
                 <div data-i18n="Extended UI">Intervenções</div>
               </a>
-              <ul class="menu-sub">
+              <!-- <ul class="menu-sub">
                 <li class="menu-item">
                   <a href="extended-ui-perfect-scrollbar.html" class="menu-link">
                     <div data-i18n="Perfect Scrollbar">Adicionar Intervenção</div>
@@ -174,7 +174,7 @@
                     <div data-i18n="Text Divider">Consultar Intervenções</div>
                   </a>
                 </li>
-              </ul>
+              </ul> -->
             </li>
 
             <li class="menu-item">
@@ -185,7 +185,7 @@
             </li>
 
             <li class="menu-item">
-              <a href="icons-boxicons.html" class="menu-link">
+              <a href="estatisticas.php" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-bar-chart"></i>
                 <div data-i18n="Boxicons">Estatísticas</div>
               </a>
@@ -202,7 +202,7 @@
             </li>
 
             <li class="menu-item">
-              <a href="javascript:void(0);" class="menu-link">
+              <a href="contactos.php" class="menu-link">
                 <i class="menu-icon tf-icons bx bxs-contact"></i>
                 <div data-i18n="Form Layouts">Contactos</div>
               </a>
@@ -246,7 +246,7 @@
 
           <!-- Navbar -->
           <nav
-            class="layout-navbar container-xxl navbar navbar-expand-xl navbar-detached align-items-center bg-navbar-theme"
+            class="layout-navbar container-fluid navbar navbar-expand-xl navbar-detached align-items-center bg-navbar-theme"
             id="layout-navbar"
           >
             <div class="layout-menu-toggle navbar-nav align-items-xl-center me-3 me-xl-0 d-xl-none">
@@ -271,25 +271,30 @@
             <!-- PESQUISA -->
 
             <!-- BOTAO ADD -->
-            <div class="btn-group">
+            <div class="btn-group ms-3">
               <button type="button" class="btn btn-success btn-icon rounded-pill dropdown-toggle hide-arrow" data-bs-toggle="dropdown" aria-expanded="false">
                 <i class="bx bx-plus-medical"></i>
               </button>
               <ul class="dropdown-menu dropdown-menu-end">
-                <li><a class="dropdown-item" href="javascript:void(0);">Action</a></li>
-                <li><a class="dropdown-item" href="javascript:void(0);">Another action</a></li>
-                <li><a class="dropdown-item" href="javascript:void(0);">Something else here</a></li>
-                <li>
-                  <hr class="dropdown-divider">
-                </li>
-                <li><a class="dropdown-item" href="javascript:void(0);">Separated link</a></li>
+                <li><a class="dropdown-item" href="reg_imovel.php"> <i class="menu-icon tf-icons bx bx-building-house"></i>Adicionar Imóvel </a></li>
+                <li><a class="dropdown-item" href="reg_inqui.php"><i class="menu-icon tf-icons bx bxs-user"></i>Adicionar Inquilino</a></li>
+                <li><a class="dropdown-item" href="reg_arrendamento.php"><i class="menu-icon tf-icons bx bxs-key"></i>Adicionar Arrendamento</a></li>
+                <li><a class="dropdown-item" href="reg_reserva.php"><i class="menu-icon tf-icons bx bxs-hotel"></i>Adicionar Reserva</a></li>
+                <li><a class="dropdown-item" href="reg_inventario.php"><i class="menu-icon tf-icons bx bx-list-ul"></i>Adicionar Inventário</a></li>
+                <li><a class="dropdown-item" href="javascript:void(0);"><i class="menu-icon tf-icons bx bx-plus-circle"></i>Adicionar Receita</a></li>
+                <li><a class="dropdown-item" href="javascript:void(0);"><i class="menu-icon tf-icons bx bx-minus-circle"></i>Adicionar Despesa</a></li>
+                <li><a class="dropdown-item" href="javascript:void(0);"><i class="menu-icon tf-icons bx bxs-wrench"></i>Adicionar Intervenção</a></li>
+                <li><a class="dropdown-item" href="javascript:void(0);"><i class="menu-icon tf-icons bx bx-file"></i>Adicionar Documento</a></li>
+                <li><a class="dropdown-item" href="javascript:void(0);"><i class="menu-icon tf-icons bx bx-calendar"></i>Adicionar Evento</a></li>
+                <li><a class="dropdown-item" href="javascript:void(0);"><i class="menu-icon tf-icons bx bxs-contact"></i>Adicionar Contacto</a></li>
+            
               </ul>
             </div>
             <!-- BOTAO ADD -->
 
             <!-- BOTAO CALENDARIO -->
             <a href="calendario.php">
-            <button type="button" class="btn btn-success rounded-pill btn-icon tf-icons bx bx-calendar btn-primary ms-2">
+            <button type="button" class="btn btn-success rounded-pill btn-icon tf-icons bx bx-calendar btn-primary ms-3">
             </button>
           </a>
             <!-- /BOTAO CALENDARIO -->
