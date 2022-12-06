@@ -5,6 +5,7 @@
           <!-- Content wrapper -->
           <div class="content-wrapper">
             <!-- Content -->
+			<div class="container-fluid">
             <table class="table table-hover table-bordered dataTable mt-3">
 	<thead>
 		<tr>
@@ -13,7 +14,7 @@
         	<th class="hidden-phone sorting" data-column-name="TenantProperty"><a href="/landlord/#tenants/?sort=orderByField_Bien|">Propriedade</a></th>
         	<th class="sorting hidden-phone" data-column-name="TenantMobilePhone"><a href="/landlord/#tenants/?sort=TenantMobilePhone|">Telefone</a></th>
         	<th class="sorting hidden-phone" data-column-name="TenantEmail"><a href="/landlord/#tenants/?sort=TenantEmail|">Email</a></th>
-        	<th class="sorting hidden-phone" style="width:100px;" data-column-name="TenantBalance"><a href="/landlord/#tenants/?sort=TenantBalance|">Saldo</a></th>
+        	<th class="sorting hidden-phone" style="width:100px;" data-column-name="TenantBalance"><a href="/landlord/#tenants/?sort=TenantBalance|">Tipo de Arrendamento</a></th>
         	<th class="sorting hidden-phone" style="width:100px;" data-column-name="TenantStatus"><a href="/landlord/#tenants/?sort=TenantStatus|">Estado</a></th>
             			<th class="center" style="width:50px;">Ações</th>
 		</tr>
@@ -26,11 +27,7 @@
 	                    <span class="p-l-0"></span>
 	                </label>
                 </td>
-                <td class="center p-r-0" style="width: 30px;">
-	                <div class="text-left">
-                        			            		                        	<div class="circle" style="background:#85c6e2;">PP</div>
-                        	                                            </div>
-                </td>
+                
                 <td scope="row" class="b-l-0">
 
                         <div>
@@ -40,13 +37,9 @@
 	                        		                        		Sr. Paulo Pedras	                        	                            </a>
                             <small class="block">Particular</small>
                             <!-- Responsive info -->
-                                                        	<small class="hidden-desktop hidden-tablet"><a href="mailto:paulopedras93@gmail.com" class="dark-grey">paulopedras93@gmail.com</a></small>
+                                                        	
                             
-                                                        	<small class="hidden-desktop hidden-tablet"><i class="icon-phone"></i> <a href="tel:960 353 746" class="dark-grey">960 353 746</a></small>
-                            
-                                                            <small class="muted hidden-desktop hidden-tablet">
-                                Sem locação</small>
-                                                        <!-- // Responsive info -->
+                                                               <!-- // Responsive info -->
                         </div>
                 </td>
 
@@ -64,11 +57,11 @@
                 <td scope="row" class="hidden-phone ellipsis w150" data-column-name="TenantEmail"><a href="mailto:paulopedras93@gmail.com">paulopedras93@gmail.com</a></td>
 
                 <td scope="row" class="hidden-phone w150" data-column-name="TenantBalance">
-	                <a href="/landlord/#tenants/8955/solde" style="text-decoration: none; color: #444333;" data-toggle="tooltip" title="" data-original-title="Ver o detalhe do saldo">0,00 €</a>
+	                <a href="/landlord/#tenants/8955/solde" style="text-decoration: none; color: #444333;" data-toggle="tooltip" title="" data-original-title="Ver o detalhe do saldo">Curta Duração</a>
 	                	                    	                                </td>
 
                 <td scope="row" class="hidden-phone" data-column-name="TenantStatus">
-                                                                <span class="label label-warning" data-toggle="tooltip" title="" data-original-title="O inquilino ainda não aceitou o convite">Em espera</span>                        <a href="/landlord/#tenants/invite/?id=8955" data-toggle="tooltip" title="" class="label label-success" data-original-title="Enviar um convite">Re-convidar</a>                                    </td>
+                                                                <span class="label label-warning" data-toggle="tooltip" title="" data-original-title="O inquilino ainda não aceitou o convite">Em espera</span>                        <a href="/landlord/#tenants/invite/?id=8955" data-toggle="tooltip" title="" class="label label-success" data-original-title="Enviar um convite"></a>                                    </td>
 
 
 
@@ -86,7 +79,7 @@
 							<a href="/landlord/#tenants/8955/view" data-toggle="tooltip" data-placement="left" title="" class="" data-original-title="Cartão do inquilino"><i class="icon-file_view"></i> Cartão do inquilino</a>
 						  </li>
 						  		                        		                        <li>
-		                        	<!--<a href="/landlord/#tenants/invite/?id=8955" data-toggle="tooltip" data-placement="left" title="Enviar um convite"><i class="icon-paperplane"></i> Convidar</a>-->
+		                        	<a href="/landlord/#tenants/invite/?id=8955" data-toggle="tooltip" data-placement="left" title="Enviar um convite"><i class="icon-paperplane"></i> Convidar</a>
 		                        	<a href="/landlord/tenants/sendTenantInvite" title="" data-confirm-emails_notif="true" data-confirm-hide-emails-list="true" data-confirm-type="Candidate" data-confirm-message="email" data-confirm-id="8955" data-confirm-hide-poste="false" data-confirm-confirm-button="Confirmar" data-confirm-cancel-button="Cancelar" data-confirm-title="Aviso" data-confirm-msg="Enviar um convite para o inquilino. Por favor confirme." data-toggle="tooltip" data-placement="left" data-original-title="Enviar um convite para o inquilino">
 										<i class="icon-paperplane"></i> Convidar									</a>
 		                        </li>
@@ -118,8 +111,9 @@
 	<tfoot>
     </tfoot>
 </table>
+</div>
             <!-- / Content -->
-
+			
           
   </body>
   <?php require_once 'footer.php'; ?>
