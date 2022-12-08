@@ -44,11 +44,14 @@ class="btn btn-success btn-buy-now"
 <script src="../assets/vendor/js/bootstrap.js"></script>
 <script src="../assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
 
+<script src="../assets/js/select2.js"></script>
+
 <script src="../assets/vendor/js/menu.js"></script>
 <!-- endbuild -->
-
+<script src="../js/sweatalert.js"></script>
 <!-- Vendors JS -->
 <script src="../assets/vendor/libs/apex-charts/apexcharts.js"></script>
+
 
 <!-- Main JS -->
 <script src="../assets/js/main.js"></script>
