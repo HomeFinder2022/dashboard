@@ -19,7 +19,7 @@
     <meta name="description" content="" />
 
     <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="../assets/img/favicon/favicon.ico" />
+    <link rel="icon" type="image" href="../assets/img/logo-HomeFinder-mini.png"/>
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -41,6 +41,10 @@
     <link rel="stylesheet" href="../assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
 
     <link rel="stylesheet" href="../assets/vendor/libs/apex-charts/apex-charts.css" />
+
+    <link rel="stylesheet" href="../assets/css/prettycheckbox.css" />
+
+    <link rel="stylesheet" href="../assets/css/select2.css" />
 
     <!-- Helpers -->
     <script src="../assets/vendor/js/helpers.js"></script>
