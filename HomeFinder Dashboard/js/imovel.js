@@ -14,6 +14,9 @@ function registoImovel() {
     let estadoImovel = $("#estadoImovel").val();
     let tipoNegocImovel = $("#tipoNegocImovel").val();
     let obsImovel = $("#obsImovel").val();
+    let pImovel = $("#pImovel").val();
+    let rendaImovel = $("#rendaImovel").val();
+    let preçoNoite = $("#preçoNoite").val();
     
     // faltam as checkboxes
     
@@ -37,6 +40,9 @@ function registoImovel() {
     dados.append("estadoImovel", estadoImovel);
     dados.append("tipoNegocImovel", tipoNegocImovel);
     dados.append("obsImovel", obsImovel);
+    dados.append("pImovel", pImovel);
+    dados.append("rendaImovel", rendaImovel);
+    dados.append("preçoNoite", preçoNoite);
 
     dados.append("fotosImovel", fotosImovel);
 
@@ -59,6 +65,34 @@ function registoImovel() {
       });
   }
 
+
+  function tabImoveis(){
+
+    let dados = new FormData();
+
+    dados.append("op", 2);
+
+    $.ajax({
+        url: "../assets/model/modelImovel.php",
+        method: "POST",
+        data: dados,
+        dataType: "html",
+        cache: false,
+        contentType: false,
+        processData: false
+    })
+     
+    .done(function( resposta ) {
+      $('#listaImoveis').html(resposta);
+
+    })
+     
+    .fail(function( jqXHR, textStatus ) {
+      alert( "Request failed: " + textStatus );
+    });
+  
+  }
+
     function sucesso(msg) {
     Swal.fire({
       position: "center",
@@ -68,3 +102,7 @@ function registoImovel() {
       timer: 2000,
     });
   }
+
+  $(function () {
+    tabImoveis();
+  });

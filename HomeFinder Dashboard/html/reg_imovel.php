@@ -41,7 +41,7 @@
                       <!-- </div> -->
                     </div>
 
-                    <div class="col-6" id="precoImovel">
+                    <div class="col-5" id="precoImovel">
                       <div class="input-group">
                      
                       </div>

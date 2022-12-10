@@ -29,7 +29,7 @@ class Select{
     
       function selectConcelhos(){
         global $conn;
-        $sql = "SELECT idconcelho, nome FROM concelhos";
+        $sql = "SELECT idconcelho, nome FROM concelho";
         $msg = "<option value='-1'>Escolha um concelho</option>";
         
         $result = $conn->query($sql);
@@ -168,7 +168,7 @@ class Select{
       function selectTipologia(){
         global $conn;
         $sql = "SELECT idtipologia, descricao FROM tipologia";
-        $msg = "<option value='-1'>Escolha a tipologia do imóvel</option>";
+        $msg = "<option>Escolha a tipologia do imóvel</option>";
         
         $result = $conn->query($sql);
     
@@ -255,7 +255,7 @@ function tipologiaVenda($id){
 
 function filtroDistrito($id){
   global $conn;
-  $sql = "SELECT idconcelho, nome FROM concelhos WHERE iddistrito=".$id;
+  $sql = "SELECT idconcelho, nome FROM concelho WHERE iddistrito=".$id;
   $msg = "<option value='-1'>Escolha um concelho</option>";
   
   $result = $conn->query($sql);
