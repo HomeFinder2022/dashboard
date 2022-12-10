@@ -21,9 +21,16 @@ if($_POST['op'] == 1){
         $_POST['estadoImovel'],
         $_POST['tipoNegocImovel'],
         $_POST['obsImovel'],
+        $_POST['pImovel'],
+        $_POST['rendaImovel'],
+        $_POST['preçoNoite'],
         $_FILES
     );
     echo($resp);
+    }else if($_POST['op'] == 2){
+    $table = new Imovel();
+    $res = $table -> listaImoveis();
+    echo($res);
     }
 
     
