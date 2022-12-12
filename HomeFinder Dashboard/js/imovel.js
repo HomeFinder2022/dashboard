@@ -16,7 +16,7 @@ function registoImovel() {
     let obsImovel = $("#obsImovel").val();
     let pImovel = $("#pImovel").val();
     let rendaImovel = $("#rendaImovel").val();
-    let preçoNoite = $("#preçoNoite").val();
+    let precoNoite = $("#precoNoite").val();
     
     // faltam as checkboxes
     
@@ -42,7 +42,7 @@ function registoImovel() {
     dados.append("obsImovel", obsImovel);
     dados.append("pImovel", pImovel);
     dados.append("rendaImovel", rendaImovel);
-    dados.append("preçoNoite", preçoNoite);
+    dados.append("precoNoite", precoNoite);
 
     dados.append("fotosImovel", fotosImovel);
 
