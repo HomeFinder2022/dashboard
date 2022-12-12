@@ -15,6 +15,7 @@ function getDistritos() {
   
       .done(function (resposta) {
         $("#listaDistritos").html(resposta);
+        $("#listaDistritos1").html(resposta);
         })
   
       .fail(function (jqXHR, textStatus) {
@@ -39,6 +40,7 @@ function getDistritos() {
   
       .done(function (resposta) {
         $("#listaConcelhos").html(resposta);
+        $("#listaConcelhos1").html(resposta);
         })
   
       .fail(function (jqXHR, textStatus) {
@@ -63,6 +65,7 @@ function getDistritos() {
   
       .done(function (resposta) {
         $("#listaFreguesias").html(resposta);
+        $("#listaFreguesias1").html(resposta);
         })
   
       .fail(function (jqXHR, textStatus) {
@@ -267,6 +270,7 @@ function getDistritos() {
   
       .done(function (resposta) {
         $("#listaConcelhos").html(resposta);
+        $("#listaConcelhos1").html(resposta);
         })
   
       .fail(function (jqXHR, textStatus) {
@@ -293,6 +297,7 @@ function getDistritos() {
   
       .done(function (resposta) {
         $("#listaFreguesias").html(resposta);
+        $("#listaFreguesias1").html(resposta);
         })
   
       .fail(function (jqXHR, textStatus) {

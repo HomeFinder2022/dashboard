@@ -18,62 +18,64 @@
         <div class="card-body">
         <form class="row g-3">
 
-                    <div class="col-8">
-                      <label for="emailCinema" class="form-label">Nome</label>
-                      <input type="text" class="form-control" id="emailCinema">
-                    </div>
-
-                    <div class="col-4">
-                      <label for="emailCinema" class="form-label">NIF</label>
-                      <input type="text" class="form-control" id="emailCinema">
-                    </div>
-
-                    <div class="col-8">
-                      <label for="emailCinema" class="form-label">Morada</label>
-                      <input type="text" class="form-control" id="emailCinema">
-                    </div>
-
-                    <div class="col-4">
-                      <label for="emailCinema" class="form-label">Código Postal</label>
-                      <input type="text" class="form-control" id="emailCinema">
-                    </div>
-
-                    <div class="col-4">
+                    <div class="col-3">
                       <div class="input-group">
-                      <span class="input-group-text" id="basic-addon1">Distrito</span>
-                      <select class="form-select" id="localCinema">
-                      <option selected>Sem localidades registadas</option>
+                      <span class="input-group-text">Imóveis</span>
+                      <select class="form-select" id="imovelArr">
                       </select>
                       </div>
                     </div>
 
-                    <div class="col-4">
+                    <div class="col-2">
                       <div class="input-group">
-                      <span class="input-group-text" id="basic-addon1">Concelho</span>
-                      <select class="form-select" id="localCinema">
-                      <option selected>Sem localidades registadas</option>
+                      <span class="input-group-text">Inquilinos</span>
+                      <select class="form-select" id="inquiArr">
                       </select>
                       </div>
                     </div>
 
-                    <div class="col-4">
+                    <div class="col-2">
                       <div class="input-group">
-                      <span class="input-group-text" id="basic-addon1">Freguesia</span>
-                      <select class="form-select" id="localCinema">
-                      <option selected>Sem localidades registadas</option>
+                      <span class="input-group-text">Inventários</span>
+                      <select class="form-select" id="inventArr">
                       </select>
                       </div>
                     </div>
 
-                    <div class="col-12">
-                      <label for="telCinema" class="form-label">Observações</label>
-                      <textarea class="form-control" aria-label="With textarea"></textarea>
+                    <div class="col-2">
+                      <div class="input-group">
+                      <span class="input-group-text">Estado</span>
+                      <select class="form-select" id="estadoArr">
+                      </select>
+                      </div>
                     </div>
+
+                    <div class="col-3">
+                      <div class="input-group">
+                      <span class="input-group-text">Tipo de Pagamento</span>
+                      <select class="form-select" id="tipoPagArr">
+                      </select>
+                      </div>
+                    </div>
+
+                    <div class="col-3">
+                      <label for="caucaoArr" class="form-label">Caução
+                      </label>
+                      <input type="number" class="form-control" id="caucaoArr">
+                    </div>
+
+                    <div class="col-3">
+                      <label for="dataPagamentoArr" class="form-label">Data Pagamento</label>
+                      <input type="date" class="form-control" id="dataPagamentoArr">
+                    </div>
+
+                  <!-- FALTA DOCUMENTOS - CONTRATOS -->
 
                     <div class="col-12 mt-3">
-                      <button class="btn btn-primary" onclick="registoCinema()" type="button">Registar</button>
+                      <button class="btn btn-primary" onclick="registoArr()" type="button">Registar Arrendamento</button>
                     </div>
                   </form>
+
         </div>
       </div>
     </div>
@@ -85,4 +87,5 @@
           
   </body>
   <?php require_once 'footer.php'; ?>
+  <script src="../js/arrendamento.js"></script>
 </html>

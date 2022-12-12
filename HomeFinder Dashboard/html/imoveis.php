@@ -21,16 +21,7 @@
                 </tr>
               </thead>
               <tbody id="listaImoveis">
-                    <!-- <tr>
-                    <td colspan="14" style="text-align: center;">
-                    <div class="noresult">
-                      <img src="/img/picto_landlord_search.png" alt="" width="270">
-                      <h4>Não há nada aqui...</h4>
-                      <p>Nesta página pode gerir os seus imóveis. Adicione as percentagens de cada propriedade para distribuir as despesas comuns.</p>
-                    </div>
-                    <p><button type="button" onclick="window.location.href='reg_imovel.php';" class="btn btn-success">Imóvel novo</button></p>
-                  </td>
-                </tr> -->
+                   
                   </tbody>
             </table>
             </div>

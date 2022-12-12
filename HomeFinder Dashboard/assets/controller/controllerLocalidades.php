@@ -207,8 +207,8 @@ class Select{
                 $msg .= "<label for='rendaImovel' class='form-label'>Renda</label>";
                 $msg .= " <input type='number' class='form-control' id='rendaImovel'>";
                 }else if($row['idtiponegocio'] == 3){
-                  $msg .= "<label for='preçoNoite' class='form-label'>Preço por noite</label>";
-                  $msg .= " <input type='number' class='form-control' id='preçoNoite'>";
+                  $msg .= "<label for='precoNoite' class='form-label'>Preço por noite</label>";
+                  $msg .= " <input type='number' class='form-control' id='precoNoite'>";
               }
 
                 
