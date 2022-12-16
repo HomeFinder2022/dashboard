@@ -4,16 +4,16 @@ require_once 'connection.php';
 
   class Arrendamento{
 
-    function regInqui($nome, $email, $morada, $tel, $distrito, $concelho, $freguesia, $obs){
+    function regArr($imovel, $inquilino, $inventario, $estado, $tipopag, $caucao, $datapag){
         global $conn; 
   
-          $sql = "INSERT INTO inquilino (nome, email, morada, contato, iddistrito, idconcelho, idfreguesia, observacoes) 
-          VALUES('".$nome."', '".$email."', '".$morada."', '".$tel."', '".$distrito."', '".$concelho."', '".$freguesia."', '".$obs."')";
+          $sql = "INSERT INTO arrendamento (idimovel, idinquilino, idinventario, idestado, idtipopagamento, valorcaucao, datapagamento) 
+          VALUES('".$imovel."', '".$inquilino."', '".$inventario."', '".$estado."', '".$tipopag."', '".$caucao."', '".$datapag."')";
          
           $msg = "";
           
           if ($conn->query($sql) === TRUE) {
-            $msg = "Inquilino adicionado com sucesso!";
+            $msg = "Arrendamento registado com sucesso!";
           } else {
             $msg = "Error: " . $sql . "<br>" . $conn->error;
           }
@@ -71,7 +71,8 @@ require_once 'connection.php';
 
       function selectInventarios(){
         global $conn;
-        $sql = "SELECT idinventario, descricao FROM inventario";
+        $sql = "SELECT inventario.*, imovel.morada, imovel.idimovel FROM inventario, imovel
+        WHERE imovel.idimovel = inventario.idimovel";
         $msg = "<option value='-1'>Escolha um inventário</option>";
         
         $result = $conn->query($sql);
@@ -79,7 +80,7 @@ require_once 'connection.php';
         if ($result->num_rows > 0) {
         // output data of each row
         while($row = $result->fetch_assoc()) {
-          $msg .= "<option value='".$row['id']."'>".$row['descricao']."</option>";
+          $msg .= "<option value='".$row['idinventario']."'>".$row['morada']."</option>";
         }
         } else {
           $msg = "Sem Resultados";
@@ -138,6 +139,49 @@ require_once 'connection.php';
     
       }
 
+      function listaArrends(){
+
+        global $conn;
+      
+        $sql = "SELECT arrendamento.*, inquilino.nome, imovel.morada, 
+        estado.descricao as estado, tipopagamento.descricao as tipopagamento, imoveisarrendamento.precorenda
+
+
+           FROM imovel, inquilino, estado, tipopagamento, arrendamento, imoveisarrendamento
+
+           WHERE
+        imovel.idimovel = arrendamento.idimovel AND
+        inquilino.id = arrendamento.idinquilino AND
+        estado.idestado = arrendamento.idestado AND
+        tipopagamento.idtipopagamento = arrendamento.idtipopagamento AND
+        imoveisarrendamento.idimovel = arrendamento.idimovel";
+    
+        $result = $conn->query($sql);
+    
+        $msg = "";
+
+        if ($result->num_rows > 0) {
+            // output data of each row
+            while($row = $result->fetch_assoc()) {
+                $msg .= "<tr>";
+                // $msg .= "<td colspan='0' style='text-align: center;'>";
+                $msg .= "<td>".$row['morada']."</td>";
+                $msg .= "<td>".$row['nome']."</td>";
+                $msg .= "<td>".$row['valorcaucao']." €</td>";
+                $msg .= "<td>".$row['precorenda']." €</td>";
+                $msg .= "<td>".$row['estado']."</td>";
+                $msg .= "<td>".$row['tipopagamento']."</td>";
+                $msg .= "<td>".$row['datapagamento']."</td>";
+                $msg .= "<td><button type='button' class='btn btn-danger btn-sm' onclick='delArr(".$row['idarrendamento'].")'>Apagar</button></td>";
+                $msg .= "</tr>";
+                }
+                
+              
+              }
+      
+        $conn->close();
+        return $msg;
+    }
 
 
     }

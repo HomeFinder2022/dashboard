@@ -38,14 +38,14 @@
     <!-- <link rel="stylesheet" href="../assets/css/demo.css" /> -->
 
     <!-- Vendors CSS -->
-    <link rel="stylesheet" href="../assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
+    <!-- <link rel="stylesheet" href="../assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" /> -->
 
-    <link rel="stylesheet" href="../assets/vendor/libs/apex-charts/apex-charts.css" />
+    <!-- <link rel="stylesheet" href="../assets/vendor/libs/apex-charts/apex-charts.css" /> -->
 
     <link rel="stylesheet" href="../assets/css/prettycheckbox.css" />
 
     <link rel="stylesheet" href="../assets/css/select2.css" />
-
+    <link rel="stylesheet" href="../assets/css/datatables.css" />
     <!-- Helpers -->
     <script src="../assets/vendor/js/helpers.js"></script>
 
@@ -182,7 +182,7 @@
             </li>
 
             <li class="menu-item">
-              <a href="icons-boxicons.html" class="menu-link">
+              <a href="documentos.php" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-file"></i>
                 <div data-i18n="Boxicons">Documentos</div>
               </a>
@@ -288,9 +288,9 @@
                 <li><a class="dropdown-item" href="javascript:void(0);"><i class="menu-icon tf-icons bx bx-plus-circle"></i>Adicionar Receita</a></li>
                 <li><a class="dropdown-item" href="javascript:void(0);"><i class="menu-icon tf-icons bx bx-minus-circle"></i>Adicionar Despesa</a></li>
                 <li><a class="dropdown-item" href="javascript:void(0);"><i class="menu-icon tf-icons bx bxs-wrench"></i>Adicionar Intervenção</a></li>
-                <li><a class="dropdown-item" href="javascript:void(0);"><i class="menu-icon tf-icons bx bx-file"></i>Adicionar Documento</a></li>
+                <li><a class="dropdown-item" href="reg_doc.php"><i class="menu-icon tf-icons bx bx-file"></i>Adicionar Documento</a></li>
                 <li><a class="dropdown-item" href="javascript:void(0);"><i class="menu-icon tf-icons bx bx-calendar"></i>Adicionar Evento</a></li>
-                <li><a class="dropdown-item" href="javascript:void(0);"><i class="menu-icon tf-icons bx bxs-contact"></i>Adicionar Contacto</a></li>
+                <li><a class="dropdown-item" href="reg_contato.php"><i class="menu-icon tf-icons bx bxs-contact"></i>Adicionar Contacto</a></li>
             
               </ul>
             </div>

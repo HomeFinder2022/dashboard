@@ -83,7 +83,13 @@ function registoImovel() {
     })
      
     .done(function( resposta ) {
-      $('#listaImoveis').html(resposta);
+      if ($.fn.DataTable.isDataTable('#imoTable')) {
+        $('#imoTable').dataTable().fnDestroy();
+    }
+        $('#listaImoveis').html(resposta);
+
+        $('#imoTable').DataTable();
+     
 
     })
      
@@ -105,4 +111,5 @@ function registoImovel() {
 
   $(function () {
     tabImoveis();
+    $('#imoTable').DataTable();
   });

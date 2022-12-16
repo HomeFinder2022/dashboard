@@ -5,35 +5,55 @@
           <!-- Content wrapper -->
           <div class="content-wrapper">
             <!-- Content -->
-            <table class="table table-hover table-bordered dataTable mt-3">
-              <thead>
-                <tr>
-                  <th colspan="2" class="sorting"><a href="/landlord/#buildings/?sort=BuildingAddress|"> Imóvel</a></th>
-                  <th class="hidden-phone sorting"><a href="/landlord/#buildings/?sort=BuildingSize|"> Tipo</a></th>
-                  <th class="hidden-phone sorting"><a href="/landlord/#buildings/?sort=BuildingPropertiesCount|"> Inquilino</a></th>
-                  <th class="hidden-phone sorting"><a href="/landlord/#buildings/?sort=BuildingComments|"> Renda</a></th>
-                  <th class="hidden-phone sorting"><a href="/landlord/#buildings/?sort=BuildingPropertiesCount|"> Duração</a></th>
-                  <th class="span1 center" style="width: 50px;">Ações</th>
-                </tr>
-              </thead>
-              <tbody>
-                    <tr>
-                    <td colspan="8" style="text-align: center;">
-                    <div class="noresult">
-                      <img src="/img/picto_landlord_search.png" alt="" width="270">
-                      <h4>Não há nada aqui...</h4>
-                      <p>Nesta página pode gerir os seus arrendamentos. Associe o seu inquilino a um imóvel.</p>
-                    </div>
-                    <p><button type="button" onclick="window.location.href='/landlord/#buildings/new';" class="btn btn-success">Novo arrendamento</button></p>
-                  </td>
-                </tr>
-                  </tbody>
-              <tfoot>
-                </tfoot>
-            </table>
+            <div class="container-fluid">
+            <div class="card mt-3">
+            
+            <div class="container-fluid mt-3">
+
+            <table id="arrendTable" class="dataTable display cell-border compact" style="width: 100%;" aria-describedby="example_info">
+    <thead>
+        <tr>
+            <th class="sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1"
+                aria-label="Office: activate to sort column ascending" style="width: 40px;">Imóvel</th>
+            <th class="sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1"
+                aria-label="Age: activate to sort column ascending" style="width: 80px;">Inquilino</th>
+            <th class="sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1"
+                aria-label="Salary: activate to sort column ascending" style="width: 80px;">Caução</th>
+                <th class="sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1"
+                aria-label="Salary: activate to sort column ascending" style="width: 80px;">Renda</th>
+                <th class="sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1"
+                aria-label="Salary: activate to sort column ascending" style="width: 80px;">Estado</th>
+                <th class="sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1"
+                aria-label="Salary: activate to sort column ascending" style="width: 80px;">Tipo de Pagamento</th>
+                <th class="sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1"
+                aria-label="Salary: activate to sort column ascending" style="width: 80px;">Data de Pagamento</th>
+                <th class="span1 center" style="width: 50px;">Ações</th>
+        </tr>
+    </thead>
+    <tbody id="listaArrendamentos">
+        
+    </tbody>
+    <tfoot>
+        <tr>
+            <th rowspan="1" colspan="1">Imóvel</th>
+            <th rowspan="1" colspan="1">Inquilino</th>
+            <th rowspan="1" colspan="1">Caução</th>
+            <th rowspan="1" colspan="1">Renda</th>
+            <th rowspan="1" colspan="1">Estado</th>
+            <th rowspan="1" colspan="1">Tipo de Pagamento</th>
+            <th rowspan="1" colspan="1">Data de Pagamento</th>
+            <th class="span1 center" style="width: 50px;">Ações</th>
+        </tr>
+    </tfoot>
+</table>
+
+          </div>
+            </div>
+            </div>
             <!-- / Content -->
 
           
   </body>
   <?php require_once 'footer.php'; ?>
+  <script src="../js/arrendamento.js"></script>
 </html>

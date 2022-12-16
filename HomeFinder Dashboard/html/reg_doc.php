@@ -13,32 +13,36 @@
       <div class="card mt-3">
         <div
           class="card-header d-flex align-items-center justify-content-between">
-          <h3 class="title-form">Novo Inventário</h3>
+          <h3 class="title-form">Novo Documento</h3>
         </div>
         <div class="card-body">
         <form class="row g-3">
                     
-                    <div class="col-12">
+                    <!-- <div class="col-12">
                     <p>Para registar um novo inventário é necessário fazer download do nosso modelo para preenchimento e de seguida fazer upload para a plataforma. <a class="mb-3" href='../assets/img/docs/InventarioHomeFinder.xlsx' download>Faça aqui o download do seu ficheiro </a></p>
+                    </div> -->
+
+                    <div class="col-6">
+                      <label for="refDoc" class="form-label">Referência do Documento</label>
+                      <input type="text" class="form-control" id="refDoc">
                     </div>
 
-                    <hr>
                     <div class="col-6">
-                    <label for="imovelArr1" class="form-label">Escolha o imóvel</label>
+                    <label for="tipoDoc" class="form-label">Tipo de Documento</label>
                       <div class="input-group">
-                      
-                      <select class="form-select" id="imovelArr1">
+
+                      <select class="form-select" id="tipoDoc">
                       </select>
                       </div>
                     </div>
 
-                    <div class="col-6">
-                      <label for="docInvent" class="form-label">Carregue aqui o seu inventário</label>
-                      <input class="form-control" type="file" id="docInvent" multiple="multiple">
+                    <div class="col-12">
+                      <label for="docInvent" class="form-label">Carregue aqui o seu documento</label>
+                      <input class="form-control" type="file" id="userDoc">
                     </div>
 
                     <div class="col-12 mt-3">
-                      <button class="btn btn-primary" onclick="registoInventario()" type="button">Registar Inventário</button>
+                      <button class="btn btn-primary" onclick="registoDocumento()" type="button">Guardar Documento</button>
                     </div>
                   </form>
         </div>
@@ -53,7 +57,4 @@
   </body>
   <?php require_once 'footer.php'; ?>
   <script src="../js/inventario.js"></script>
-
-  <script src="../js/arrendamento.js"></script>
-  <!-- É NECESSÁRIO PELO SELECT DOS IMÓVEIS^^ -->
 </html>
