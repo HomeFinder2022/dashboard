@@ -52,11 +52,10 @@ class="btn btn-success btn-buy-now"
 <!-- Vendors JS -->
 <script src="../assets/vendor/libs/apex-charts/apexcharts.js"></script>
 
-
 <!-- Main JS -->
 <script src="../assets/js/main.js"></script>
 <script src="../js/navbar.js"></script>
-
+<script src="../js/datatables.js"></script>
 <!-- Page JS -->
 <script src="../assets/js/dashboards-analytics.js"></script>
 

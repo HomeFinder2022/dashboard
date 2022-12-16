@@ -88,8 +88,12 @@ function registoInqui() {
     })
      
     .done(function( resposta ) {
+    if ($.fn.DataTable.isDataTable('#inquiTable')) {
+      $('#inquiTable').dataTable().fnDestroy();
+  }
       $('#listaInqui').html(resposta);
 
+      $('#inquiTable').DataTable();
     })
      
     .fail(function( jqXHR, textStatus ) {
@@ -110,4 +114,5 @@ function registoInqui() {
 
   $(function () {
     tabInqui();
+    $('#inquiTable').DataTable();
   });

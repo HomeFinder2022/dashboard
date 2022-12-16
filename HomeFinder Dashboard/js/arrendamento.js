@@ -1,4 +1,4 @@
-function registoInqui() {
+function registoArr() {
     let imovelArr = $("#imovelArr").val();
     let inquiArr = $("#inquiArr").val();
     let inventArr = $("#inventArr").val();
@@ -54,6 +54,7 @@ function registoInqui() {
   
       .done(function (resposta) {
         $("#imovelArr").html(resposta);
+        $("#imovelArr1").html(resposta);
         })
   
       .fail(function (jqXHR, textStatus) {
@@ -158,6 +159,39 @@ function registoInqui() {
       });
   }
 
+  function tabArr(){
+
+    let dados = new FormData();
+
+    dados.append("op", 7);
+
+    $.ajax({
+        url: "../assets/model/modelArr.php",
+        method: "POST",
+        data: dados,
+        dataType: "html",
+        cache: false,
+        contentType: false,
+        processData: false
+    })
+     
+    .done(function( resposta ) {
+      if ($.fn.DataTable.isDataTable('#arrendTable')) {
+        $('#arrendTable').dataTable().fnDestroy();
+    }
+        $('#listaArrendamentos').html(resposta);
+
+        $('#arrendTable').DataTable();
+     
+
+    })
+     
+    .fail(function( jqXHR, textStatus ) {
+      alert( "Request failed: " + textStatus );
+    });
+  
+  }
+
   function sucesso(msg) {
     Swal.fire({
       position: "center",
@@ -174,4 +208,6 @@ function registoInqui() {
     getInventarios();
     getEstado();
     getTipoPagamento();
+    tabArr();
+    $('#arrendTable').DataTable();
   });

@@ -31,10 +31,14 @@ if($_POST['op'] == 1){
     $get = new Arrendamento();
     $resp = $get -> selectEstado();
     echo($resp);
-}else if($_POST['op'] == 6){
+    }else if($_POST['op'] == 6){
     $get = new Arrendamento();
     $resp = $get -> selectTipoPagamento();
     echo($resp);
+    }else if($_POST['op'] == 7){
+    $table = new Arrendamento();
+    $res = $table -> listaArrends();
+    echo($res);
     }
 
     

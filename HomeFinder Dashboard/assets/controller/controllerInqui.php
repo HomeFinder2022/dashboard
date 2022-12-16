@@ -45,7 +45,7 @@ require 'PHPMailer/src/SMTP.php';
 
         $mail->setFrom('homefinderpt@gmail.com', 'Paulo Pedras');
         $mail->addReplyTo('homefinderpt@gmail.com', 'HomeFinder');
-        $mail->addAddress($email, 'Paulo');
+        $mail->addAddress($email, 'Zé');
         // $mail->addCC('dario_bianchi_@hotmail.com', 'Cópia');
 
         $mail->isHTML(true);
@@ -96,7 +96,7 @@ require 'PHPMailer/src/SMTP.php';
                 $msg .= "<td>".$row['morada']."</td>";
                 $msg .= "<td>".$row['nomedistrito']."</td>";
                 $msg .= "<td>".$row['observacoes']."</td>";
-                $msg .= "<td><button type='button' class='btn btn-danger btn-sm' onclick='delInqui(".$row['id'].")'>Apagar</button></td>";
+                // $msg .= "<td><button type='button' class='btn btn-danger btn-sm' onclick='delInqui(".$row['id'].")'>Apagar</button>";
                 $msg .= "<td><button type='button' class='btn btn-success btn-sm' onclick='sendEmail()'>Enviar Convite</button></td>";
                 $msg .= "</tr>";
                 }

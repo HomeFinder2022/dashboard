@@ -17,7 +17,7 @@
         </div>
         <div class="card-body">
         <form class="row g-3">
-
+<P>NOTA: para associar um documento(contrato) tem que ser inserido antes do registo do arrendamento</P>
                     <div class="col-3">
                       <div class="input-group">
                       <span class="input-group-text">Imóveis</span>
