@@ -114,19 +114,21 @@ require_once 'connection.php';
                   $msg .= "<h5 class='text-center mb-0 fs-4 text'>".$row['nome']."</h5>";
                   $msg .= "<p class='small text-muted text-center'>".$row['email']."</p>";
                   $msg .= "<p class='text-muted text-center'>".$row['contato']."</p>";
-                  $msg .= "<ul class='social mb-0 ms-2 list-inline'>";
-                  $msg .= "<li class='list-inline-item ms-4'><a href='tel:".$row['contato']."' class='social-link'><i class='bx bxs-phone-call bx-md'></i></a></li>";
-                  $msg .= "<li class='list-inline-item ms-4'><a href='mailto:".$row['email']."' class='social-link'><i class='bx bxs-envelope bx-md'></i></a></li>";
-                  $msg .= "<li class='list-inline-item ms-4'><a href='#' onclick='infoContato(".$row['idcontatos'].")' class='social-link'><i class='bx bxs-info-circle bx-md'></i></a></li>";
-                  $msg .= "<li class='list-inline-item ms-4'><a href='#' onclick='delContato(".$row['idcontatos'].")' class='social-link'><i class='delbtn bx bxs-x-circle bx-md'></i></a></li>";
+                  // $msg .= "<div class='card-footer'>";
+                  $msg .= "<ul class='social mb-0 ms-4 list-inline'>";
+                  $msg .= "<li class='list-inline-item ms-3'><a href='tel:".$row['contato']."' class='social-link'><i class='bx bxs-phone-call bx-md'></i></a></li>";
+                  $msg .= "<li class='list-inline-item ms-2'><a href='mailto:".$row['email']."' class='social-link'><i class='bx bxs-envelope bx-md'></i></a></li>";
+                  $msg .= "<li class='list-inline-item ms-2'><a href='#' onclick='infoContato(".$row['idcontatos'].")' class='social-link'><i class='bx bxs-info-circle bx-md'></i></a></li>";
+                  $msg .= "<li class='list-inline-item ms-2'><a href='#' onclick='delContato(".$row['idcontatos'].")' class='social-link'><i class='delbtn bx bxs-x-circle bx-md'></i></a></li>";
                   $msg .= "</ul>";
                   $msg .= "</div>";
                   $msg .= "</div>";
                   $msg .= "</div>";
                   $msg .= "</div>";
+                  // $msg .= "</div>";
                                      
                 
-                  // $msg .= "<p class='designation'>".$row['email']."</p>";
+                  
                  
                   }
                   
