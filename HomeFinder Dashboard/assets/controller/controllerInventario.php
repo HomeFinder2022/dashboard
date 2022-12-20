@@ -134,12 +134,14 @@ class Inventario{
    
       function saveDoc($tipo, $ref, $doc){
         global $conn; 
-              // session_start();
-              // $_SESSION['nifUser'] = $nifUser;
+
+        
+              session_start();
+              $nifUser = $_SESSION['nif'];
               
               
-              $sql = "INSERT INTO documento (idtipodoc, ref) 
-                   VALUES('".$tipo."', '".$ref."' )";
+              $sql = "INSERT INTO documento (idnif, idtipodoc, ref) 
+                   VALUES('".$nifUser."', '".$tipo."', '".$ref."' )";
 
           $msg = "";
           

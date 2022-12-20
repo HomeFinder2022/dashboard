@@ -1,3 +1,6 @@
+<?php  session_start();?>
+
+
 <!DOCTYPE html>
 <html
   lang="en"
@@ -19,7 +22,7 @@
     <meta name="description" content="" />
 
     <!-- Favicon -->
-    <link rel="icon" type="image" href="../assets/img/logo-HomeFinder-mini.png"/>
+    <link rel="icon" type="image" href="../assets/img/icon-homefinder.png"/>
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -64,7 +67,7 @@
         
         <aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme">
           <div class="app-brand demo">
-            <img src="../assets/img/logo-HomeFinder-mini.png" alt="">
+           <a href="../../fase1/index.php"> <img src="../assets/img/logo-HomeFinder-mini.png" alt=""></a>
 
             <a href="#" class="layout-menu-toggle menu-link text-large ms-auto d-block d-xl-none">
               <i class="bx bx-chevron-left bx-sm align-middle"></i>
@@ -139,7 +142,7 @@
             </li>
 
             <li class="menu-item">
-              <a href="javascript:void(0)" class="menu-link">
+              <a href="financas.php" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-euro"></i>
                 <div data-i18n="User interface">Finanças</div>
               </a>
@@ -213,6 +216,13 @@
             </li>
 
             <li class="menu-item">
+              <a href="javascript:void(0);" class="menu-link">
+                <i class="menu-icon tf-icons bx bx-detail"></i>
+                <div data-i18n="Form Layouts">Documentos Modelo</div>
+              </a>
+            </li>
+
+            <!-- <li class="menu-item">
               <a href="javascript:void(0);" class="menu-link menu-toggle">
                 <i class="menu-icon tf-icons bx bx-detail"></i>
                 <div data-i18n="Form Layouts">Documentos Modelo</div>
@@ -229,7 +239,7 @@
                   </a>
                 </li>
               </ul>
-            </li>
+            </li> -->
 
             <!-- help -->
             <li class="menu-header small text-uppercase"><span class="menu-header-text">Ajuda</span></li>
@@ -495,12 +505,18 @@
                     </li>
                   </ul>
                 </li>
-                <!--/ Notification -->
-                <!-- User -->
+                <!-- / Notification
+                
+falta o if do php
+<?php
+
+
+if(isset($_SESSION['nomeUser'])){ ?>
+                <-- User -->
                 <li class="nav-item navbar-dropdown dropdown-user dropdown">
                   <a class="nav-link dropdown-toggle hide-arrow" href="javascript:void(0);" data-bs-toggle="dropdown" aria-expanded="false">
                     <div class="avatar avatar-online">
-                      <img src="../assets/img/avatars/1.png" alt="" class="w-px-40 h-auto rounded-circle">
+                      <img id="fotoperfil2" alt="" class="w-px-40 h-auto rounded-circle">
                     </div>
                   </a>
                   <ul class="dropdown-menu dropdown-menu-end">
@@ -509,12 +525,12 @@
                         <div class="d-flex">
                           <div class="flex-shrink-0 me-3">
                             <div class="avatar avatar-online">
-                              <img src="../assets/img/avatars/1.png" alt="" class="w-px-40 h-auto rounded-circle">
+                              <img id="fotoperfil3" alt="" class="w-px-40 h-auto rounded-circle">
                             </div>
                           </div>
                           <div class="flex-grow-1">
-                            <span class="fw-semibold d-block">John Doe</span>
-                            <small class="text-muted">Admin</small>
+                            <span id="nomeUser2" class="fw-semibold d-block"></span>
+                            <small id="tipoUser1" class="text-muted"></small>
                           </div>
                         </div>
                       </a>
@@ -580,6 +596,8 @@
       
               </ul>
             </div>
-          </nav>
+            
+            <?php
 
-          <!-- / Navbar -->
+} ?>
+          </nav>

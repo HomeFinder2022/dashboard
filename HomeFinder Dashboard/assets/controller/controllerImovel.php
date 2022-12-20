@@ -8,22 +8,22 @@ class Imovel{
     $listaConcelhos, $listaFreguesias, $areaUtil, $areaBruta, $numWcs, $anoImovel, $certEnerg, $estadoImovel,
     $tipoNegocImovel, $obsImovel, $preco, $renda, $preconoite, $fotos){
         global $conn; 
-              // session_start();
-              // $_SESSION['nifUser'] = $nifUser;
+              session_start();
+              $nifUser = $_SESSION['nif'];
              
             if($tipoImovel == 1 || $tipoImovel == 2 || $tipoImovel == 3){
-          $sql = "INSERT INTO imovel (morada, codigopostal, idconcelho, iddistrito,
+          $sql = "INSERT INTO imovel (nifutilizador, morada, codigopostal, idconcelho, iddistrito,
            idfreguesia, idtipoimovel, idtipologia, areautil, areabruta, numwc, idcondicao, anoconstrucao,
             idcertificadoenergetico, idtiponegocio, descricao) 
-                VALUES('".$moradaImovel."', '".$postalImovel."', '".$listaConcelhos."', '".$listaDistritos."',
+                VALUES('".$nifUser."', '".$moradaImovel."', '".$postalImovel."', '".$listaConcelhos."', '".$listaDistritos."',
                 '".$listaFreguesias."', '".$tipoImovel."', '".$tipologiaImovel."', '".$areaUtil."', '".$areaBruta."', '".$numWcs."', 
                 '".$estadoImovel."', '".$anoImovel."', '".$certEnerg."', '".$tipoNegocImovel."', '".$obsImovel."')";
             }else{
-              $sql = "INSERT INTO imovel (morada, codigopostal, idconcelho, iddistrito,
-              idfreguesia, idtipoimovel, areautil, areabruta, numwc, idcondicao, anoconstrucao,
+              $sql = "INSERT INTO imovel (nifutilizador, morada, codigopostal, idconcelho, iddistrito,
+              idfreguesia, idtipoimovel, idtipologia, areautil, areabruta, numwc, idcondicao, anoconstrucao,
                idcertificadoenergetico, idtiponegocio, descricao) 
-                   VALUES('".$moradaImovel."', '".$postalImovel."', '".$listaConcelhos."', '".$listaDistritos."',
-                   '".$listaFreguesias."', '".$tipoImovel."', '".$areaUtil."', '".$areaBruta."', '".$numWcs."', 
+                   VALUES('".$nifUser."','".$moradaImovel."', '".$postalImovel."', '".$listaConcelhos."', '".$listaDistritos."',
+                   '".$listaFreguesias."', '".$tipoImovel."', '12', '".$areaUtil."', '".$areaBruta."', '".$numWcs."', 
                    '".$estadoImovel."', '".$anoImovel."', '".$certEnerg."', '".$tipoNegocImovel."', '".$obsImovel."')";
             }
 

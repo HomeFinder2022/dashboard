@@ -7,8 +7,11 @@ require_once 'connection.php';
     function regContato($nome, $tel, $email, $foto){
         global $conn; 
   
-          $sql = "INSERT INTO listacontatos (nome, email, contato) 
-          VALUES('".$nome."', '".$email."', '".$tel."')";
+          session_start();
+          $nifUser = $_SESSION['nif'];
+
+          $sql = "INSERT INTO listacontatos (idutilizador, nome, email, contato) 
+          VALUES('".$nifUser."', '".$nome."', '".$email."', '".$tel."')";
          
           $msg = "";
           
@@ -107,7 +110,7 @@ require_once 'connection.php';
               while($row = $result->fetch_assoc()) {
                   // $msg .= "<div class='row pb-5 mb-4'>";
                   $msg .= "<div class='col-md-3'>";
-                  $msg .= "<div class='card border-0 rounded mt-3 ms-3 me-3 h-80'>";
+                  $msg .= "<div class='card border-0 rounded h-80 mt-3'>";
                   $msg .= "<img src='../".$row['foto']."' alt='Sem foto' class='w-100 card-img-top'>";
                   $msg .= "<div class='card-body p-0'>";
                   $msg .= "<div class='p-2'>";

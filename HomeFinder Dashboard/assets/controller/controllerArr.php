@@ -4,12 +4,15 @@ require_once 'connection.php';
 
   class Arrendamento{
 
-    function regArr($imovel, $inquilino, $inventario, $estado, $tipopag, $caucao, $datapag){
+    function regArr($imovel, $inquilino, $inventario, $estado, $tipopag, $caucao, $datapag, $doc){
         global $conn; 
-  
-          $sql = "INSERT INTO arrendamento (idimovel, idinquilino, idinventario, idestado, idtipopagamento, valorcaucao, datapagamento) 
-          VALUES('".$imovel."', '".$inquilino."', '".$inventario."', '".$estado."', '".$tipopag."', '".$caucao."', '".$datapag."')";
-         
+
+            session_start();
+            $nifUser = $_SESSION['nif'];
+
+            $sql = "INSERT INTO arrendamento (idproprietario, idimovel, idinquilino, idinventario, idestado, idtipopagamento, valorcaucao, datapagamento, iddocumento) 
+            VALUES('".$nifUser."', '".$imovel."', '".$inquilino."', '".$inventario."', '".$estado."', '".$tipopag."', '".$caucao."', '".$datapag."', '".$doc."')";
+
           $msg = "";
           
           if ($conn->query($sql) === TRUE) {
@@ -80,7 +83,36 @@ require_once 'connection.php';
         if ($result->num_rows > 0) {
         // output data of each row
         while($row = $result->fetch_assoc()) {
+          if($row['idinventario']>0){
           $msg .= "<option value='".$row['idinventario']."'>".$row['morada']."</option>";
+        }
+      }
+        } else {
+          $msg = "Sem Resultados";
+        
+        }
+    
+        $conn->close();
+    
+        return $msg;
+    
+      }
+
+      function selectDocs(){
+        global $conn;
+        $sql = "SELECT documento.* FROM documento";
+
+        $msg = "<option value='-1'>Escolha um documento</option>";
+        
+        $result = $conn->query($sql);
+    
+        if ($result->num_rows > 0) {
+        // output data of each row
+        while($row = $result->fetch_assoc()) {
+          if($row['iddocumento']>0){
+            $msg .= "<option value='".$row['iddocumento']."'>".$row['ref']."</option>";
+          }
+        
         }
         } else {
           $msg = "Sem Resultados";

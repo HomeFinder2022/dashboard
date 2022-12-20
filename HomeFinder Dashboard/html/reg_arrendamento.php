@@ -18,7 +18,7 @@
         <div class="card-body">
         <form class="row g-3">
 <P>NOTA: para associar um documento(contrato) tem que ser inserido antes do registo do arrendamento</P>
-                    <div class="col-3">
+                    <div class="col-4">
                       <div class="input-group">
                       <span class="input-group-text">Imóveis</span>
                       <select class="form-select" id="imovelArr">
@@ -26,7 +26,7 @@
                       </div>
                     </div>
 
-                    <div class="col-2">
+                    <div class="col-4">
                       <div class="input-group">
                       <span class="input-group-text">Inquilinos</span>
                       <select class="form-select" id="inquiArr">
@@ -34,7 +34,7 @@
                       </div>
                     </div>
 
-                    <div class="col-2">
+                    <div class="col-4">
                       <div class="input-group">
                       <span class="input-group-text">Inventários</span>
                       <select class="form-select" id="inventArr">
@@ -42,7 +42,15 @@
                       </div>
                     </div>
 
-                    <div class="col-2">
+                    <div class="col-4">
+                      <div class="input-group">
+                      <span class="input-group-text">Documentos</span>
+                      <select class="form-select" id="docArr">
+                      </select>
+                      </div>
+                    </div>
+
+                    <div class="col-3">
                       <div class="input-group">
                       <span class="input-group-text">Estado</span>
                       <select class="form-select" id="estadoArr">
@@ -50,7 +58,7 @@
                       </div>
                     </div>
 
-                    <div class="col-3">
+                    <div class="col-5">
                       <div class="input-group">
                       <span class="input-group-text">Tipo de Pagamento</span>
                       <select class="form-select" id="tipoPagArr">
