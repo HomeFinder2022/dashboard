@@ -67,7 +67,7 @@
         
         <aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme">
           <div class="app-brand demo">
-           <a href="../../fase1/index.php"> <img src="../assets/img/logo-HomeFinder-mini.png" alt=""></a>
+           <a href="../../../fase1/index.php"> <img src="../assets/img/logo-HomeFinder-mini.png" alt=""></a>
 
             <a href="#" class="layout-menu-toggle menu-link text-large ms-auto d-block d-xl-none">
               <i class="bx bx-chevron-left bx-sm align-middle"></i>
@@ -516,7 +516,7 @@ if(isset($_SESSION['nomeUser'])){ ?>
                 <li class="nav-item navbar-dropdown dropdown-user dropdown">
                   <a class="nav-link dropdown-toggle hide-arrow" href="javascript:void(0);" data-bs-toggle="dropdown" aria-expanded="false">
                     <div class="avatar avatar-online">
-                      <img id="fotoperfil2" alt="" class="w-px-40 h-auto rounded-circle">
+                      <img id="fotoperfil2" alt="" class="w-px-40 h-100 rounded-circle">
                     </div>
                   </a>
                   <ul class="dropdown-menu dropdown-menu-end">

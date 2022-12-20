@@ -45,7 +45,7 @@ require 'PHPMailer/src/SMTP.php';
 
         $mail->setFrom('homefinderpt@gmail.com', 'Paulo Pedras');
         $mail->addReplyTo('homefinderpt@gmail.com', 'HomeFinder');
-        $mail->addAddress($email, 'Zé');
+        $mail->addAddress($email, 'Paulo');
         // $mail->addCC('dario_bianchi_@hotmail.com', 'Cópia');
 
         $mail->isHTML(true);
@@ -55,7 +55,7 @@ require 'PHPMailer/src/SMTP.php';
         <h2>Olá, '.$nome.' </h2>
         <P>Recebeu um convite de </P>
         <p>Junte-se à HomeFinder</p>
-        <link>http://localhost/Web/PROJETO%20FINAL/HomeFinder/dashboard/HomeFinder%20Dashboard/html/reg_imovel.php</>';
+        <link>http://localhost/Dario/fase1/registro.php</>';
         $mail->AltBody = 'Para visualizar essa mensagem acesse http://http://localhost/Web/PROJETO%20FINAL/HomeFinder/dashboard/HomeFinder%20Dashboard/html/reg_imovel.php';
         $mail->addAttachment('../img/logo-HomeFinder-mini.png', 'homefinder.png');
 
