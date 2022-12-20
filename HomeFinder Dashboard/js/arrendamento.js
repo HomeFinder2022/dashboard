@@ -5,6 +5,7 @@ function registoArr() {
     let estadoArr = $("#estadoArr").val();
     let tipoPagArr = $("#tipoPagArr").val();
     let caucaoArr = $("#caucaoArr").val();
+    let docArr = $("#docArr").val();
     let dataPagamentoArr = $("#dataPagamentoArr").val();
 
     let dados = new FormData();
@@ -15,6 +16,7 @@ function registoArr() {
     dados.append("estadoArr", estadoArr);
     dados.append("tipoPagArr", tipoPagArr);
     dados.append("caucaoArr", caucaoArr);
+    dados.append("docArr", docArr);
     dados.append("dataPagamentoArr", dataPagamentoArr);
    
 
@@ -110,6 +112,29 @@ function registoArr() {
       });
   }
 
+  function getDocs() {
+    let dados = new FormData();
+  
+    dados.append("op", 8);
+  
+    $.ajax({
+      url: "../assets/model/modelArr.php",
+      method: "POST",
+      data: dados,
+      dataType: "html",
+      cache: false,
+      contentType: false,
+      processData: false,
+    })
+  
+      .done(function (resposta) {
+        $("#docArr").html(resposta);
+        })
+  
+      .fail(function (jqXHR, textStatus) {
+        alert("Request failed: " + textStatus);
+      });
+  }
 
   function getEstado() {
     let dados = new FormData();
@@ -206,6 +231,7 @@ function registoArr() {
     getImoveis();
     getInquilinos();
     getInventarios();
+    getDocs();
     getEstado();
     getTipoPagamento();
     tabArr();

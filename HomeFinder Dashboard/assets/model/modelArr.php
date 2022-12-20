@@ -12,7 +12,8 @@ if($_POST['op'] == 1){
         $_POST['estadoArr'],
         $_POST['tipoPagArr'],
         $_POST['caucaoArr'],
-        $_POST['dataPagamentoArr']
+        $_POST['dataPagamentoArr'],
+        $_POST['docArr']
     );
     echo($resp); 
     }else if($_POST['op'] == 2){
@@ -39,6 +40,10 @@ if($_POST['op'] == 1){
     $table = new Arrendamento();
     $res = $table -> listaArrends();
     echo($res);
+    }else if($_POST['op'] == 8){
+    $get = new Arrendamento();
+    $resp = $get -> selectDocs();
+    echo($resp);
     }
 
     

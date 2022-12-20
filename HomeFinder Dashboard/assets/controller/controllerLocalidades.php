@@ -175,7 +175,11 @@ class Select{
         if ($result->num_rows > 0) {
         // output data of each row
         while($row = $result->fetch_assoc()) {
-          $msg .= "<option value='".$row['idtipologia']."'>".$row['descricao']."</option>";
+
+          if($row['idtipologia']<=11){
+            $msg .= "<option value='".$row['idtipologia']."'>".$row['descricao']."</option>";
+          }
+        
         }
         } else {
           $msg = "Sem Resultados";

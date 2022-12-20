@@ -13,6 +13,9 @@
 
                   </div>
 
+                  </div>
+            </div>
+
 <!-- MODAL -->
 <div class="modal fade" id="infoContato" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
 <div class="modal-dialog">
@@ -61,8 +64,7 @@
 </div>
 
                     
-          </div>
-            </div>
+
   
 
   </body>
