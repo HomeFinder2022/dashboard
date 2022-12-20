@@ -11,7 +11,7 @@
             <div class="container-fluid mt-3">
 
             <table id="arrendTable" class="dataTable display cell-border compact" style="width: 100%;" aria-describedby="example_info">
-    <thead>
+    <thead style="color: #2FCB6A">
         <tr>
             <th class="sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1"
                 aria-label="Office: activate to sort column ascending" style="width: 40px;">Imóvel</th>
@@ -33,7 +33,7 @@
     <tbody id="listaArrendamentos">
         
     </tbody>
-    <tfoot>
+    <tfoot style="color: #2FCB6A">
         <tr>
             <th rowspan="1" colspan="1">Imóvel</th>
             <th rowspan="1" colspan="1">Inquilino</th>

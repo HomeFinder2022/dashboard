@@ -11,7 +11,7 @@
 
 
             <table id="inquiTable" class="dataTable display cell-border compact" style="width: 100%;" aria-describedby="example_info">
-    <thead>
+    <thead style="color: #2FCB6A">
         <tr>
             <th class="sorting sorting_asc" tabindex="0" aria-controls="example" rowspan="1" colspan="1"
                 aria-sort="ascending" aria-label="Name: activate to sort column descending" style="width: 61px;">Nome
@@ -32,7 +32,7 @@
     <tbody id="listaInqui">
         
     </tbody>
-    <tfoot>
+    <tfoot style="color: #2FCB6A">
         <tr>
             <th rowspan="1" colspan="1">Nome</th>
             <th rowspan="1" colspan="1">Email</th>

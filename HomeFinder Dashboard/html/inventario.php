@@ -14,7 +14,7 @@
                       
                     </div>
             <table id="inventTable" class="dataTable display cell-border compact" style="width: 100%;" aria-describedby="example_info">
-    <thead>
+    <thead style="color: #2FCB6A">
         <tr>
             <th class="sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1"
                 aria-label="Office: activate to sort column ascending" style="width: 40px;">ID Inventário</th>
@@ -28,7 +28,7 @@
     <tbody id="listaInventario">
         
     </tbody>
-    <tfoot>
+    <tfoot style="color: #2FCB6A">
         <tr>
             <th rowspan="1" colspan="1">ID Inventário</th>
             <th rowspan="1" colspan="1">Imóvel</th>

@@ -118,7 +118,7 @@
                       <div class="col-md-6 col-lg-6 order-2 mb-4">
                   <div class="card h-100">
                     <div class="card-header d-flex align-items-center justify-content-between">
-                      <h5 class="card-title m-0 me-2">Transações</h5>
+                      <h5 class="card-title title-form m-0 me-2">Transações</h5>
                       <div class="dropdown">
                         <button
                           class="btn p-0"
@@ -237,7 +237,7 @@
                 <div class="col-md-6 col-lg-6 order-2 mb-4">
                   <div class="card h-100">
                     <div class="card-header d-flex align-items-center justify-content-between">
-                      <h5 class="card-title m-0 me-2">Ações</h5>
+                      <h5 class="card-title title-form m-0 me-2">Ações</h5>
                       </div>
                         <div class="card-body">
                             <div class="row"><button class="btn btn-success">Adicionar Receita</button></div>

@@ -16,7 +16,7 @@
                           
                             <p class="mb-4 fw-bold">Aqui poderá fazer a gestão de todos os seus imóveis.</p> 
 
-                          <a href="teste-imovel.html" class="btn btn-sm btn-outline-primary">Ver os meus imóveis</a>
+                          <a href="imoveis.php" class="btn btn-sm btn-outline-primary">Ver os meus imóveis</a>
                         </div>
                       </div>
                       <div class="col-sm-5 text-center text-sm-left">
