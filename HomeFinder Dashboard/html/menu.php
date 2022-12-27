@@ -64,6 +64,10 @@
       <div class="layout-container">
 
         <!-- Menu -->
+        <?php
+
+
+if(isset($_SESSION['nomeUser'])){ ?>
         
         <aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme">
           <div class="app-brand demo">
@@ -508,10 +512,7 @@
                 <!-- / Notification
                 
 falta o if do php
-<?php
 
-
-if(isset($_SESSION['nomeUser'])){ ?>
                 <-- User -->
                 <li class="nav-item navbar-dropdown dropdown-user dropdown">
                   <a class="nav-link dropdown-toggle hide-arrow" href="javascript:void(0);" data-bs-toggle="dropdown" aria-expanded="false">

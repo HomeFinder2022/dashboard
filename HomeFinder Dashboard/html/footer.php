@@ -1,3 +1,4 @@
+
 <!-- Footer -->
 <footer class="content-footer footer bg-footer-theme mt-3">
   <div class="container-fluid d-flex flex-wrap justify-content-between py-2 flex-md-row flex-column">
@@ -27,7 +28,10 @@
 <div class="layout-overlay layout-menu-toggle"></div>
 </div>
 <!-- / Layout wrapper -->
+<?php
 
+
+if(isset($_SESSION['nomeUser'])){ ?>
 <div class="buy-now">
 <a
 href="https://themeselection.com/products/sneat-bootstrap-html-admin-template/"
@@ -37,6 +41,10 @@ class="btn btn-success btn-buy-now"
 >
 </div>
 
+<?php
+
+
+} ?>
 <!-- Core JS -->
 <!-- build:js assets/vendor/js/core.js -->
 <script src="../assets/vendor/libs/jquery/jquery.js"></script>
