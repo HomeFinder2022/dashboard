@@ -15744,7 +15744,6 @@ html:not(.layout-footer-fixed) .content-wrapper {
   position: relative;
   width: 2.375rem;
   height: 2.375rem;
-  cursor: pointer;
 }
 .avatar img {
   width: 100%;
