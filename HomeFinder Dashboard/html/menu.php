@@ -299,8 +299,8 @@ if(isset($_SESSION['nomeUser'])){ ?>
                 <li><a class="dropdown-item" href="reg_arrendamento.php"><i class="menu-icon tf-icons bx bxs-key"></i>Adicionar Arrendamento</a></li>
                 <li><a class="dropdown-item" href="reg_reserva.php"><i class="menu-icon tf-icons bx bxs-hotel"></i>Adicionar Reserva</a></li>
                 <li><a class="dropdown-item" href="reg_inventario.php"><i class="menu-icon tf-icons bx bx-list-ul"></i>Adicionar Inventário</a></li>
-                <li><a class="dropdown-item" href="javascript:void(0);"><i class="menu-icon tf-icons bx bx-plus-circle"></i>Adicionar Receita</a></li>
-                <li><a class="dropdown-item" href="javascript:void(0);"><i class="menu-icon tf-icons bx bx-minus-circle"></i>Adicionar Despesa</a></li>
+                <li><a class="dropdown-item" href="reg_movimento.php"><i class="menu-icon tf-icons bx bx-plus-circle"></i>Adicionar Receita</a></li>
+                <li><a class="dropdown-item" href="reg_movimento.php"><i class="menu-icon tf-icons bx bx-minus-circle"></i>Adicionar Despesa</a></li>
                 <li><a class="dropdown-item" href="javascript:void(0);"><i class="menu-icon tf-icons bx bxs-wrench"></i>Adicionar Intervenção</a></li>
                 <li><a class="dropdown-item" href="reg_doc.php"><i class="menu-icon tf-icons bx bx-file"></i>Adicionar Documento</a></li>
                 <li><a class="dropdown-item" href="javascript:void(0);"><i class="menu-icon tf-icons bx bx-calendar"></i>Adicionar Evento</a></li>
