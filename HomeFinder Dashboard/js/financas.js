@@ -1,12 +1,13 @@
 function registarReceita() {
 
     let valorReceita = $("#valorReceita").val();
+    let refReceita = $("#refReceita").val();
 
     let dados = new FormData();
     dados.append("op", 1);
 
     dados.append("valorReceita", valorReceita);
-
+  dados.append("refReceita", refReceita);
 
     $.ajax({
       url: "../assets/model/modelFinancas.php",
@@ -30,12 +31,12 @@ function registarReceita() {
   function registarDespesa() {
 
     let valorDespesa = $("#valorDespesa").val();
-
+    let refDespesa = $("#refDespesa").val();
     let dados = new FormData();
     dados.append("op", 2);
 
     dados.append("valorDespesa", valorDespesa);
-
+    dados.append("refDespesa", refDespesa);
 
     $.ajax({
       url: "../assets/model/modelFinancas.php",
@@ -161,17 +162,17 @@ function registarReceita() {
   
   }
 
-  // This function clear all the values
+  // Calculadora
 function clearScreen() {
       document.getElementById("result").value = "";
   }
    
-  // This function display values
+
   function display(value) {
       document.getElementById("result").value += value;
   }
    
-  // This function evaluates the expression and returns result
+
   function calculate() {
       var p = document.getElementById("result").value;
       var q = eval(p);

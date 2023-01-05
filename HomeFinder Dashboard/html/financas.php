@@ -105,7 +105,7 @@
                 <div class="col-md-6 col-lg-6 order-2 mb-4">
                   <div class="card h-100">
                     <div class="card-header d-flex align-items-center justify-content-between">
-                      <h5 class="card-title m-0 me-2">Ações</h5>
+                      <h5 class="card-title m-0 me-2">Calculadora</h5>
                       </div>
                         <div class="card-body">
 
@@ -114,37 +114,37 @@
 
           <table class="calculator" >
             <tr>
-              <td colspan="3"> <input class="display-box" type="text" id="result" disabled /> </td>
+              <td colspan="3"> <input class="display-box form-control input-calc" type="text" id="result" disabled /> </td>
            
               <!-- clearScreen() function clears all the values -->
-              <td> <input type="button" value="C" class="btn btn-success btn-icon rounded-pill" onclick="clearScreen()" id="btn" /> </td>
+              <td> <input type="button" value="C" class="btn btn-success btn-icon rounded-pill ms-2 btn-calc" onclick="clearScreen()" id="btn" /> </td>
             </tr>
             <tr>
               <!-- display() function displays the value of clicked button -->
-              <td> <input type="button" class="btn btn-success btn-icon rounded-pill" value="1" onclick="display('1')" /> </td>
-              <td> <input type="button" class="btn btn-success btn-icon rounded-pill" value="2" onclick="display('2')" /> </td>
-              <td> <input type="button" class="btn btn-success btn-icon rounded-pill" value="3" onclick="display('3')" /> </td>
-              <td> <input type="button" class="btn btn-success btn-icon rounded-pill" value="/" onclick="display('/')" /> </td>
+              <td> <input type="button" class="btn btn-success btn-icon rounded-pill btn-calc" value="1" onclick="display('1')" /> </td>
+              <td> <input type="button" class="btn btn-success btn-icon rounded-pill btn-calc" value="2" onclick="display('2')" /> </td>
+              <td> <input type="button" class="btn btn-success btn-icon rounded-pill btn-calc" value="3" onclick="display('3')" /> </td>
+              <td> <input type="button" class="btn btn-success btn-icon rounded-pill btn-calc" value="/" onclick="display('/')" /> </td>
         </tr>
             <tr>
-              <td> <input type="button" class="btn btn-success btn-icon rounded-pill" value="4" onclick="display('4')" /> </td>
-              <td> <input type="button" class="btn btn-success btn-icon rounded-pill" value="5" onclick="display('5')" /> </td>
-              <td> <input type="button" class="btn btn-success btn-icon rounded-pill" value="6" onclick="display('6')" /> </td>
-              <td> <input type="button" class="btn btn-success btn-icon rounded-pill" value="-" onclick="display('-')" /> </td>
+              <td> <input type="button" class="btn btn-success btn-icon rounded-pill btn-calc" value="4" onclick="display('4')" /> </td>
+              <td> <input type="button" class="btn btn-success btn-icon rounded-pill btn-calc" value="5" onclick="display('5')" /> </td>
+              <td> <input type="button" class="btn btn-success btn-icon rounded-pill btn-calc" value="6" onclick="display('6')" /> </td>
+              <td> <input type="button" class="btn btn-success btn-icon rounded-pill btn-calc" value="-" onclick="display('-')" /> </td>
             </tr>
             <tr>
-              <td> <input type="button" class="btn btn-success btn-icon rounded-pill" value="7" onclick="display('7')" /> </td>
-              <td> <input type="button" class="btn btn-success btn-icon rounded-pill" value="8" onclick="display('8')" /> </td>
-              <td> <input type="button" class="btn btn-success btn-icon rounded-pill" value="9" onclick="display('9')" /> </td>
-              <td> <input type="button" class="btn btn-success btn-icon rounded-pill" value="+" onclick="display('+')" /> </td>
+              <td> <input type="button" class="btn btn-success btn-icon rounded-pill btn-calc" value="7" onclick="display('7')" /> </td>
+              <td> <input type="button" class="btn btn-success btn-icon rounded-pill btn-calc" value="8" onclick="display('8')" /> </td>
+              <td> <input type="button" class="btn btn-success btn-icon rounded-pill btn-calc" value="9" onclick="display('9')" /> </td>
+              <td> <input type="button" class="btn btn-success btn-icon rounded-pill btn-calc" value="+" onclick="display('+')" /> </td>
             </tr>
             <tr>
-              <td> <input type="button" class="btn btn-success btn-icon rounded-pill" value="." onclick="display('.')" /> </td>
-              <td> <input type="button" class="btn btn-success btn-icon rounded-pill" value="0" onclick="display('0')" /> </td>
+              <td> <input type="button" class="btn btn-success btn-icon rounded-pill btn-calc" value="." onclick="display('.')" /> </td>
+              <td> <input type="button" class="btn btn-success btn-icon rounded-pill btn-calc" value="0" onclick="display('0')" /> </td>
            
               <!-- calculate() function evaluates the mathematical expression -->
-              <td> <input type="button" class="btn btn-success btn-icon rounded-pill" value="=" onclick="calculate()" id="btn" /> </td>
-              <td> <input type="button" class="btn btn-success btn-icon rounded-pill" value="*" onclick="display('*')" /> </td>
+              <td> <input type="button" class="btn btn-success btn-icon rounded-pill btn-calc" value="=" onclick="calculate()" id="btn" /> </td>
+              <td> <input type="button" class="btn btn-success btn-icon rounded-pill btn-calc" value="x" onclick="display('*')" /> </td>
             </tr>
           </table>
 
