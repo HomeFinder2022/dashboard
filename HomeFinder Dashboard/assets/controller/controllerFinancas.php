@@ -4,7 +4,7 @@ require_once 'connection.php';
 
 class Financas{
 
-    function regReceita($valorReceita){
+    function regReceita($valorReceita, $refReceita){
         global $conn; 
               session_start();
               $nifUser = $_SESSION['nif'];
@@ -16,7 +16,8 @@ class Financas{
           
                    
           if ($conn->query($sql) === TRUE) {
-            $query = $this -> histReceita($valorReceita, $nifUser);
+            
+            $query = $this -> histReceita($valorReceita, $nifUser, $refReceita);
             $msg  = "Receita registada com sucesso!";
           } else {
             $msg = "Error: " . $sql . "<br>" . $conn->error;
@@ -27,11 +28,11 @@ class Financas{
           return $msg;
       }
 
-      function histReceita($valorReceita, $nifUser){
+      function histReceita($valorReceita, $nifUser, $refReceita){
         global $conn; 
 
-              $sql = "INSERT INTO historicomov (iduser, tipomovimento, valor) 
-          VALUES('".$nifUser."', 1, '".$valorReceita."')";
+              $sql = "INSERT INTO historicomov (iduser, tipomovimento, valor, ref) 
+          VALUES('".$nifUser."', 1, '".$valorReceita."', '".$refReceita."')";
 
           $msg = "";
           
@@ -46,7 +47,7 @@ class Financas{
           return $msg;
       }
 
-      function regDespesa($valorDespesa){
+      function regDespesa($valorDespesa, $refDespesa){
         global $conn; 
               session_start();
               $nifUser = $_SESSION['nif'];
@@ -58,7 +59,7 @@ class Financas{
           
                    
           if ($conn->query($sql) === TRUE) {
-            $query = $this -> histDespesa($valorDespesa, $nifUser);
+            $query = $this -> histDespesa($valorDespesa, $nifUser, $refDespesa);
             $msg  = "Despesa registada com sucesso!";
           } else {
             $msg = "Error: " . $sql . "<br>" . $conn->error;
@@ -70,11 +71,11 @@ class Financas{
       }
 
 
-      function histDespesa($valorDespesa, $nifUser){
+      function histDespesa($valorDespesa, $nifUser, $refDespesa){
         global $conn; 
 
-              $sql = "INSERT INTO historicomov (iduser, tipomovimento, valor) 
-          VALUES('".$nifUser."', 2, '".$valorDespesa."')";
+              $sql = "INSERT INTO historicomov (iduser, tipomovimento, valor, ref) 
+          VALUES('".$nifUser."', 2, '".$valorDespesa."', '".$refDespesa."')";
 
           $msg = "";
           
@@ -195,8 +196,12 @@ class Financas{
                 $msg .= "</div>";
                 $msg .= "<div class='d-flex w-100 flex-wrap align-items-center justify-content-between gap-2'>";
                 $msg .= "<div class='me-2'>";
-                $msg .= "<small class='text-muted d-block mb-1'>Rendas</small>";
-                $msg .= "<h6 class='mb-0'>Dário Bianchi</h6>";
+                if($row['tipomovimento'] == 1){
+                $msg .= "<small class='text-muted d-block mb-1'>Receita</small>";
+              }else if($row['tipomovimento'] == 2){
+                $msg .= "<small class='text-muted d-block mb-1'>Despesa</small>";
+              }
+                $msg .= "<h6 class='mb-0'>".$row['ref']."</h6>";
                 $msg .= "</div>";
                 $msg .= "<div class='user-progress d-flex align-items-center gap-1'>";
                 $msg .= "<h6 class='mb-0'>€".$row['valor']."</h6>";

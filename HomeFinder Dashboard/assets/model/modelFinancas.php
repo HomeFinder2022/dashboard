@@ -5,13 +5,15 @@ require_once '../controller/controllerFinancas.php';
 if($_POST['op'] == 1){
     $reg = new Financas();
     $resp = $reg -> regReceita(
-        $_POST['valorReceita']
+        $_POST['valorReceita'],
+        $_POST['refReceita']
     );
     echo($resp);
 }else if($_POST['op'] == 2){
     $reg = new Financas();
     $res = $reg -> regDespesa(
-        $_POST['valorDespesa']
+        $_POST['valorDespesa'],
+        $_POST['refDespesa']
     );
     echo($res);
 }else if($_POST['op'] == 3){

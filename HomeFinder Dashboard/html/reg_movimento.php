@@ -20,6 +20,8 @@
                       
                     <div class="col-6">
                       <h5 class="title-form">Receitas</h5>
+                      <label for="valorReceita" class="form-label">Referência do pagamento</label>
+                      <input class="form-control" type="text" id="refReceita">
                       <label for="valorReceita" class="form-label">Insira a quantia</label>
                       <input class="form-control" type="number" id="valorReceita">
                     <!-- </div> -->
@@ -31,6 +33,8 @@
                     
                     <div class="col-6">
                     <h5 class="text-danger">Despesas</h5>
+                    <label for="valorReceita" class="form-label">Referência do pagamento</label>
+                      <input class="form-control" type="text" id="refDespesa">
                       <label for="valorDespesa" class="form-label">Insira a quantia</label>
                       <input class="form-control" type="number" id="valorDespesa">
                     <!-- </div> -->
