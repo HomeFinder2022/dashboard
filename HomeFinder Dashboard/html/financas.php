@@ -27,7 +27,7 @@
                           <span class="fw-semibold d-block mb-1">Saldo</span>
                           <div id="saldoUser"></div>
                           
-                          <small class="text-success fw-semibold"><i class="bx bx-up-arrow-alt"></i> +72.80%</small>
+                          <!-- <small class="text-success fw-semibold"><i class="bx bx-up-arrow-alt"></i> +72.80%</small> -->
                         </div>
                       </div>
                     </div>
@@ -36,6 +36,7 @@
                         <div class="card-body">
                           <div class="card-title d-flex align-items-start justify-content-between">
                             <div class="avatar flex-shrink-0">
+                 
                               <img
                                 src="../assets/img/icons/unicons/money-insert.svg"
                                 alt="Credit Card"
@@ -44,11 +45,23 @@
                             </div>
                             
                           </div>
-                          <span class="fw-semibold d-block mb-1">Receitas</span>
+                          <span class="fw-semibold d-block">Receitas</span>
                           <div id=saldoReceitas></div>
                           
-                          <small class="text-success fw-semibold"><i class="bx bx-up-arrow-alt"></i> +28.42%</small>
+                          <!-- <small class="text-success fw-semibold"><i class="bx bx-up-arrow-alt"></i> +28.42%</small> -->
                         </div>
+                        <!-- <div class="container">
+
+                        <div class="col-12">
+                      <label for="valorReceita" class="form-label">Referência do pagamento</label>
+                      <input class="form-control" type="text" id="refReceita">
+                      <label for="valorReceita" class="form-label">Insira a quantia</label>
+                      <input class="form-control" type="number" id="valorReceita">
+
+                      <button class="btn btn-success mt-3 mb-3" onclick="registarReceita()" type="button">Registar Receita</button>
+                    </div>
+                        
+                        </div> -->
                       </div>
                     </div>
                     <div class="col-lg-4 col-md-12 col-6 mb-4">
@@ -67,9 +80,21 @@
                           <span class="fw-semibold d-block mb-1">Despesas</span>
                           <div id="saldoDespesas"></div>
                           
-                          <small class="text-danger fw-semibold"><i class="bx bx-down-arrow-alt"></i> +28.42%</small>
+                          <!-- <small class="text-danger fw-semibold"><i class="bx bx-down-arrow-alt"></i> +28.42%</small> -->
                         </div>
+                        <!-- <div class="container">
+
+                      <div class="col-12">
+                      <label for="valorReceita" class="form-label">Referência do pagamento</label>
+                      <input class="form-control" type="text" id="refDespesa">
+                      <label for="valorDespesa" class="form-label">Insira a quantia</label>
+                      <input class="form-control" type="number" id="valorDespesa">
+
+                      <button class="btn btn-danger mt-3 mb-3" onclick="registarReceita()" type="button">Registar Despesa</button>
                       </div>
+
+                      </div> -->
+                    </div>
                     </div>
                     
                       <div class="col-md-6 col-lg-6 order-2 mb-4">
@@ -88,9 +113,9 @@
                           <i class="bx bx-dots-vertical-rounded"></i>
                         </button>
                         <div class="dropdown-menu dropdown-menu-end" aria-labelledby="transactionID">
-                          <a class="dropdown-item" href="javascript:void(0);">Último Dia</a>
-                          <a class="dropdown-item" href="javascript:void(0);">Último Mês</a>
-                          <a class="dropdown-item" href="javascript:void(0);">Último Ano</a>
+                          <a class="dropdown-item" onclick="selectFinancasDia()" href=#>Último Dia</a>
+                          <a class="dropdown-item" onclick="selectFinancasMes()" href=#>Último Mês</a>
+                          <a class="dropdown-item" onclick="selectFinancasAno()" href=#>Último Ano</a>
                         </div>
                       </div>
                     </div>
@@ -110,9 +135,10 @@
                         <div class="card-body">
 
 
+                        <button class="btn btn-success btn-sm" onclick="showTable()">Mostrar/esconder</button>
 
 
-          <table class="calculator" >
+          <table class="calculator" id=calcTable style="display: none;">
             <tr>
               <td colspan="3"> <input class="display-box form-control input-calc" type="text" id="result" disabled /> </td>
            

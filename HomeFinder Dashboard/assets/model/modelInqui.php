@@ -13,14 +13,16 @@ if($_POST['op'] == 1){
         $_POST['listaDistritos1'],
         $_POST['listaConcelhos1'],
         $_POST['listaFreguesias1'],
-        $_POST['obsInqui']
+        $_POST['obsInqui'],
+        $_POST['nifInqui']
     );
     echo($resp);
     }else if($_POST['op'] == 2){
     $mail = new Inquilino();
     $res = $mail -> sendMail(
-    $_POST['nomeInqui'],
-    $_POST['emailInqui']);
+    $_POST['emailInqui'],
+    $_POST['nomeInqui']
+    );
     echo($res);
     }else if($_POST['op'] == 3){
     $table = new Inquilino();

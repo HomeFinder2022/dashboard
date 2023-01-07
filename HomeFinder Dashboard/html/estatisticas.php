@@ -4,6 +4,10 @@
 
           <!-- Content wrapper -->
           <div class="content-wrapper">
+
+          <div>
+            <canvas id="myChart"></canvas>
+          </div>
             <!-- Content -->
             <!-- <table class="table table-hover table-bordered dataTable mt-3">
               <thead>
@@ -37,4 +41,6 @@
           
   </body>
   <?php require_once 'footer.php'; ?>
+  <script src="../js/charts.js"></script>
+  <script src="../js/estatisticas.js"></script>
 </html>

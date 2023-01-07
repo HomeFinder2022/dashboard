@@ -18,14 +18,19 @@
         <div class="card-body">
         <form class="row g-3">
 
-                    <div class="col-6">
+                    <div class="col-4">
                       <label for="nomeInqui" class="form-label">Nome</label>
                       <input type="text" class="form-control" id="nomeInqui">
                     </div>
 
-                    <div class="col-6">
+                    <div class="col-4">
                       <label for="emailInqui" class="form-label">Email</label>
                       <input type="email" class="form-control" id="emailInqui">
+                    </div>
+
+                    <div class="col-4">
+                      <label for="nifInqui" class="form-label">NIF</label>
+                      <input type="number" class="form-control" id="nifInqui">
                     </div>
 
                     <div class="col-8">

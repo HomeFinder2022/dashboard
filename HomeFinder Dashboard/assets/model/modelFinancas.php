@@ -32,6 +32,18 @@ if($_POST['op'] == 1){
     $table = new Financas();
     $res = $table -> consultaTransacoes();
     echo($res);
+}else if($_POST['op'] == 7){
+    $table = new Financas();
+    $res = $table -> consultaTransacoesDia();
+    echo($res);
+}else if($_POST['op'] == 8){
+    $table = new Financas();
+    $res = $table -> consultaTransacoesMes();
+    echo($res);
+}else if($_POST['op'] == 9){
+    $table = new Financas();
+    $res = $table -> consultaTransacoesAno();
+    echo($res);
     }
 
 ?>

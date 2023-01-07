@@ -162,6 +162,85 @@ function registarReceita() {
   
   }
 
+
+  function selectFinancasDia(){
+
+    let dados = new FormData();
+
+    dados.append("op", 7);
+
+    $.ajax({
+        url: "../assets/model/modelFinancas.php",
+        method: "POST",
+        data: dados,
+        dataType: "html",
+        cache: false,
+        contentType: false,
+        processData: false
+    })
+     
+    .done(function( resposta ) {
+        $('#listaTransacoes').html(resposta);
+    })
+     
+    .fail(function( jqXHR, textStatus ) {
+      alert( "Request failed: " + textStatus );
+    });
+  
+  }
+
+  function selectFinancasMes(){
+
+    let dados = new FormData();
+
+    dados.append("op", 8);
+
+    $.ajax({
+        url: "../assets/model/modelFinancas.php",
+        method: "POST",
+        data: dados,
+        dataType: "html",
+        cache: false,
+        contentType: false,
+        processData: false
+    })
+     
+    .done(function( resposta ) {
+        $('#listaTransacoes').html(resposta);
+    })
+     
+    .fail(function( jqXHR, textStatus ) {
+      alert( "Request failed: " + textStatus );
+    });
+  
+  }
+
+  function selectFinancasAno(){
+
+    let dados = new FormData();
+
+    dados.append("op", 9);
+
+    $.ajax({
+        url: "../assets/model/modelFinancas.php",
+        method: "POST",
+        data: dados,
+        dataType: "html",
+        cache: false,
+        contentType: false,
+        processData: false
+    })
+     
+    .done(function( resposta ) {
+        $('#listaTransacoes').html(resposta);
+    })
+     
+    .fail(function( jqXHR, textStatus ) {
+      alert( "Request failed: " + textStatus );
+    });
+  
+  }
+
   // Calculadora
 function clearScreen() {
       document.getElementById("result").value = "";
@@ -188,6 +267,11 @@ function clearScreen() {
       timer: 2000,
     });
   }
+function showTable(){
+  $('#calcTable').toggle();
+}
+
+
 
   $(function () {
     tabFinancas();

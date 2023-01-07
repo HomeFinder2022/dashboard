@@ -158,7 +158,7 @@ class Inventario{
                 $msg = $this -> guardarDoc($resp['target'], $lastID);
               }else{
              
-                $msg = "Imóvel registado sem fotos";
+                $msg = "O documento não foi carregado";
               }
       
           } else {

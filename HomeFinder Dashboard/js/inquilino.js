@@ -43,14 +43,13 @@ function registoInqui() {
 
 
   function sendEmail() {
-    let emailInqui = "dario_bianchi_@hotmail.com";
-    let nomeInqui = "Dario Bianchi"; 
+    let emailInqui = "paulopedras93@gmail.com";
+    let nomeInqui = "Paulo Pedras"; 
 
     let dados = new FormData();
     dados.append("op", 2);
     dados.append("nomeInqui", nomeInqui);
     dados.append("emailInqui", emailInqui);
-    
 
     $.ajax({
       url: "../assets/model/modelInqui.php",
