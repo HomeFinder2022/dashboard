@@ -9,13 +9,11 @@
             <div class="card mt-3">
               <div class="container-fluid mt-3">
 
-
             <table id="inquiTable" class="dataTable display cell-border compact" style="width: 100%;" aria-describedby="example_info">
     <thead>
         <tr>
             <th class="sorting sorting_asc" tabindex="0" aria-controls="example" rowspan="1" colspan="1"
-                aria-sort="ascending" aria-label="Name: activate to sort column descending" style="width: 61px;">Nome
-            </th>
+                aria-sort="ascending" aria-label="Name: activate to sort column descending" style="width: 61px;">Nome</th>
             <th class="sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1"
                 aria-label="Office: activate to sort column ascending" style="width: 80px;">Email</th>
             <th class="sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1"

@@ -176,13 +176,13 @@ if(isset($_SESSION['nomeUser'])){ ?>
               </a>
               <!-- <ul class="menu-sub">
                 <li class="menu-item">
-                  <a href="extended-ui-perfect-scrollbar.html" class="menu-link">
-                    <div data-i18n="Perfect Scrollbar">Adicionar Intervenção</div>
+                  <a href="intervencoes.php" class="menu-link">
+                    <div data-i18n="Perfect Scrollbar">Intervenções Pendentes</div>
                   </a>
                 </li>
                 <li class="menu-item">
-                  <a href="extended-ui-text-divider.html" class="menu-link">
-                    <div data-i18n="Text Divider">Consultar Intervenções</div>
+                  <a href="intervencoes_aceites.php" class="menu-link">
+                    <div data-i18n="Text Divider">Intervenções Marcadas</div>
                   </a>
                 </li>
               </ul> -->
@@ -301,7 +301,7 @@ if(isset($_SESSION['nomeUser'])){ ?>
                 <li><a class="dropdown-item" href="reg_inventario.php"><i class="menu-icon tf-icons bx bx-list-ul"></i>Adicionar Inventário</a></li>
                 <li><a class="dropdown-item" href="reg_movimento.php"><i class="menu-icon tf-icons bx bx-plus-circle"></i>Adicionar Receita</a></li>
                 <li><a class="dropdown-item" href="reg_movimento.php"><i class="menu-icon tf-icons bx bx-minus-circle"></i>Adicionar Despesa</a></li>
-                <li><a class="dropdown-item" href="javascript:void(0);"><i class="menu-icon tf-icons bx bxs-wrench"></i>Adicionar Intervenção</a></li>
+                <li><a class="dropdown-item" href="reg_intervencao.php"><i class="menu-icon tf-icons bx bxs-wrench"></i>Adicionar Intervenção</a></li>
                 <li><a class="dropdown-item" href="reg_doc.php"><i class="menu-icon tf-icons bx bx-file"></i>Adicionar Documento</a></li>
                 <li><a class="dropdown-item" href="javascript:void(0);"><i class="menu-icon tf-icons bx bx-calendar"></i>Adicionar Evento</a></li>
                 <li><a class="dropdown-item" href="reg_contato.php"><i class="menu-icon tf-icons bx bxs-contact"></i>Adicionar Contacto</a></li>
@@ -542,13 +542,13 @@ falta o if do php
                     <li>
                       <a class="dropdown-item" href="pages-profile-user.html">
                         <i class="bx bx-user me-2"></i>
-                        <span class="align-middle">My Profile</span>
+                        <span class="align-middle">O meu perfil</span>
                       </a>
                     </li>
                     <li>
                       <a class="dropdown-item" href="pages-account-settings-account.html">
                         <i class="bx bx-cog me-2"></i>
-                        <span class="align-middle">Settings</span>
+                        <span class="align-middle">Definições</span>
                       </a>
                     </li>
                     <li>
@@ -576,19 +576,19 @@ falta o if do php
                       </a>
                     </li>
                     <li>
-                      <a class="dropdown-item" href="pages-pricing.html">
+                      <a class="dropdown-item" href="../../../fase1/precos.php">
                         <i class="bx bx-dollar me-2"></i>
-                        <span class="align-middle">Pricing</span>
+                        <span class="align-middle">Preços</span>
                       </a>
                     </li>
                     <li>
                       <div class="dropdown-divider"></div>
                     </li>
                     <li>
-                      <a class="dropdown-item" href="auth-login-cover.html" target="_blank">
+                      <button class="dropdown-item" onclick="logout()">
                         <i class="bx bx-power-off me-2"></i>
                         <span class="align-middle">Log Out</span>
-                      </a>
+                      </button>
                     </li>
                   </ul>
                 </li>
