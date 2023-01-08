@@ -21,7 +21,7 @@
 <div class="modal-dialog">
   <div class="modal-content">
     <div class="modal-header">
-      <h5 class="modal-title text-center" id="exampleModalLabel">Informação do Contato
+      <h5 class="modal-title text-center title-form" id="exampleModalLabel">Informação do Contato
       </h5>
       <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
     </div>

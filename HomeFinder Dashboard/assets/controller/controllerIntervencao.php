@@ -139,8 +139,8 @@ class Intervencao{
               $msg .= "<td>".$row['hora']."</td>";
               $msg .= "<td>".$row['data']."</td>";
               $msg .= "<td>".$row['descricao']."</td>";
-              $msg .= "<td><button type='button' class='btn btn-success btn-sm' onclick='aceitaInt(".$row['idpedido'].")'>Aceitar</button></td>";
-              $msg .= "<td><button type='button' class='btn btn-danger btn-sm' onclick='recusaInt(".$row['idpedido'].")'>Recusar</button></td>";
+              $msg .= "<td style='text-align: center; vertical-align: middle;'><button type='button' class='btn btn-success btn-sm' onclick='aceitaInt(".$row['idpedido'].")'>Aceitar</button></td>";
+              $msg .= "<td style='text-align: center; vertical-align: middle;'><button type='button' class='btn btn-danger btn-sm' onclick='recusaInt(".$row['idpedido'].")'>Recusar</button></td>";
               $msg .= "</tr>";
                 }
                 

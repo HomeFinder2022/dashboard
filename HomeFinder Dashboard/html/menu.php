@@ -324,7 +324,7 @@ if(isset($_SESSION['nomeUser'])){ ?>
           
 
                 <!-- Notification -->
-                <li class="nav-item dropdown-notifications navbar-dropdown dropdown me-3 me-xl-1">
+                <!-- <li class="nav-item dropdown-notifications navbar-dropdown dropdown me-3 me-xl-1">
                   <a class="nav-link dropdown-toggle hide-arrow" href="javascript:void(0);" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">
                     <i class="bx bx-bell bx-sm"></i>
                     <span class="badge bg-danger rounded-pill badge-notifications">5</span>
@@ -508,7 +508,7 @@ if(isset($_SESSION['nomeUser'])){ ?>
                       </a>
                     </li>
                   </ul>
-                </li>
+                </li> -->
                 <!-- / Notification
                 
 falta o if do php
@@ -578,7 +578,7 @@ falta o if do php
                     <li>
                       <a class="dropdown-item" href="../../../fase1/precos.php">
                         <i class="bx bx-dollar me-2"></i>
-                        <span class="align-middle">Preços</span>
+                        <span class="align-middle">Planos</span>
                       </a>
                     </li>
                     <li>
