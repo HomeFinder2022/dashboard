@@ -28,6 +28,29 @@ if($_POST['op'] == 1){
     $table = new Inquilino();
     $res = $table -> listaInqui();
     echo($res);
+    }else if($_POST['op'] == 4){
+    $apagar = new Inquilino();
+    $resp = $apagar -> removerInqui($_POST['id']);
+    echo($resp);
+}else if($_POST['op'] == 5){
+    $getDados = new Inquilino();
+    $res = $getDados -> infoInquilino($_POST['id']);
+    echo($res);
+}else if($_POST['op'] == 6){
+    $edit = new Inquilino();
+    $resp = $edit -> guardaInquilino(
+        $_POST['id'],
+        $_POST['nomeInquiEdit'],
+        $_POST['emailInquiEdit'],
+        $_POST['nifInquiEdit'],
+        $_POST['moradaInquiEdit'],
+        $_POST['telInquiEdit'],
+        $_POST['listaDistritos1Edit'],
+        $_POST['listaConcelhos1Edit'],
+        $_POST['listaFreguesias1Edit'],
+        $_POST['obsInquiEdit']
+    );
+    echo($resp);
     }
 
     

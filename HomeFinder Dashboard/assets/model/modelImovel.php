@@ -31,6 +31,10 @@ if($_POST['op'] == 1){
     $table = new Imovel();
     $res = $table -> listaImoveis();
     echo($res);
+}else if($_POST['op'] == 3){
+    $apagar = new Imovel();
+    $resp = $apagar -> removerImovel($_POST['id']);
+    echo($resp);
     }
 
     

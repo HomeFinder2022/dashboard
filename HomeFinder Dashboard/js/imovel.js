@@ -99,6 +99,32 @@ function registoImovel() {
   
   }
 
+
+  function deleteImovel(id){
+    let dados = new FormData();
+    dados.append('op',3);
+    dados.append('id',id);
+  
+    $.ajax({
+      url: "../assets/model/modelImovel.php",
+      method: "POST",
+      data: dados,
+      cache:false,
+      processData:false,
+      contentType: false,
+      dataType: "html"
+    })
+     
+    .done(function( resposta ) {
+      sucesso(resposta);
+      tabImoveis();
+    })
+     
+    .fail(function( jqXHR, textStatus ) {
+      alert( "Request failed: " + textStatus );
+    });
+  }
+  
     function sucesso(msg) {
     Swal.fire({
       position: "center",

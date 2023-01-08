@@ -105,6 +105,9 @@ require 'PHPMailer/src/SMTP.php';
 
         global $conn;
       
+        session_start();
+        $nifUser = $_SESSION['nif'];
+
         $sql = "SELECT inquilino.*, distrito.nome AS nomedistrito, concelho.nome AS nomeconcelho, freguesias.nome AS nomefreg
 
            FROM inquilino, distrito, concelho, 
@@ -113,7 +116,8 @@ require 'PHPMailer/src/SMTP.php';
            WHERE
            inquilino.iddistrito = distrito.iddistrito AND
            inquilino.idconcelho = concelho.idconcelho AND
-           inquilino.idfreguesia = freguesias.idfreguesia";
+           inquilino.idfreguesia = freguesias.idfreguesia AND
+           inquilino.idproprietario = ".$nifUser;
     
         $result = $conn->query($sql);
     
@@ -129,8 +133,9 @@ require 'PHPMailer/src/SMTP.php';
                 $msg .= "<td>".$row['morada']."</td>";
                 $msg .= "<td>".$row['nomedistrito']."</td>";
                 $msg .= "<td>".$row['observacoes']."</td>";
-                // $msg .= "<td><button type='button' class='btn btn-danger btn-sm' onclick='delInqui(".$row['id'].")'>Apagar</button>";
-                $msg .= "<td><button type='button' class='btn btn-success btn-sm' onclick='sendEmail()'>Enviar Convite</button></td>";
+                $msg .= "<td style='text-align: center; vertical-align: middle;'><button type='button' class='btn btn-info btn-sm' onclick='editInqui(".$row['id'].")'>Info</button>";
+                $msg .= "<td style='text-align: center; vertical-align: middle;'><button type='button' class='btn btn-danger btn-sm' onclick='delInqui(".$row['id'].")'>Apagar</button>";
+                $msg .= "<td style='text-align: center; vertical-align: middle;'><button type='button' class='btn btn-primary btn-sm' onclick='sendEmail()'>Enviar Convite</button></td>";
                 $msg .= "</tr>";
                 }
                 
@@ -139,6 +144,79 @@ require 'PHPMailer/src/SMTP.php';
       
         $conn->close();
         return $msg;
+    }
+
+    function removerInqui($id){
+      global $conn;
+      $msg="";
+    
+      $sql = "DELETE FROM inquilino WHERE id = ".$id;
+    
+      if ($conn->query($sql) === TRUE) {
+        $msg  = "Inquilino removido com sucesso!";
+      } else {
+        $msg = "Error: " . $sql . "<br>" . $conn->error;
+      }
+    
+      $conn->close();
+    
+      return $msg;
+    
+    }
+
+    function infoInquilino($id){
+
+      global $conn;
+    
+      $sql = "SELECT *
+      FROM inquilino WHERE id =".$id;
+    
+      $nome = "";
+      $contato = "";
+      $email = "";
+    
+      $result = $conn->query($sql);
+      if ($result->num_rows > 0) {
+          // output data of each row
+          while($row = $result->fetch_assoc()) {
+              $nome = $row['nome'];
+              $contato = $row['contato'];
+              $email = $row['email'];
+              $nif = $row['idnifinquilino'];
+              $morada = $row['morada'];
+              $freguesia = $row['idfreguesia'];
+              $distrito = $row['iddistrito'];
+              $concelho = $row['idconcelho'];
+              $obs = $row['observacoes'];
+          }
+      } 
+      $conn->close();
+  
+      $res = array("nome" => $nome, "morada"=>$morada, "contato"=>$contato, "email"=>$email, "freguesia"=>$freguesia, "distrito"=>$distrito, "concelho"=>$concelho, "obs"=>$obs, "nif"=>$nif);
+      $res = json_encode($res);
+    
+      return $res;
+    }
+
+    function guardaInquilino($id, $nome, $email, $nif, $morada, $tel, $distrito, $concelho, $freguesia, $obs){
+
+      global $conn;
+    
+      $sql = "UPDATE inquilino SET nome='".$nome."', contato ='".$tel."', email ='".$email."', morada ='".$morada."', idnifinquilino ='".$nif."', idfreguesia ='".$freguesia."', iddistrito ='".$distrito."', idconcelho ='".$concelho."', observacoes ='".$obs."'
+      WHERE id=".$id;
+     
+      $msg = "";
+          
+      if ($conn->query($sql) === TRUE) {
+        $msg  = "Inquilino Editado com Sucesso!";
+      } else {
+        $msg = "Error: " . $sql . "<br>" . $conn->error;
+      }
+    
+      $conn->close();
+    
+      return $msg;
+    
     }
 
     }

@@ -29,6 +29,7 @@
                 <th class="sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1"
                 aria-label="Salary: activate to sort column ascending" style="width: 93px;">Tipologia</th>
                 <th class="span1 center" style="width: 50px;">Ações</th>
+                <th class="span1 center" style="width: 50px;">Ações</th>
         </tr>
     </thead>
     <tbody id="listaImoveis">
@@ -43,6 +44,7 @@
             <th rowspan="1" colspan="1">Freguesia</th>
             <th rowspan="1" colspan="1">Tipo de Imóvel</th>
             <th rowspan="1" colspan="1">Tipologia</th>
+            <th class="span1 center" style="width: 50px;">Ações</th>
             <th class="span1 center" style="width: 50px;">Ações</th>
         </tr>
     </tfoot>

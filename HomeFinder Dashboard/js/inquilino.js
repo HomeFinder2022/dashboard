@@ -101,6 +101,121 @@ function registoInqui() {
   
   }
 
+
+  function delInqui(id){
+    let dados = new FormData();
+    dados.append('op',4);
+    dados.append('id',id);
+  
+    $.ajax({
+      url: "../assets/model/modelInqui.php",
+      method: "POST",
+      data: dados,
+      cache:false,
+      processData:false,
+      contentType: false,
+      dataType: "html"
+    })
+     
+    .done(function( resposta ) {
+      sucesso(resposta);
+      tabInqui();
+    })
+     
+    .fail(function( jqXHR, textStatus ) {
+      alert( "Request failed: " + textStatus );
+    });
+  }
+
+
+  function editInqui(id){
+    let dados = new FormData();
+    dados.append('op',5);
+    dados.append('id',id);
+  
+    $.ajax({
+      url: "../assets/model/modelInqui.php",
+      method: "POST",
+      data: dados,
+      cache:false,
+      processData:false,
+      contentType: false,
+      dataType: "html"
+    })
+     
+    .done(function( resposta ) {
+      let obj = JSON.parse(resposta);
+      $('#infoInquilino').modal('show');
+
+      $('#nomeInquiEdit').val(obj.nome);
+      $('#emailInquiEdit').val(obj.contato);
+      $('#nifInquiEdit').val(obj.nif);
+      $('#moradaInquiEdit').val(obj.morada);
+      $('#telInquiEdit').val(obj.contato);
+      $('#listaDistritos1Edit').val(obj.distrito);
+      $('#listaConcelhos1Edit').val(obj.concelho);
+      $('#listaFreguesias1Edit').val(obj.freguesia);
+      $('#obsInquiEdit').val(obj.obs);
+
+      $('#btnInquilino').attr('onclick', 'guardaInquilino('+id+')');
+     
+  
+    })
+     
+    .fail(function( jqXHR, textStatus ) {
+      alert( "Request failed: " + textStatus );
+    });
+  
+  }
+
+  function guardaInquilino(id){
+
+    let nomeInquiEdit = $('#nomeInquiEdit').val();
+    let emailInquiEdit = $('#emailInquiEdit').val();
+    let nifInquiEdit = $('#nifInquiEdit').val();
+    let moradaInquiEdit = $('#moradaInquiEdit').val();
+    let telInquiEdit = $('#telInquiEdit').val();
+    let listaDistritos1Edit = $('#listaDistritos1Edit').val();
+    let listaConcelhos1Edit = $('#listaConcelhos1Edit').val();
+    let listaFreguesias1Edit = $('#listaFreguesias1Edit').val();
+    let obsInquiEdit = $('#obsInquiEdit').val();
+
+    let dados = new FormData();
+    dados.append('op',6);
+    dados.append('id', id);
+    dados.append('nomeInquiEdit', nomeInquiEdit);
+    dados.append('emailInquiEdit', emailInquiEdit);
+    dados.append('nifInquiEdit', nifInquiEdit);
+    dados.append('moradaInquiEdit', moradaInquiEdit);
+    dados.append('telInquiEdit', telInquiEdit);
+    dados.append('listaDistritos1Edit', listaDistritos1Edit);
+    dados.append('listaConcelhos1Edit', listaConcelhos1Edit);
+    dados.append('listaFreguesias1Edit', listaFreguesias1Edit);
+    dados.append('obsInquiEdit', obsInquiEdit);
+    
+    $.ajax({
+      url: "../assets/model/modelInqui.php",
+      method: "POST",
+      data: dados,
+      cache:false,
+      processData:false,
+      contentType: false,
+      dataType: "html"
+    })
+     
+    .done(function( resposta ) {
+      sucesso(resposta);
+      tabInqui();
+      $('#infoInquilino').modal('hide');
+  
+    })
+     
+    .fail(function( jqXHR, textStatus ) {
+      alert( "Request failed: " + textStatus );
+    });
+  
+  }
+
   function sucesso(msg) {
     Swal.fire({
       position: "center",
