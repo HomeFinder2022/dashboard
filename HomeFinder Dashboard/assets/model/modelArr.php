@@ -9,7 +9,7 @@ if($_POST['op'] == 1){
         $_POST['imovelArr'],
         $_POST['inquiArr'],
         $_POST['inventArr'],
-        $_POST['estadoArr'],
+        // $_POST['estadoArr'],
         $_POST['tipoPagArr'],
         $_POST['caucaoArr'],
         $_POST['dataPagamentoArr'],

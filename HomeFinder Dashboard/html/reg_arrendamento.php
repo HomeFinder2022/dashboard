@@ -42,23 +42,23 @@
                       </div>
                     </div>
 
-                    <div class="col-4">
+                    <div class="col-6">
                       <div class="input-group">
                       <span class="input-group-text">Documentos</span>
                       <select class="form-select" id="docArr">
                       </select>
                       </div>
                     </div>
-
+<!-- 
                     <div class="col-3">
                       <div class="input-group">
                       <span class="input-group-text">Estado</span>
                       <select class="form-select" id="estadoArr">
                       </select>
                       </div>
-                    </div>
+                    </div> -->
 
-                    <div class="col-5">
+                    <div class="col-6">
                       <div class="input-group">
                       <span class="input-group-text">Tipo de Pagamento</span>
                       <select class="form-select" id="tipoPagArr">
@@ -66,13 +66,13 @@
                       </div>
                     </div>
 
-                    <div class="col-3">
+                    <div class="col-6">
                       <label for="caucaoArr" class="form-label">Caução
                       </label>
                       <input type="number" class="form-control" id="caucaoArr">
                     </div>
 
-                    <div class="col-3">
+                    <div class="col-6">
                       <label for="dataPagamentoArr" class="form-label">Data Pagamento</label>
                       <input type="date" class="form-control" id="dataPagamentoArr">
                     </div>

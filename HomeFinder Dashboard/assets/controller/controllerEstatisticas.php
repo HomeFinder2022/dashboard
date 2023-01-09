@@ -13,32 +13,30 @@ require_once 'connection.php';
       $sql = "SELECT precovenda, idimovel
       FROM imoveisvenda";
     
-      // $preco = "";
-      // $imovel = "";
+      $preco = "";
+      $imovel = "";
    
       $result = $conn->query($sql);
       if ($result->num_rows > 0) {
           // output data of each row
           while($row = $result->fetch_assoc()) {
-              // $preco = $row['precovenda'];
-              // $imovel = $row['idimovel'];
-              $data = $row;
-                
-          
-            
+              $preco = $row['precovenda'];
+              $imovel = $row['idimovel'];
+              
           }
       } 
       $conn->close();
   
-      $res = array($row);
-      $res = json_encode($res);
+      $dataPoints = array("preco" => $preco, "imovel"=>$imovel);
+      $dataPoints = json_encode($dataPoints);
     
-      return $res;
+      return $dataPoints;
     }
 
 
     }
 
 
-
+    
+ 
 
