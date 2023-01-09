@@ -22,8 +22,6 @@
                 <th class="sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1"
                 aria-label="Salary: activate to sort column ascending" style="width: 80px;">Renda</th>
                 <th class="sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1"
-                aria-label="Salary: activate to sort column ascending" style="width: 80px;">Estado</th>
-                <th class="sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1"
                 aria-label="Salary: activate to sort column ascending" style="width: 80px;">Tipo de Pagamento</th>
                 <th class="sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1"
                 aria-label="Salary: activate to sort column ascending" style="width: 80px;">Data de Pagamento</th>
@@ -39,7 +37,6 @@
             <th rowspan="1" colspan="1">Inquilino</th>
             <th rowspan="1" colspan="1">Caução</th>
             <th rowspan="1" colspan="1">Renda</th>
-            <th rowspan="1" colspan="1">Estado</th>
             <th rowspan="1" colspan="1">Tipo de Pagamento</th>
             <th rowspan="1" colspan="1">Data de Pagamento</th>
             <th class="span1 center" style="width: 50px;">Ações</th>

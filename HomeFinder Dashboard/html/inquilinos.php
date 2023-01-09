@@ -106,7 +106,7 @@
   </div>
 </div>
 
-<div class="col-6">
+<div class="col-12">
   <div class="input-group">
   <span class="input-group-text">Freguesia</span>
   <select class="form-select" id="listaFreguesias1Edit">
