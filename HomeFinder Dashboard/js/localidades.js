@@ -16,6 +16,7 @@ function getDistritos() {
       .done(function (resposta) {
         $("#listaDistritos").html(resposta);
         $("#listaDistritos1").html(resposta);
+        $("#listaDistritos1Edit").html(resposta);
         })
   
       .fail(function (jqXHR, textStatus) {
@@ -41,6 +42,7 @@ function getDistritos() {
       .done(function (resposta) {
         $("#listaConcelhos").html(resposta);
         $("#listaConcelhos1").html(resposta);
+        $("#listaConcelhos1Edit").html(resposta);
         })
   
       .fail(function (jqXHR, textStatus) {
@@ -66,6 +68,7 @@ function getDistritos() {
       .done(function (resposta) {
         $("#listaFreguesias").html(resposta);
         $("#listaFreguesias1").html(resposta);
+        $("#listaFreguesias1Edit").html(resposta);
         })
   
       .fail(function (jqXHR, textStatus) {
@@ -271,6 +274,7 @@ function getDistritos() {
       .done(function (resposta) {
         $("#listaConcelhos").html(resposta);
         $("#listaConcelhos1").html(resposta);
+        $("#listaConcelhos1Edit").html(resposta);
         })
   
       .fail(function (jqXHR, textStatus) {
@@ -298,6 +302,7 @@ function getDistritos() {
       .done(function (resposta) {
         $("#listaFreguesias").html(resposta);
         $("#listaFreguesias1").html(resposta);
+        $("#listaFreguesias1Edit").html(resposta);
         })
   
       .fail(function (jqXHR, textStatus) {
@@ -314,13 +319,7 @@ function getDistritos() {
     getCertEnerg();
     getTipoImovel();
     getTipologia();
-    // $('#tipoNegocImovel').select2();
-    // $('#tipoImovel').select2();
-    // $('#listaDistritos').select2();
-    // $('#listaConcelhos').select2();
-    // $('#listaFreguesias').select2();
-    // $('#certEnerg').select2();
-    // $('#estadoImovel').select2();
+
   });
 
   

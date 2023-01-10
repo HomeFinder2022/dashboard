@@ -45,25 +45,16 @@ function registoInqui() {
   }
 
 
-<<<<<<< Updated upstream
-  function sendEmail() {
-    let emailInqui = "dario_bianchi_@hotmail.com";
-    let nomeInqui = "Dario Bianchi"; 
-=======
-  function sendEmail(email) {
-    // let emailInqui = $("#email").val();
-    let nomeInqui = "Paulo Pedras"; 
->>>>>>> Stashed changes
 
+  function sendEmail() {
+
+
+    let nomeInqui = "Paulo Pedras"; 
+    let emailInqui = "paulopedras93@gmail.com";
     let dados = new FormData();
     dados.append("op", 2);
-    dados.append("nomeInqui", nomeInqui);
-<<<<<<< Updated upstream
     dados.append("emailInqui", emailInqui);
-    
-=======
-    dados.append("emailInqui", email);
->>>>>>> Stashed changes
+    dados.append("nomeInqui", nomeInqui);
 
     $.ajax({
       url: "../assets/model/modelInqui.php",
@@ -115,8 +106,6 @@ function registoInqui() {
   
   }
 
-<<<<<<< Updated upstream
-=======
 
   function delInqui(id){
     let dados = new FormData();
@@ -164,8 +153,9 @@ function registoInqui() {
       $('#infoInquilino').modal('show');
 
       $('#nomeInquiEdit').val(obj.nome);
+
       $('#emailInquiEdit').val(obj.email);
-      
+
       $('#nifInquiEdit').val(obj.nif);
       $('#moradaInquiEdit').val(obj.morada);
       $('#telInquiEdit').val(obj.contato);
@@ -233,7 +223,7 @@ function registoInqui() {
   
   }
 
->>>>>>> Stashed changes
+
   function sucesso(msg) {
     Swal.fire({
       position: "center",

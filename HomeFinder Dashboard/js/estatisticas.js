@@ -1,0 +1,41 @@
+var ctx = document.getElementById('myChart').getContext('2d');
+  var chart = new Chart(ctx, {
+      type: 'line',
+      data: {
+          labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+          datasets: [{
+              label: 'Preços',
+              backgroundColor: 'rgb(255, 99, 132)',
+              borderColor: 'rgb(255, 99, 132)',
+              data: [0, 10, 5, 2, 20, 30, 45]
+          }]
+      },
+      options: {}
+  });
+
+
+//   function cardContatos(){
+
+//     let dados = new FormData();
+
+//     dados.append("op", 1);
+
+//     $.ajax({
+//         url: "../assets/model/modelEstatisticas.php",
+//         method: "POST",
+//         data: dados,
+//         dataType: "html",
+//         cache: false,
+//         contentType: false,
+//         processData: false
+//     })
+     
+//     .done(function( resposta ) {
+//         $('#listaContatos').html(resposta);
+//     })
+     
+//     .fail(function( jqXHR, textStatus ) {
+//       alert( "Request failed: " + textStatus );
+//     });
+  
+//   }

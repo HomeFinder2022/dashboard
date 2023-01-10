@@ -4,18 +4,19 @@ require_once 'connection.php';
 
   class Arrendamento{
 
-    function regArr($imovel, $inquilino, $inventario, $estado, $tipopag, $caucao, $datapag, $doc){
+    function regArr($imovel, $inquilino, $inventario, $tipopag, $caucao, $datapag, $doc){
         global $conn; 
 
             session_start();
             $nifUser = $_SESSION['nif'];
 
-            $sql = "INSERT INTO arrendamento (idproprietario, idimovel, idinquilino, idinventario, idestado, idtipopagamento, valorcaucao, datapagamento, iddocumento) 
-            VALUES('".$nifUser."', '".$imovel."', '".$inquilino."', '".$inventario."', '".$estado."', '".$tipopag."', '".$caucao."', '".$datapag."', '".$doc."')";
+            $sql = "INSERT INTO arrendamento (idproprietario, idimovel, idinquilino, idinventario, idtipopagamento, valorcaucao, datapagamento, iddocumento) 
+            VALUES('".$nifUser."', '".$imovel."', '".$inquilino."', '".$inventario."', '".$tipopag."', '".$caucao."', '".$datapag."', '".$doc."')";
 
           $msg = "";
           
           if ($conn->query($sql) === TRUE) {
+            $query1 = $this -> insertListaArrend($imovel, $inquilino, $nifUser);
             $msg = "Arrendamento registado com sucesso!";
           } else {
             $msg = "Error: " . $sql . "<br>" . $conn->error;
@@ -26,9 +27,34 @@ require_once 'connection.php';
           return $msg;
        }
 
+       
+    function insertListaArrend($imovel, $inquilino, $nifUser){
+      global $conn; 
+
+
+
+          $sql = "INSERT INTO listainquilino_imovel (idimovel, idinquilino, idutilizador) 
+          VALUES('".$imovel."', '".$inquilino."', '".$nifUser."')";
+
+        $msg = "";
+        
+        if ($conn->query($sql) === TRUE) {
+          $msg = "Arrendamento registado com sucesso!";
+        } else {
+          $msg = "Error: " . $sql . "<br>" . $conn->error;
+        }
+        
+
+
+        return $msg;
+     }
+
        function selectImoveis(){
         global $conn;
-        $sql = "SELECT idimovel, morada FROM imovel";
+        session_start();
+        $nifUser = $_SESSION['nif'];
+
+        $sql = "SELECT idimovel, morada FROM imovel WHERE nifutilizador = ".$nifUser;
         $msg = "<option value='-1'>Escolha um imóvel</option>";
         
         $result = $conn->query($sql);
@@ -51,7 +77,9 @@ require_once 'connection.php';
 
       function selectInquilinos(){
         global $conn;
-        $sql = "SELECT id, nome FROM inquilino";
+        session_start();
+        $nifUser = $_SESSION['nif'];
+        $sql = "SELECT id, nome FROM inquilino WHERE idproprietario = ".$nifUser;
         $msg = "<option value='-1'>Escolha um inquilino</option>";
         
         $result = $conn->query($sql);
@@ -174,19 +202,20 @@ require_once 'connection.php';
       function listaArrends(){
 
         global $conn;
-      
-        $sql = "SELECT arrendamento.*, inquilino.nome, imovel.morada, 
-        estado.descricao as estado, tipopagamento.descricao as tipopagamento, imoveisarrendamento.precorenda
+        session_start();
+        $nifUser = $_SESSION['nif'];
+        $sql = "SELECT arrendamento.*, inquilino.nome, imovel.morada,
+         tipopagamento.descricao as tipopagamento, imoveisarrendamento.precorenda
 
 
-           FROM imovel, inquilino, estado, tipopagamento, arrendamento, imoveisarrendamento
+           FROM imovel, inquilino, tipopagamento, arrendamento, imoveisarrendamento
 
            WHERE
         imovel.idimovel = arrendamento.idimovel AND
         inquilino.id = arrendamento.idinquilino AND
-        estado.idestado = arrendamento.idestado AND
         tipopagamento.idtipopagamento = arrendamento.idtipopagamento AND
-        imoveisarrendamento.idimovel = arrendamento.idimovel";
+        imoveisarrendamento.idimovel = arrendamento.idimovel AND
+        arrendamento.idproprietario = ".$nifUser;
     
         $result = $conn->query($sql);
     
@@ -201,7 +230,6 @@ require_once 'connection.php';
                 $msg .= "<td>".$row['nome']."</td>";
                 $msg .= "<td>".$row['valorcaucao']." €</td>";
                 $msg .= "<td>".$row['precorenda']." €</td>";
-                $msg .= "<td>".$row['estado']."</td>";
                 $msg .= "<td>".$row['tipopagamento']."</td>";
                 $msg .= "<td>".$row['datapagamento']."</td>";
                 $msg .= "<td><button type='button' class='btn btn-danger btn-sm' onclick='delArr(".$row['idarrendamento'].")'>Apagar</button></td>";

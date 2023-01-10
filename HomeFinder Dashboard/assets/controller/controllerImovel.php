@@ -202,7 +202,8 @@ class Imovel{
                   $msg .= "<td>".$row['nomefreg']."</td>";
                   $msg .= "<td>".$row['descricao']."</td>";
                   $msg .= "<td>".$row['tipologia']."</td>";
-                  $msg .= "<td><button type='button' class='btn btn-danger btn-sm' onclick='deleteImovel(".$row['idimovel'].")'>Apagar</button></td>";
+                  $msg .= "<td style='text-align: center; vertical-align: middle;'><button type='button' class='btn btn-success btn-sm' onclick='editImovel(".$row['idimovel'].")'>Editar</button></td>";
+                  $msg .= "<td style='text-align: center; vertical-align: middle;'><button type='button' class='btn btn-danger btn-sm' onclick='deleteImovel(".$row['idimovel'].")'>Apagar</button></td>";
                   $msg .= "</tr>";
                   }
                   
@@ -211,6 +212,54 @@ class Imovel{
         
           $conn->close();
           return $msg;
+      }
+
+      function infoImovel($id){
+
+        global $conn;
+      
+        $sql = "SELECT *
+        FROM imovel WHERE idcontatos =".$id;
+      
+        $nome = "";
+        $contato = "";
+        $email = "";
+      
+        $result = $conn->query($sql);
+        if ($result->num_rows > 0) {
+            // output data of each row
+            while($row = $result->fetch_assoc()) {
+                $morada = $row['morada'];
+                $codigopostal = $row['codigopostal'];
+                $concelho = $row['idconcelho'];
+                $freguesia = $row['idfreguesia'];
+            }
+        } 
+        $conn->close();
+    
+        $res = array("nome" => $nome, "contato"=>$contato, "email"=>$email);
+        $res = json_encode($res);
+      
+        return $res;
+      }
+
+        // NÃO ESTÁ A FUNCIONAR
+      function removerImovel($id){
+        global $conn;
+        $msg="";
+      
+        $sql = "DELETE FROM imovel WHERE idimovel = ".$id;
+      
+        if ($conn->query($sql) === TRUE) {
+          $msg  = "Imóvel removido com sucesso!";
+        } else {
+          $msg = "Error: " . $sql . "<br>" . $conn->error;
+        }
+      
+        $conn->close();
+      
+        return $msg;
+      
       }
 
 }

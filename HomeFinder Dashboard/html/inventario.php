@@ -19,10 +19,10 @@
             <th class="sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1"
                 aria-label="Office: activate to sort column ascending" style="width: 40px;">ID Inventário</th>
             <th class="sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1"
-                aria-label="Age: activate to sort column ascending" style="width: 80px;">Imóvel</th>
+                aria-label="Age: activate to sort column ascending" style="width: 100px;">Imóvel</th>
             <th class="sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1"
                 aria-label="Salary: activate to sort column ascending" style="width: 80px;">Ficheiro</th>
-                <th class="span1 center" style="width: 50px;">Ações</th>
+                <th style="width: 15px;">Ações</th>
         </tr>
     </thead>
     <tbody id="listaInventario">
@@ -33,7 +33,7 @@
             <th rowspan="1" colspan="1">ID Inventário</th>
             <th rowspan="1" colspan="1">Imóvel</th>
             <th rowspan="1" colspan="1">Ficheiro</th>
-            <th class="span1 center" style="width: 50px;">Ações</th>
+            <th style="width: 15px;">Ações</th>
         </tr>
     </tfoot>
 </table>

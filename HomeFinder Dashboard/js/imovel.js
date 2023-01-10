@@ -99,6 +99,66 @@ function registoImovel() {
   
   }
 
+  function editImovel(id){
+    let dados = new FormData();
+    dados.append('op',4);
+    dados.append('id',id);
+  
+    $.ajax({
+      url: "../assets/model/modelImovel.php",
+      method: "POST",
+      data: dados,
+      cache:false,
+      processData:false,
+      contentType: false,
+      dataType: "html"
+    })
+     
+    .done(function( resposta ) {
+      let obj = JSON.parse(resposta);
+      
+      $('#infoContato').modal('show');
+
+      $('#nomeContato1').val(obj.nome);
+      $('#numContato1').val(obj.contato);
+      $('#emailContato1').val(obj.email);
+
+      $('#btnContato').attr('onclick', 'guardaContato('+id+')');
+     
+  
+    })
+     
+    .fail(function( jqXHR, textStatus ) {
+      alert( "Request failed: " + textStatus );
+    });
+  
+  }
+
+  function deleteImovel(id){
+    let dados = new FormData();
+    dados.append('op',3);
+    dados.append('id',id);
+  
+    $.ajax({
+      url: "../assets/model/modelImovel.php",
+      method: "POST",
+      data: dados,
+      cache:false,
+      processData:false,
+      contentType: false,
+      dataType: "html"
+    })
+     
+    .done(function( resposta ) {
+      sucesso(resposta);
+      tabImoveis();
+    })
+     
+    .fail(function( jqXHR, textStatus ) {
+      alert( "Request failed: " + textStatus );
+    });
+  }
+  
     function sucesso(msg) {
     Swal.fire({
       position: "center",

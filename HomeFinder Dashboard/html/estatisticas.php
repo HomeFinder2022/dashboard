@@ -1,9 +1,14 @@
 
 <?php require_once 'menu.php'; ?>
-
+<script src="../js/charts.js"></script>
 
           <!-- Content wrapper -->
           <div class="content-wrapper">
+<div class="container-fluid">
+          <canvas id="myChart" width="100" height="100"></canvas>
+          </div>
+
+   
             <!-- Content -->
             <!-- <table class="table table-hover table-bordered dataTable mt-3">
               <thead>
@@ -37,4 +42,6 @@
           
   </body>
   <?php require_once 'footer.php'; ?>
+
+  <script src="../js/estatisticas.js"></script>
 </html>

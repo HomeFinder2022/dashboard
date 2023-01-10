@@ -2,7 +2,7 @@ function registoArr() {
     let imovelArr = $("#imovelArr").val();
     let inquiArr = $("#inquiArr").val();
     let inventArr = $("#inventArr").val();
-    let estadoArr = $("#estadoArr").val();
+    // let estadoArr = $("#estadoArr").val();
     let tipoPagArr = $("#tipoPagArr").val();
     let caucaoArr = $("#caucaoArr").val();
     let docArr = $("#docArr").val();
@@ -13,7 +13,7 @@ function registoArr() {
     dados.append("imovelArr", imovelArr);
     dados.append("inquiArr", inquiArr);
     dados.append("inventArr", inventArr);
-    dados.append("estadoArr", estadoArr);
+    // dados.append("estadoArr", estadoArr);
     dados.append("tipoPagArr", tipoPagArr);
     dados.append("caucaoArr", caucaoArr);
     dados.append("docArr", docArr);

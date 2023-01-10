@@ -15744,7 +15744,6 @@ html:not(.layout-footer-fixed) .content-wrapper {
   position: relative;
   width: 2.375rem;
   height: 2.375rem;
-  cursor: pointer;
 }
 .avatar img {
   width: 100%;
@@ -16657,6 +16656,21 @@ html:not(.layout-footer-fixed) .content-wrapper {
   color: red
 }
 
+.calculator{
+  height: 500px;
+  width: 500px;
+}
+
+.btn-calc{
+  height: 80px;
+  width: 80px;
+  font-size: 60px;
+}
+
+.input-calc{
+  height: 100px;
+  font-size: 50px
+}
 
 
 

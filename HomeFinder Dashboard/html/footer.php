@@ -61,6 +61,8 @@ class="btn btn-success btn-buy-now"
 <script src="../assets/vendor/libs/apex-charts/apexcharts.js"></script>
 
 <script src="../js/dados.js"></script>
+
+<script src="../js/login.js"></script>
 <!-- Main JS -->
 <script src="../assets/js/main.js"></script>
 <script src="../js/navbar.js"></script>
