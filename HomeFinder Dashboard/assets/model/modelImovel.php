@@ -35,6 +35,10 @@ if($_POST['op'] == 1){
     $apagar = new Imovel();
     $resp = $apagar -> removerImovel($_POST['id']);
     echo($resp);
+}else if($_POST['op'] == 4){
+    $getDados = new Imovel();
+    $res = $getDados -> infoImovel($_POST['id']);
+    echo($res);
     }
 
     

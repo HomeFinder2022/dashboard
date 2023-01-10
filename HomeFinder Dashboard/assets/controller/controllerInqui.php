@@ -44,7 +44,7 @@ require 'PHPMailer/src/SMTP.php';
 
         $mail->setFrom('homefinderpt@gmail.com', 'HomeFinder');
         $mail->addReplyTo('homefinderpt@gmail.com', 'HomeFinder');
-        $mail->addAddress($email, 'Dário Bianchi');
+        $mail->addAddress($email, 'Paulo Pedras');
         // $mail->addCC('dario_bianchi_@hotmail.com', 'Cópia');
 
         $mail->isHTML(true);

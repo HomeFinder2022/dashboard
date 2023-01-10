@@ -214,6 +214,35 @@ class Imovel{
           return $msg;
       }
 
+      function infoImovel($id){
+
+        global $conn;
+      
+        $sql = "SELECT *
+        FROM imovel WHERE idcontatos =".$id;
+      
+        $nome = "";
+        $contato = "";
+        $email = "";
+      
+        $result = $conn->query($sql);
+        if ($result->num_rows > 0) {
+            // output data of each row
+            while($row = $result->fetch_assoc()) {
+                $morada = $row['morada'];
+                $codigopostal = $row['codigopostal'];
+                $concelho = $row['idconcelho'];
+                $freguesia = $row['idfreguesia'];
+            }
+        } 
+        $conn->close();
+    
+        $res = array("nome" => $nome, "contato"=>$contato, "email"=>$email);
+        $res = json_encode($res);
+      
+        return $res;
+      }
+
         // NÃO ESTÁ A FUNCIONAR
       function removerImovel($id){
         global $conn;
