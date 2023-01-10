@@ -7,8 +7,10 @@ function registoInqui() {
     let listaConcelhos1 = $("#listaConcelhos1").val();
     let listaFreguesias1 = $("#listaFreguesias1").val();
     let obsInqui = $("#obsInqui").val();
-    
 
+    let nifInqui = $("#nifInqui").val();
+    
+    
 
     let dados = new FormData();
     dados.append("op", 1);
@@ -20,6 +22,7 @@ function registoInqui() {
     dados.append("listaConcelhos1", listaConcelhos1);
     dados.append("listaFreguesias1", listaFreguesias1);
     dados.append("obsInqui", obsInqui);
+    dados.append("nifInqui", nifInqui);
    
 
     $.ajax({
@@ -42,7 +45,10 @@ function registoInqui() {
   }
 
 
+
   function sendEmail() {
+
+
     let nomeInqui = "Paulo Pedras"; 
     let emailInqui = "paulopedras93@gmail.com";
     let dados = new FormData();
@@ -147,7 +153,9 @@ function registoInqui() {
       $('#infoInquilino').modal('show');
 
       $('#nomeInquiEdit').val(obj.nome);
-      $('#emailInquiEdit').val(obj.contato);
+
+      $('#emailInquiEdit').val(obj.email);
+
       $('#nifInquiEdit').val(obj.nif);
       $('#moradaInquiEdit').val(obj.morada);
       $('#telInquiEdit').val(obj.contato);
@@ -214,6 +222,7 @@ function registoInqui() {
     });
   
   }
+
 
   function sucesso(msg) {
     Swal.fire({

@@ -11,11 +11,14 @@ require 'PHPMailer/src/SMTP.php';
 
   class Inquilino{
 
-    function regInqui($nome, $email, $morada, $tel, $distrito, $concelho, $freguesia, $obs){
+    function regInqui($nome, $email, $morada, $tel, $distrito, $concelho, $freguesia, $obs, $nifInqui){
         global $conn; 
+
+        session_start();
+        $nifUser = $_SESSION['nif'];
   
-          $sql = "INSERT INTO inquilino (nome, email, morada, contato, iddistrito, idconcelho, idfreguesia, observacoes) 
-          VALUES('".$nome."', '".$email."', '".$morada."', '".$tel."', '".$distrito."', '".$concelho."', '".$freguesia."', '".$obs."')";
+          $sql = "INSERT INTO inquilino (nome, email, morada, contato, iddistrito, idconcelho, idfreguesia, observacoes,idnifinquilino , idproprietario) 
+          VALUES('".$nome."', '".$email."', '".$morada."', '".$tel."', '".$distrito."', '".$concelho."', '".$freguesia."', '".$obs."', '".$nifInqui."', '".$nifUser."')";
          
           $msg = "";
           
@@ -31,7 +34,9 @@ require 'PHPMailer/src/SMTP.php';
        }
 
 
+
       function sendMail($email, $nome){
+
 
         $mail = new PHPMailer\PHPMailer();
         $mail->isSMTP();
@@ -101,6 +106,7 @@ require 'PHPMailer/src/SMTP.php';
 
 
 
+
       function listaInqui(){
 
         global $conn;
@@ -133,9 +139,11 @@ require 'PHPMailer/src/SMTP.php';
                 $msg .= "<td>".$row['morada']."</td>";
                 $msg .= "<td>".$row['nomedistrito']."</td>";
                 $msg .= "<td>".$row['observacoes']."</td>";
+
                 $msg .= "<td style='text-align: center; vertical-align: middle;'><button type='button' class='btn btn-info btn-sm' onclick='editInqui(".$row['id'].")'>Info</button>";
                 $msg .= "<td style='text-align: center; vertical-align: middle;'><button type='button' class='btn btn-danger btn-sm' onclick='delInqui(".$row['id'].")'>Apagar</button>";
                 $msg .= "<td style='text-align: center; vertical-align: middle;'><button type='button' class='btn btn-primary btn-sm' onclick='sendEmail()'>Enviar Convite</button></td>";
+
                 $msg .= "</tr>";
                 }
                 
@@ -145,6 +153,7 @@ require 'PHPMailer/src/SMTP.php';
         $conn->close();
         return $msg;
     }
+
 
     function removerInqui($id){
       global $conn;
@@ -218,6 +227,7 @@ require 'PHPMailer/src/SMTP.php';
       return $msg;
     
     }
+
 
     }
 
