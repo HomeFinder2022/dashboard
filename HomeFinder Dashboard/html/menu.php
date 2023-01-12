@@ -113,7 +113,7 @@ if(isset($_SESSION['nomeUser'])){ ?>
             </li>
 
             <li class="menu-item">
-              <a href="cons_reservas.php" class="menu-link">
+              <a href="reservas.php" class="menu-link">
                 <i class="menu-icon tf-icons bx bxs-hotel"></i>
                 <div data-i18n="Authentications">Reservas</div>
               </a>

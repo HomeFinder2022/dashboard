@@ -147,7 +147,8 @@ class Financas{
         if ($result->num_rows > 0) {
             // output data of each row
             while($row = $result->fetch_assoc()) {
-              $msg .= "<h3 class='card-title text-nowrap'>€".number_format((string)$row['total'], 0, '.', ' ')."</h3>";                }
+              $msg .= "<h3 class='card-title text-nowrap'>€".number_format((string)$row['total'], 0, '.', ' ')."</h3>";                
+            }
               // $msg .=  "<p class='mt-4'><button type='button' class='btn btn-success btn-sm' onclick='registarReceita()'>Registar Receita</button></p>";
               
               }
@@ -176,7 +177,6 @@ class Financas{
                 $msg .= "<h3 class='card-title text-nowrap mb-1'>€".number_format((string)$row['total'], 0, '.', ' ')."</h3>";
                 }
                
-              
               }
       
         $conn->close();
