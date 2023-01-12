@@ -17,6 +17,7 @@ require_once 'connection.php';
           
           if ($conn->query($sql) === TRUE) {
             $query1 = $this -> insertListaArrend($imovel, $inquilino, $nifUser);
+            $query2 = $this -> insertCaucao($caucao, $nifUser);
             $msg = "Arrendamento registado com sucesso!";
           } else {
             $msg = "Error: " . $sql . "<br>" . $conn->error;
@@ -28,6 +29,51 @@ require_once 'connection.php';
        }
 
        
+       function insertCaucao($caucao, $nifUser){
+        global $conn; 
+  
+        $date = new DateTime();
+        $current = $date->format("Y-m-d");
+  
+            $sql = "INSERT INTO historicomov (iduser, tipomovimento, valor, timestap, ref) 
+            VALUES('".$nifUser."', 1, '".$caucao."','".$current."', 'Caução')";
+  
+          $msg = "";
+          
+          if ($conn->query($sql) === TRUE) {
+            $query2 = $this -> updateFinancas($caucao, $nifUser);
+            $msg = "Arrendamento registado com sucesso!";
+          } else {
+            $msg = "Error: " . $sql . "<br>" . $conn->error;
+          }
+          
+  
+  
+          return $msg;
+       }
+
+
+       function updateFinancas($caucao, $nifUser){
+        global $conn; 
+  
+        $sql = "UPDATE financas SET saldo = (saldo + '".$caucao."')
+        WHERE idnif = '".$nifUser."'";
+
+  
+          $msg = "";
+          
+          if ($conn->query($sql) === TRUE) {
+            $msg = "Arrendamento registado com sucesso!";
+          } else {
+            $msg = "Error: " . $sql . "<br>" . $conn->error;
+          }
+          
+  
+  
+          return $msg;
+       }
+
+
     function insertListaArrend($imovel, $inquilino, $nifUser){
       global $conn; 
 
@@ -48,6 +94,8 @@ require_once 'connection.php';
 
         return $msg;
      }
+
+
 
        function selectImoveis(){
         global $conn;
