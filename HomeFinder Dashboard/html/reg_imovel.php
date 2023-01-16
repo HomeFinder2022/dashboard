@@ -127,8 +127,6 @@
                       </div>
                     </div>
 
-           
-
                     <div class="col-12">
                     <label for="obsImovel" class="form-label">Caracteristicas</label>
                       <!-- <div class="input-group"> -->

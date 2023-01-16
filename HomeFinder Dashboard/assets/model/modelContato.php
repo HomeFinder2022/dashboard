@@ -33,6 +33,7 @@ if($_POST['op'] == 1){
     $apagar = new Contato();
     $resp = $apagar -> removerContato($_POST['id']);
     echo($resp);
+    
     }
 
     

@@ -566,13 +566,7 @@ falta o if do php
                     <li>
                       <a class="dropdown-item" href="pages-help-center-landing.html">
                         <i class="bx bx-support me-2"></i>
-                        <span class="align-middle">Help</span>
-                      </a>
-                    </li>
-                    <li>
-                      <a class="dropdown-item" href="pages-faq.html">
-                        <i class="bx bx-help-circle me-2"></i>
-                        <span class="align-middle">FAQ</span>
+                        <span class="align-middle">Contatos</span>
                       </a>
                     </li>
                     <li>

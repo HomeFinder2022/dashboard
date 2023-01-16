@@ -217,6 +217,77 @@ function registoArr() {
   
   }
 
+  function editArr(id){
+    let dados = new FormData();
+    dados.append('op',9);
+    dados.append('id',id);
+
+    $.ajax({
+      url: "../assets/model/modelArr.php",
+      method: "POST",
+      data: dados,
+      cache:false,
+      processData:false,
+      contentType: false,
+      dataType: "html"
+    })
+     
+    .done(function( resposta ) {
+      let obj = JSON.parse(resposta);
+      $('#infoArr').modal('show');
+
+      $('#moradaArrEdit').val(obj.morada);
+      $('#dataPagamentoArrEdit').val(obj.datapagamento);
+      $('#inquiArrEdit').val(obj.inquilino);
+      $('#precoRendaEdit').val(obj.precorenda);
+      // $('#precoRendaEdit').val(obj.precorenda+" €");
+      // nao da para colocar € a frente do precorenda
+
+
+      $('#btnRenda').attr('onclick', 'confirmaRenda('+obj.precorenda+')');
+     
+  
+    })
+     
+    .fail(function( jqXHR, textStatus ) {
+      alert( "Request failed: " + textStatus );
+    });
+  
+  }
+
+
+  function confirmaRenda(preco){
+
+    let inquilino = $('#inquiArrEdit').val();
+    
+    let dados = new FormData();
+    dados.append('op',10);
+    dados.append('preco', preco);
+    dados.append('inquilino', inquilino);
+
+  
+    $.ajax({
+      url: "../assets/model/modelArr.php",
+      method: "POST",
+      data: dados,
+      cache:false,
+      processData:false,
+      contentType: false,
+      dataType: "html"
+    })
+     
+    .done(function( resposta ) {
+      sucesso(resposta);
+      $('#infoArr').modal('hide');
+  
+    })
+     
+    .fail(function( jqXHR, textStatus ) {
+      alert( "Request failed: " + textStatus );
+    });
+  
+  }
+
   function sucesso(msg) {
     Swal.fire({
       position: "center",
