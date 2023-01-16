@@ -44,6 +44,14 @@ if($_POST['op'] == 1){
     $get = new Arrendamento();
     $resp = $get -> selectDocs();
     echo($resp);
+    }else if($_POST['op'] == 9){
+    $getDados = new Arrendamento();
+    $res = $getDados -> infoArrendamento($_POST['id']);
+    echo($res);
+    }else if($_POST['op'] == 10){
+    $getDados = new Arrendamento();
+    $res = $getDados -> confirmRenda($_POST['preco'], $_POST['inquilino']);
+    echo($res);
     }
 
     

@@ -10,14 +10,16 @@ require_once 'connection.php';
             session_start();
             $nifUser = $_SESSION['nif'];
 
-            $sql = "INSERT INTO arrendamento (idproprietario, idimovel, idinquilino, idinventario, idtipopagamento, valorcaucao, datapagamento, iddocumento) 
-            VALUES('".$nifUser."', '".$imovel."', '".$inquilino."', '".$inventario."', '".$tipopag."', '".$caucao."', '".$datapag."', '".$doc."')";
+            $sql = "INSERT INTO arrendamento (idproprietario, idimovel, idinquilino, idinventario, idtipopagamento, valorcaucao, datapagamento, iddocumento, idestado) 
+            VALUES('".$nifUser."', '".$imovel."', '".$inquilino."', '".$inventario."', '".$tipopag."', '".$caucao."', '".$datapag."', '".$doc."', 2)";
 
           $msg = "";
           
           if ($conn->query($sql) === TRUE) {
             $query1 = $this -> insertListaArrend($imovel, $inquilino, $nifUser);
             $query2 = $this -> insertCaucao($caucao, $nifUser);
+            // $query3 = $this -> insert_renda_mes($imovel, $nifUser);
+            // inserir no historicomov a renda para o user proprietario e update das financas
             $msg = "Arrendamento registado com sucesso!";
           } else {
             $msg = "Error: " . $sql . "<br>" . $conn->error;
@@ -28,7 +30,56 @@ require_once 'connection.php';
           return $msg;
        }
 
-       
+      //  function insert_renda_mes($imovel, $nifUser){
+      //   global $conn; 
+      //   $res = "";
+      //   $date = new DateTime();
+      //   $current = $date->format("Y-m-d");
+      //   $query4 = $this -> renda_mes($imovel);
+        
+      //   $res = json_decode($query4, TRUE);
+
+      //       $sql = "INSERT INTO historicomov (iduser, tipomovimento, valor, timestap, ref) 
+      //       VALUES('".$nifUser."', 1, '".$res['precorenda']."','".$current."', 'Renda')";
+  
+      //     $msg = "";
+          
+      //     if ($conn->query($sql) === TRUE) {
+      //       $query2 = $this -> updateFinancas($res['precorenda'], $nifUser);
+      //       $msg = "Arrendamento registado com sucesso!";
+      //     } else {
+      //       $msg = "Error: " . $sql . "<br>" . $conn->error;
+      //     }
+          
+  
+  
+      //     return $msg;
+      //  }
+
+
+      //  function renda_mes($imovel){
+
+      //   global $conn;
+      //   $sql = "SELECT imoveisarrendamento.precorenda FROM imoveisarrendamento, arrendamento
+      //   WHERE imoveisarrendamento.idimovel = arrendamento.idimovel AND
+      //   imoveisarrendamento.idimovel = ".$imovel;
+
+      //   $precorenda = "";
+      
+      //   $result = $conn->query($sql);
+      //   if ($result->num_rows > 0) {
+      //       // output data of each row
+      //       while($row = $result->fetch_assoc()) {
+      //           $precorenda = $row['precorenda'];
+      //       }
+      //   } 
+    
+      //   $res = array("precorenda"=>$precorenda);
+      //   $res = json_encode($res);
+      //   return $res;
+      // }
+
+
        function insertCaucao($caucao, $nifUser){
         global $conn; 
   
@@ -280,6 +331,7 @@ require_once 'connection.php';
                 $msg .= "<td>".$row['precorenda']." €</td>";
                 $msg .= "<td>".$row['tipopagamento']."</td>";
                 $msg .= "<td>".$row['datapagamento']."</td>";
+                $msg .= "<td><button type='button' class='btn btn-primary btn-sm' onclick='editArr(".$row['idarrendamento'].", ".$row['precorenda'].")'>Renda</button></td>";
                 $msg .= "<td><button type='button' class='btn btn-danger btn-sm' onclick='delArr(".$row['idarrendamento'].")'>Apagar</button></td>";
                 $msg .= "</tr>";
                 }
@@ -288,6 +340,96 @@ require_once 'connection.php';
               }
       
         $conn->close();
+        return $msg;
+    }
+
+    function infoArrendamento($id){
+
+      global $conn;
+      session_start();
+          $nifUser = $_SESSION['nif'];
+
+      $sql = "SELECT arrendamento.*, inquilino.nome, imovel.morada,
+      tipopagamento.descricao as tipopagamento, imoveisarrendamento.precorenda
+
+
+        FROM imovel, inquilino, tipopagamento, arrendamento, imoveisarrendamento
+
+        WHERE
+     imovel.idimovel = arrendamento.idimovel AND
+     inquilino.id = arrendamento.idinquilino AND
+     tipopagamento.idtipopagamento = arrendamento.idtipopagamento AND
+     imoveisarrendamento.idimovel = arrendamento.idimovel AND
+     arrendamento.idproprietario = ".$nifUser." AND
+     arrendamento.idarrendamento = ".$id;
+
+
+
+      $morada = "";
+      $inquilino = "";
+      $precorenda = "";
+      $datapagamento = "";
+    
+      $result = $conn->query($sql);
+      if ($result->num_rows > 0) {
+          // output data of each row
+          while($row = $result->fetch_assoc()) {
+              $morada = $row['morada'];
+              $inquilino = $row['nome'];
+              $precorenda = $row['precorenda'];
+              $datapagamento = $row['datapagamento'];
+          }
+      } 
+      $conn->close();
+  
+      $res = array("morada" => $morada, "inquilino"=>$inquilino, "precorenda"=>$precorenda, "datapagamento"=>$datapagamento);
+      $res = json_encode($res);
+    
+      return $res;
+    }
+
+    function confirmRenda($valorReceita, $inquilino){
+      global $conn; 
+      session_start();
+      $nifUser = $_SESSION['nif'];
+
+      $date = new DateTime();
+      $current = $date->format("Y-m-d");
+      
+            $sql = "INSERT INTO historicomov (iduser, tipomovimento, valor, ref, timestap) 
+        VALUES('".$nifUser."', 1, '".$valorReceita."', 'Renda: ".$inquilino."', '".$current."')";
+
+        $msg = "";
+        
+                 
+        if ($conn->query($sql) === TRUE) {
+          $query = $this -> updateRenda($valorReceita, $nifUser);
+          $msg  = "Renda recebida com sucesso!";
+        } else {
+          $msg = "Error: " . $sql . "<br>" . $conn->error;
+        }
+        
+  
+        return $msg;
+    }
+
+    function updateRenda($valorReceita, $nifUser){
+      global $conn; 
+
+            $sql = "UPDATE financas SET saldo = (saldo + '".$valorReceita."')
+            WHERE idnif = '".$nifUser."'";
+
+        $msg = "";
+        
+                 
+        if ($conn->query($sql) === TRUE) {
+          $msg  = "Receita recebida com sucesso!";
+        } else {
+          $msg = "Error: " . $sql . "<br>" . $conn->error;
+        }
+        
+        $conn->close();
+  
         return $msg;
     }
 
