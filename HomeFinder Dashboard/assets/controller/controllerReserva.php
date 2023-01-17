@@ -196,7 +196,7 @@ class Reserva{
               $msg .= "<td>".$row['datasaida']."</td>";
               $msg .= "<td>".$row['numpessoas']."</td>";
               $msg .= "<td>".$row['descricao']."</td>";
-              // $msg .= "<td><button type='button' class='btn btn-success btn-sm' onclick='aceitaInt(".$row['idpedido']."')'>Aceitar</button></td>";
+              $msg .= "<td><button type='button' class='btn btn-success btn-sm' onclick='aceitaPag(".$row['idpedidoreserva'].")'>Aceitar Pagamento</button></td>";
               // $msg .= "<td><button type='button' class='btn btn-danger btn-sm' onclick='recusaInt(".$row['idpedido'].")'>Recusar</button></td>";
               $msg .= "</tr>";
                 }
@@ -208,28 +208,155 @@ class Reserva{
         return $msg;
     }
 
+
+    function aceitaPagamento($id){
+      global $conn;
+      $sql = "UPDATE pedidoreserva SET idestado = 4 WHERE idpedidoreserva = ".$id;
+      $date = new DateTime();
+      $current = $date->format("Y-m-d");
+      $msg = "";
+      if ($conn->query($sql) === TRUE) {
+          $resposta = $this -> getPrecoNoite($id);
+          $resposta = json_decode($resposta, TRUE);
+          $preco = intval($resposta['precopnoite']);
+
+          $resp1 = $this -> getNumDiasFerias($id);
+          $resp1 = json_decode($resp1, TRUE);
+          $inquilino = $resp1['inquilino'];
+          $dias = intval(abs($resp1['diasferias']));
+
+          $resp2 = $this -> updateFinancasFerias($preco, $dias, $inquilino);
+          $msg .= "Pagamento recebido";
+      } else {
+          $msg = "Error: " . $sql . "<br>" . $conn->error;
+      }
+      $conn->close();
+      return $msg;
+  }
+
+
     function estadoAceite($id){
+      global $conn;
+      $sql = "UPDATE pedidoreserva SET idestado = 2 WHERE idpedidoreserva = ".$id;
+      $date = new DateTime();
+      $current = $date->format("Y-m-d");
+      $msg = "";
+      if ($result = $conn->query($sql)) {
+          // $resposta = $this -> getPrecoNoite($id);
+          // $resposta = json_decode($resposta, TRUE);
+          // $preco = intval($resposta['precopnoite']);
+
+          // $resp1 = $this -> getNumDiasFerias($id);
+          // $resp1 = json_decode($resp1, TRUE);
+          // $inquilino = $resp1['inquilino'];
+          // $dias = intval(abs($resp1['diasferias']));
+
+          // $resp2 = $this -> updateFinancasFerias($preco, $dias, $inquilino);
+            $msg .= "Pedido de reserva aceite";
+      } else {
+          $msg = "Error: " . $sql . "<br>" . $conn->error;
+      }
+      $conn->close();
+      return $msg;
+  }
+
+  function getPrecoNoite($id){
+    global $conn;
+    $sql = "SELECT ferias.precopnoite FROM ferias, pedidoreserva, imovel
+    WHERE 
+        imovel.idimovel= ferias.idimovel AND
+        imovel.idimovel= pedidoreserva.idimovel AND
+        pedidoreserva.idpedidoreserva = ".$id;
+    $precopnoite = "";
+    if ($result = $conn->query($sql)) {
+        while($row = $result->fetch_assoc()) {
+            $precopnoite = $row['precopnoite'];
+        }
+    } else {
+        $msg = "Error: " . $sql . "<br>" . $conn->error;
+    }
+    $res = array("precopnoite" => $precopnoite);
+    $res = json_encode($res);
+    return $res;
+}
+    
+      function getNumDiasFerias($id){
 
         global $conn;
-      
-        $sql = "UPDATE pedidoreserva SET idestado = 2 WHERE idpedidoreserva = ".$id;
+    
+        $sql = "SELECT DATEDIFF(pedidoreserva.data, pedidoreserva.datasaida) AS diasferias, utilizador.nome
+         FROM pedidoreserva, utilizador WHERE
+         pedidoreserva.idremetente = utilizador.nif AND
+        pedidoreserva.idpedidoreserva = ".$id;
        
-        $msg = "";
+        $diasferias = "";
+        $inquilino = "";
         
-        
-        if ($conn->query($sql) === TRUE) {
-          // $resp = $this -> criar evento();
-          $msg  = "Pedido de reserva aceite";
+      
+        if ($result = $conn->query($sql)) {
+          while($row = $result->fetch_assoc()) {
+            $diasferias = $row['diasferias'];
+            $inquilino = $row['nome'];
+        }
         } else {
           $msg = "Error: " . $sql . "<br>" . $conn->error;
         }
       
-        $conn->close();
+        $res = array("diasferias" => $diasferias, "inquilino" => $inquilino);
+        $res = json_encode($res);
       
-        return $msg;
+        return $res;
       
       }
-     
+
+
+      function updateFinancasFerias($preco, $dias, $inquilino){
+        global $conn; 
+
+              session_start();
+              $nifUser = $_SESSION['nif'];
+
+              $date = new DateTime();
+              $current = $date->format("Y-m-d");
+              $total = $preco * $dias;
+              $sql = "UPDATE financas SET saldo = (saldo + '".$total."'), 
+                      data = '".$current."' WHERE idnif = '".$nifUser."'";
+
+          $msg = "";
+          
+          if ($result = $conn->query($sql)) {
+            $query = $this -> histReceitaFerias($total, $nifUser, $inquilino);
+            $msg  = "Pedido de reserva aceite";
+          } else {
+            $msg = "Error: " . $sql . "<br>" . $conn->error;
+          }
+          
+          return $msg;
+      }
+      
+
+      function histReceitaFerias($total, $nifUser, $inquilino){
+        global $conn; 
+        $date = new DateTime();
+        $current = $date->format("Y-m-d");
+        
+              $sql = "INSERT INTO historicomov (iduser, tipomovimento, valor, ref, timestap) 
+          VALUES('".$nifUser."', 1, '".$total."', 'Estadia de: ".$inquilino."', '".$current."')";
+
+          $msg = "";
+          
+                   
+          if ($conn->query($sql) === TRUE) {
+            $msg  = "Pedido de reserva aceite";
+          } else {
+            $msg = "Error: " . $sql . "<br>" . $conn->error;
+          }
+          
+    
+          return $msg;
+      }
+
+
       function estadoRecusado($id){
 
         global $conn;

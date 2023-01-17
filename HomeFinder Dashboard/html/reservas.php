@@ -115,6 +115,8 @@
                 aria-label="Salary: activate to sort column ascending" style="width: 93px;">Número de Pessoas</th>
             <th class="sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1"
                 aria-label="Salary: activate to sort column ascending" style="width: 93px;">Observações</th>
+                <th class="sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1"
+                aria-label="Salary: activate to sort column ascending" style="width: 70px;">Ações</th>
         </tr>
     </thead>
     <tbody id="listaResAceites">
@@ -129,6 +131,7 @@
             <th rowspan="1" colspan="1">Data de Saída</th>
             <th rowspan="1" colspan="1">Número de Pessoas</th>
             <th rowspan="1" colspan="1">Observações</th>
+            <th rowspan="1" colspan="1">Ações</th>
         </tr>
     </tfoot>
 </table>

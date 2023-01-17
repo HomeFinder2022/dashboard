@@ -36,6 +36,10 @@ if($_POST['op'] == 1){
     $est = new Reserva();
     $res = $est -> listaResAceites();
     echo($res);
+}else if($_POST['op'] == 8){
+    $est = new Reserva();
+    $res = $est -> aceitaPagamento($_POST['id']);
+    echo($res);
     }
 
 ?>
