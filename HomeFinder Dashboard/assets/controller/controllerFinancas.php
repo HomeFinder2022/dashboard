@@ -8,8 +8,11 @@ class Financas{
         global $conn; 
               session_start();
               $nifUser = $_SESSION['nif'];
+              
+              $date = new DateTime();
+              $current = $date->format("Y-m-d");
 
-              $sql = "UPDATE financas SET saldo = (saldo + '".$valorReceita."')
+              $sql = "UPDATE financas SET saldo = (saldo + '".$valorReceita."'), data = '".$current."'
               WHERE idnif = '".$nifUser."'";
 
           $msg = "";

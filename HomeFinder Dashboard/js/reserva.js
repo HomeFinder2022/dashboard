@@ -220,6 +220,34 @@
       });
   }
 
+  function aceitaPag(id) {
+
+    let dados = new FormData();
+    dados.append("op", 8);
+    dados.append("id", id);
+
+    $.ajax({
+      url: "../assets/model/modelReserva.php",
+      method: "POST",
+      data: dados,
+      cache: false,
+      processData: false,
+      contentType: false,
+      dataType: "html",
+    })
+  
+      .done(function (resposta) {
+        sucesso(resposta);
+        tabResAceites();
+      })
+  
+      .fail(function (jqXHR, textStatus) {
+        alert("Request failed: " + textStatus);
+      });
+  }
+
+
+
   function sucesso(msg) {
     Swal.fire({
       position: "center",

@@ -106,8 +106,10 @@ require_once 'connection.php';
 
        function updateFinancas($caucao, $nifUser){
         global $conn; 
-  
-        $sql = "UPDATE financas SET saldo = (saldo + '".$caucao."')
+        $date = new DateTime();
+        $current = $date->format("Y-m-d");
+
+        $sql = "UPDATE financas SET saldo = (saldo + '".$caucao."'), data = '".$current."'
         WHERE idnif = '".$nifUser."'";
 
   
@@ -416,7 +418,10 @@ require_once 'connection.php';
     function updateRenda($valorReceita, $nifUser){
       global $conn; 
 
-            $sql = "UPDATE financas SET saldo = (saldo + '".$valorReceita."')
+      $date = new DateTime();
+      $current = $date->format("Y-m-d");
+
+            $sql = "UPDATE financas SET saldo = (saldo + '".$valorReceita."'), data = '".$current."'
             WHERE idnif = '".$nifUser."'";
 
         $msg = "";
