@@ -53,7 +53,7 @@ require 'PHPMailer/src/SMTP.php';
         // $mail->addCC('dario_bianchi_@hotmail.com', 'Cópia');
 
         $mail->isHTML(true);
-        $mail->Subject ="Convite de José Lebre para a HomeFinder";
+        $mail->Subject ="Convite para entrar no HomeFinder";
         $mail->Body    = 
 
 "<html>
@@ -63,27 +63,32 @@ require 'PHPMailer/src/SMTP.php';
 
 <p align='center'><img src='../img/logo-HomeFinder-mini.png' alt='logo'></p>
 
-<p>Hi ".$nome.",</p>
+<p>Olá ".$nome.",</p>
 
-<p>I wanted to personally invite you to join me on HomeFinder, a new platform that helps people find their dream home.</p>
+<p>Queria convidá-lo pessoalmente a juntar-se a mim no HomeFinder, uma nova plataforma que ajuda as pessoas a encontrar 
+a casa dos seus sonhos.</p>
 
-<p>With HomeFinder, you can search for homes in your area, save your favorite listings, and connect with top real estate agents. It's the easiest way to find your perfect home!</p>
+<p>Com o HomeFinder, pode procurar casas na sua área, escolher as melhores opções para si. 
+É a forma mais fácil de encontrar a sua casa perfeita!</p>
 
-<p>I think you'll love it, and I can't wait to see what you find.</p>
+<p>Acho que vai adorar, mal posso esperar para ver o que vai encontrar.</p>
 
-<p>To join, just click the link below:</p>
+<p>Para aderir, basta clicar no link abaixo:</p>
 
-<p><a href='http://localhost/web/PROJETO FINAL/HomeFinder/fase1/registro.php'>Sign up for HomeFinder</a></p>
+<h3><a href='http://localhost/Dario/fase1/registro.php'>Registe-se no HomeFinder</a></h3>
 
-<p>I hope to see you on HomeFinder soon!</p>
+<p>Espero vê-lo em breve no HomeFinder!</p>
 
-<p>Best,<br>".$nome."</p>
+<p>Cumprimentos,<br>".$nome."</p>
 
 <div style='background-color: #2FCB6A; height: 55px;'></div>
 </div>
 </body>
 </html>
 ";
+
+
+
 
 
 
