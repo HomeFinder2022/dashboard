@@ -23,38 +23,40 @@
 <ul class="unstyled">
 
 <li>
-	<a href="/content/Models_PT/contracts/Contrato de arrendamento habitacional.doc">Contrato de arrendamento habitacional</a>
+	<a href="../assets/img/Modelos/Contrato de arrendamento habitacional.doc">Contrato de arrendamento habitacional</a>
 </li>
 
 <li>
-	<a href="/content/Models_PT/contracts/Contrato de arrendamento habitacional de curta duracao.doc">Contrato de arrendamento habitacional de curta duração</a>
+	<a href="../assets/img/Modelos/Contrato de arrendamento habitacional de curta duracao.doc">Contrato de arrendamento habitacional de curta duração</a>
 </li>
 
 <li>
-	<a href="/content/Models_PT/contracts/Contrato de arrendamento espaco de estacionamento.doc">Contrato de arrendamento espaço de estacionamento</a>
+	<a href="../assets/img/Modelos/Contrato de arrendamento espaco de estacionamento.doc">Contrato de arrendamento espaço de estacionamento</a>
 </li>
 
 <li>
-	<a href="/content/Models_PT/contracts/Contrato de arrendamento espaco de armazem.doc">Contrato de arrendamento espaço de armazem</a>
+	<a href="../assets/img/Modelos/Contrato de arrendamento espaco de armazem.doc">Contrato de arrendamento espaço de armazem</a>
 </li>
 
 <li>
-	<a href="/content/Models_PT/contracts/Contrato de arrendamento de loja.doc">Contrato de arrendamento de loja</a>
+	<a href="../assets/img/Modelos/Contrato de arrendamento de loja.doc">Contrato de arrendamento de loja</a>
 </li>
 
 <li>
-	<a href="/content/Models_PT/contracts/Contrato de arrendamento de escritorio.doc">Contrato de arrendamento de escritório</a>
+	<a href="../assets/img/Modelos/Contrato de arrendamento de escritorio.doc">Contrato de arrendamento de escritório</a>
 </li>
 
 <li>
-	<a href="/content/Models_PT/contracts/Contrato de arrendamento rural agricola.doc">Contrato de arrendamento rural agrícola</a>
+	<a href="../assets/img/Modelos/Contrato de arrendamento rural agricola.doc">Contrato de arrendamento rural agrícola</a>
 </li>
 
 <li>
-	<a href="/content/Models_PT/contracts/Contrato de arrendamento de escritorio ou cowork.doc">Contrato de arrendamento de escritório ou cowork</a>
+	<a href="../assets/img/Modelos/Contrato de arrendamento de escritorio ou cowork.doc">Contrato de arrendamento de escritório ou cowork</a>
 </li>
 
- 
+<li>
+	<a href='../assets/img/Modelos/InventarioHomeFinder.xlsx'>Inventário</a>
+</li>
 
 </ul>
 <br>
@@ -63,53 +65,31 @@
 
 <ul class="unstyled">
 <li>
-	<a href="/content/Models_PT/landlord/Atualizacao do arrendamento em curso.doc">Atualização do arrendamento em curso</a>
+	<a href="../assets/img/Modelos/proprietarios/Atualizacao do arrendamento em curso.doc">Atualização do arrendamento em curso</a>
 </li>
 
 <li>
-	<a href="/content/Models_PT/landlord/Certificado de Arrendamento.doc">Certificado de arrendamento</a>
+	<a href="../assets/img/Modelos/proprietarios/Recibo de Arrendamento.doc">Recibo de arrendamento</a>
 </li>
 
 <li>
-	<a href="/content/Models_PT/landlord/Declaracao de Entrada Inquilino.doc">Declaração de entrada Inquilino</a>
+	<a href="../assets/img/Modelos/proprietarios/Declaracao de Entrada Inquilino.doc">Declaração de entrada Inquilino</a>
 </li>
 
 <li>
-	<a href="/content/Models_PT/landlord/Declaracao de Saida Inquilino.doc">Declaração de saida Inquilino</a>
+	<a href="../assets/img/Modelos/proprietarios/Declaracao de Saida Inquilino.doc">Declaração de saida Inquilino</a>
 </li>
 
 <li>
-	<a href="/content/Models_PT/landlord/Impugnacao de Fianca.doc">Impugnação de fiança</a>
+	<a href="../assets/img/Modelos/proprietarios/Recibo de caucao.doc">Recibo de caução</a>
 </li>
 
 <li>
-	<a href='../assets/img/docs/InventarioHomeFinder.xlsx'>Inventário</a>
-</li>
-
-
-
-<li>
-	<a href="/content/Models_PT/landlord/Pedido de reparacao de danos.doc">Pedido de reparação de danos</a>
+	<a href="../assets/img/Modelos/proprietarios/Resolucao de contrato de arrendamento.doc">Resolução de contrato de arrendamento</a>
 </li>
 
 <li>
-	<a href="/content/Models_PT/landlord/Quadro de Obsolescencia.doc">Quadro de Obsolescência</a>
-</li>
-
-<li>
-	<a href="/content/Models_PT/landlord/Recibo de Arrendamento.doc">Recibo de arrendamento</a>
-</li>
-
-<li>
-	<a href="/content/Models_PT/landlord/Recibo de caucao.doc">Recibo de caução</a>
-</li>
-
-<li>
-	<a href="/content/Models_PT/landlord/Resolucao de contrato de arrendamento.doc">Resolução de contrato de arrendamento</a>
-</li>
-
-<li>
-	<a href="/content/Models_PT/landlord/Revisao do arrendamento em curso.doc">Revisão do arrendamento em curso</a>
+	<a href="../assets/img/Modelos/proprietarios/Revisao do arrendamento em curso.doc">Revisão do arrendamento em curso</a>
 </li>
 
 </ul>
@@ -121,32 +101,19 @@
 
 <ul class="unstyled">
 <li>
-	<a href="/content/Models_PT/tenant/Comunicacao de nao renovacao do contrato.doc">Comunicação de não renovação do contrato</a>
+	<a href="../assets/img/Modelos/inquilinos/Denuncia do arrendamento pelo inquilino.doc">Denúncia do arrendamento pelo inquilino</a>
+</li>
+
+
+<li>
+	<a href="../assets/img/Modelos/inquilinos/Pedido de devolucao da caucao.doc">Pedido de devolução da caução</a>
 </li>
 
 <li>
-	<a href="/content/Models_PT/tenant/Modificacao de inventario.doc">Modificação de inventário</a>
+	<a href="../assets/img/Modelos/inquilinos/Resolucao de contrato de arrendamento com aviso.doc">Resolução de contrato de arrendamento com aviso</a>
 </li>
 
-<li>
-	<a href="/content/Models_PT/tenant/Pedido de autorização de obras.doc">Pedido de autorização de obras</a>
-</li>
 
-<li>
-	<a href="/content/Models_PT/tenant/Pedido de devolucao da caucao.doc">Pedido de devolução da caução</a>
-</li>
-
-<li>
-	<a href="/content/Models_PT/tenant/Resolucao de contrato com sucessor.doc">Resolução de contrato com sucessor</a>
-</li>
-
-<li>
-	<a href="/content/Models_PT/tenant/Resolucao de contrato de arrendamento com aviso.doc">Resolução de contrato de arrendamento com aviso</a>
-</li>
-
-<li>
-	<a href="/content/Models_PT/tenant/Resolucao em caso de morte.doc">Resolução em caso de morte</a>
-</li>
 
 </ul>
 </div>
