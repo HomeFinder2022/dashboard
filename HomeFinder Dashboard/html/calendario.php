@@ -1,115 +1,75 @@
     <?php require_once 'menu.php'; ?>
-
-    <link rel="stylesheet" href="../assets/css/calendar.css">
-
-    <script>
-
-      document.addEventListener('DOMContentLoaded', function() {
-        var calendarEl = document.getElementById('calendar');
-    
-        var calendar = new FullCalendar.Calendar(calendarEl, {
-          headerToolbar: {
-            left: 'prev next today',
-            center: 'title',
-            right: 'dayGridMonth,timeGridWeek,timeGridDay'
-          },
-          locale: 'pt',
-          navLinks: true, // can click day/week names to navigate views
-          selectable: true,
-          selectMirror: true,
-          select: function(arg) {
-            var title = prompt('Event Title:');
-            if (title) {
-              calendar.addEvent({
-                title: title,
-                start: arg.start,
-                end: arg.end,
-                allDay: arg.allDay
-              })
-            }
-            calendar.unselect()
-          },
-          eventClick: function(arg) {
-            if (confirm('Are you sure you want to delete this event?')) {
-              arg.event.remove()
-            }
-          },
-          editable: true,
-          dayMaxEvents: true, // allow "more" link when too many events
-          events: [
-            {
-              title: 'All Day Event',
-              start: '2022-12-01'
-            },
-            {
-              title: 'Long Event',
-              start: '2020-09-07',
-              end: '2020-09-10'
-            },
-            {
-              groupId: 999,
-              title: 'Repeating Event',
-              start: '2020-09-09T16:00:00'
-            },
-            {
-              groupId: 999,
-              title: 'Repeating Event',
-              start: '2020-09-16T16:00:00'
-            },
-            {
-              title: 'Conference',
-              start: '2020-09-11',
-              end: '2020-09-13'
-            },
-            {
-              title: 'Meeting',
-              start: '2020-09-12T10:30:00',
-              end: '2020-09-12T12:30:00'
-            },
-            {
-              title: 'Lunch',
-              start: '2020-09-12T12:00:00'
-            },
-            {
-              title: 'Meeting',
-              start: '2020-09-12T14:30:00'
-            },
-            {
-              title: 'Happy Hour',
-              start: '2020-09-12T17:30:00'
-            },
-            {
-              title: 'Dinner',
-              start: '2020-09-12T20:00:00'
-            },
-            {
-              title: 'Birthday Party',
-              start: '2020-09-13T07:00:00'
-            },
-            {
-              title: 'Click for Google',
-              url: 'http://google.com/',
-              start: '2020-09-28'
-            }
-          ]
-        });
-    
-        calendar.render();
-      });
-    
-    </script>
+    <?php require_once 'db-connect.php'; ?>
+    <script src="../js/fullcalendar/lib/main.min.js"></script>
+    <script src="../js/fullcalendar/lib/locales/pt.js"></script>
+    <link rel="stylesheet" href="../js/fullcalendar/lib/main.css">
+    <!-- <script src="../js/pt.js"></script> -->
 
           <!-- Content wrapper -->
           <div class="content-wrapper">
             <!-- Content -->
             <div class="container-fluid">
+            <div class="card mt-3">
+            <div class="container-fluid mt-3">
               <div class="mt-4" id='calendar'></div>
             </div>
-            
+            </div>
+            </div>
+
+       <!-- Event Details Modal -->
+    <div class="modal fade" tabindex="-1" data-bs-backdrop="static" id="event-details-modal">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content rounded-0">
+                <div class="modal-header rounded-0">
+                    <h5 class="modal-title title-form fs-3">Detalhes do Evento</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body rounded-0">
+                    <div class="container-fluid">
+                        <dl>
+                            <dt style="color: black !important;">Titulo</dt>
+                            <dd id="title" class="fw-bold"></dd>
+                            <dt style="color: black !important;">Descrição</dt>
+                            <dd id="description"  class="fw-bold"></dd>
+                            <dt style="color: black !important;">Data Inicio</dt>
+                            <dd id="start"  class="fw-bold"></dd>
+                            <dt style="color: black !important;">Data Fim</dt>
+                            <dd id="end" class="fw-bold"></dd>
+                        </dl>
+                    </div>
+                </div>
+                <div class="modal-footer rounded-0">
+                    <div class="text-end">
+                        <button type="button" class="btn btn-primary btn-sm rounded-0" id="edit" data-id="">Editar</button>
+                        <button type="button" class="btn btn-danger btn-sm rounded-0" id="delete" data-id="">Apagar</button>
+                        <button type="button" class="btn btn-secondary btn-sm rounded-0" data-bs-dismiss="modal">Fechar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Event Details Modal -->
+    
             <!-- / Content -->
-      
+            <?php 
+           
+            
+$schedules = $conn->query("SELECT * FROM eventos");
+$sched_res = [];
+foreach($schedules->fetch_all(MYSQLI_ASSOC) as $row){
+  // setlocale(LC_TIME, 'pt_PT');
+     $row['sdate'] = date("d F Y h:i A",strtotime($row['start_datetime']));
+    $row['edate'] = date("d F Y h:i A",strtotime($row['end_datetime']));
+    $sched_res[$row['id']] = $row;
+}
+?>
+<?php 
+if(isset($conn)) $conn->close();
+?> 
   </body>
   <?php require_once 'footer.php'; ?>
-  <script src="../assets/js/calendar.js"></script>
-    <script src="../assets/js/pt.js"></script>
+  <script>
+    var scheds = $.parseJSON('<?= json_encode($sched_res) ?>')
+</script>
+  <script src="../js/script.js"></script>
 </html>

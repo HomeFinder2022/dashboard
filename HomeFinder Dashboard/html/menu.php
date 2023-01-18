@@ -303,7 +303,7 @@ if(isset($_SESSION['nomeUser'])){ ?>
                 <li><a class="dropdown-item" href="reg_movimento.php"><i class="menu-icon tf-icons bx bx-minus-circle"></i>Adicionar Despesa</a></li>
                 <li><a class="dropdown-item" href="reg_intervencao.php"><i class="menu-icon tf-icons bx bxs-wrench"></i>Adicionar Intervenção</a></li>
                 <li><a class="dropdown-item" href="reg_doc.php"><i class="menu-icon tf-icons bx bx-file"></i>Adicionar Documento</a></li>
-                <li><a class="dropdown-item" href="javascript:void(0);"><i class="menu-icon tf-icons bx bx-calendar"></i>Adicionar Evento</a></li>
+                <li><a class="dropdown-item" href="reg_evento.php"><i class="menu-icon tf-icons bx bx-calendar"></i>Adicionar Evento</a></li>
                 <li><a class="dropdown-item" href="reg_contato.php"><i class="menu-icon tf-icons bx bxs-contact"></i>Adicionar Contacto</a></li>
             
               </ul>
