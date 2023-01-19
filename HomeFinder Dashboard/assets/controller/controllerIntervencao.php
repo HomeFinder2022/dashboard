@@ -158,7 +158,7 @@ class Intervencao{
       session_start();
             $nifUser = $_SESSION['nif'];
 
-      $sql = "SELECT pedidointervencao.idpedido, pedidointervencao.idimovel, pedidointervencao.hora, pedidointervencao.data, pedidointervencao.descricao, utilizador.nome FROM pedidointervencao, utilizador
+      $sql = "SELECT pedidointervencao.idpedido, pedidointervencao.idimovel, pedidointervencao.data, pedidointervencao.descricao, utilizador.nome FROM pedidointervencao, utilizador
        WHERE 
        pedidointervencao.iddestinatario = utilizador.nif and
        iddestinatario = '".$nifUser."' and
@@ -176,7 +176,6 @@ class Intervencao{
             $msg .= "<td>".$row['idpedido']."</td>";
             $msg .= "<td>".$row['idimovel']."</td>";
             $msg .= "<td>".$row['nome']."</td>";
-            $msg .= "<td>".$row['hora']."</td>";
             $msg .= "<td>".$row['data']."</td>";
             $msg .= "<td>".$row['descricao']."</td>";
             // $msg .= "<td><button type='button' class='btn btn-success btn-sm' onclick='aceitaInt(".$row['idpedido']."')'>Aceitar</button></td>";
@@ -197,7 +196,7 @@ class Intervencao{
     session_start();
           $nifUser = $_SESSION['nif'];
 
-    $sql = "SELECT estado.descricao as estado, pedidointervencao.idpedido, pedidointervencao.idimovel, pedidointervencao.hora, pedidointervencao.data, pedidointervencao.descricao, utilizador.nome FROM pedidointervencao, utilizador, estado
+    $sql = "SELECT estado.descricao as estado, pedidointervencao.idpedido, pedidointervencao.idimovel, pedidointervencao.data, pedidointervencao.descricao, utilizador.nome FROM pedidointervencao, utilizador, estado
      WHERE 
      pedidointervencao.iddestinatario = utilizador.nif and
      estado.idestado = pedidointervencao.idestado and
@@ -215,7 +214,6 @@ class Intervencao{
           $msg .= "<td>".$row['idpedido']."</td>";
           $msg .= "<td>".$row['idimovel']."</td>";
           $msg .= "<td>".$row['nome']."</td>";
-          $msg .= "<td>".$row['hora']."</td>";
           $msg .= "<td>".$row['data']."</td>";
           $msg .= "<td>".$row['descricao']."</td>";
           $msg .= "<td>".$row['estado']."</td>";

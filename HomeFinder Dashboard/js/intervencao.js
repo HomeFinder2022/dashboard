@@ -2,7 +2,6 @@ function registoIntervencao() {
 
     let tipoInt = $("#tipoInt").val();
     let dataInt = $("#dataInt").val();
-    let horaInt = $("#horaInt").val();
     let descInt = $("#descInt").val();
     let imovel = $("#imovelInt").val();
 
@@ -13,7 +12,6 @@ function registoIntervencao() {
 
     dados.append("tipoInt", tipoInt);
     dados.append("dataInt", dataInt);
-    dados.append("horaInt", horaInt);
     dados.append("descInt", descInt);
     dados.append("imovel", imovel);
 

@@ -21,8 +21,6 @@
             <th class="sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1"
                 aria-label="Age: activate to sort column ascending" style="width: 61px;">Destinatário</th>
             <th class="sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1"
-                aria-label="Salary: activate to sort column ascending" style="width: 122px;">Hora</th>
-            <th class="sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1"
             aria-label="Salary: activate to sort column ascending" style="width: 61px;">Data</th>
             <th class="sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1"
                 aria-label="Salary: activate to sort column ascending" style="width: 93px;">Observações</th>
@@ -38,7 +36,6 @@
             <th rowspan="1" colspan="1">Id</th>
             <th rowspan="1" colspan="1">Imóvel</th>
             <th rowspan="1" colspan="1">Destinatário</th>
-            <th rowspan="1" colspan="1">Hora</th>
             <th rowspan="1" colspan="1">Data</th>
             <th rowspan="1" colspan="1">Observações</th>
             <th rowspan="1" colspan="1">Estado</th>
@@ -98,8 +95,6 @@
             <th class="sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1"
                 aria-label="Age: activate to sort column ascending" style="width: 61px;">Destinatário</th>
             <th class="sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1"
-                aria-label="Salary: activate to sort column ascending" style="width: 122px;">Hora</th>
-            <th class="sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1"
             aria-label="Salary: activate to sort column ascending" style="width: 61px;">Data</th>
             <th class="sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1"
                 aria-label="Salary: activate to sort column ascending" style="width: 93px;">Observações</th>
@@ -114,7 +109,6 @@
             <th rowspan="1" colspan="1">Id</th>
             <th rowspan="1" colspan="1">Imóvel</th>
             <th rowspan="1" colspan="1">Destinatário</th>
-            <th rowspan="1" colspan="1">Hora</th>
             <th rowspan="1" colspan="1">Data</th>
             <th rowspan="1" colspan="1">Observações</th>
         </tr>
