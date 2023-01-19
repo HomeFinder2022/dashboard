@@ -249,7 +249,7 @@ if(isset($_SESSION['nomeUser'])){ ?>
             <li class="menu-header small text-uppercase"><span class="menu-header-text">Ajuda</span></li>
             
             <li class="menu-item">
-              <a href="javascript:void(0);" class="menu-link">
+              <a href="../../../fase1/contactos.php" class="menu-link">
                 <i class="menu-icon tf-icons bx bxs-help-circle"></i>
                 <div data-i18n="Form Layouts">Suporte</div>
               </a>
@@ -522,7 +522,7 @@ falta o if do php
                   </a>
                   <ul class="dropdown-menu dropdown-menu-end">
                     <li>
-                      <a class="dropdown-item" href="pages-account-settings-account.html">
+                      <a class="dropdown-item" href="#">
                         <div class="d-flex">
                           <div class="flex-shrink-0 me-3">
                             <div class="avatar avatar-online">
@@ -540,23 +540,22 @@ falta o if do php
                       <div class="dropdown-divider"></div>
                     </li>
                     <li>
-                      <a class="dropdown-item" href="pages-profile-user.html">
+                      <a class="dropdown-item" href="../../../fase1/perfil.php">
                         <i class="bx bx-user me-2"></i>
                         <span class="align-middle">O meu perfil</span>
                       </a>
                     </li>
                     <li>
-                      <a class="dropdown-item" href="pages-account-settings-account.html">
+                      <a class="dropdown-item" href="#">
                         <i class="bx bx-cog me-2"></i>
                         <span class="align-middle">Definições</span>
                       </a>
                     </li>
                     <li>
-                      <a class="dropdown-item" href="pages-account-settings-billing.html">
+                      <a class="dropdown-item" href="../../../fase1/pagamentos.php">
                         <span class="d-flex align-items-center align-middle">
                           <i class="flex-shrink-0 bx bx-credit-card me-2"></i>
-                          <span class="flex-grow-1 align-middle">Billing</span>
-                          <span class="flex-shrink-0 badge badge-center rounded-pill bg-danger w-px-20 h-px-20">4</span>
+                          <span class="flex-grow-1 align-middle">Pagamentos</span>
                         </span>
                       </a>
                     </li>
@@ -564,15 +563,21 @@ falta o if do php
                       <div class="dropdown-divider"></div>
                     </li>
                     <li>
-                      <a class="dropdown-item" href="pages-help-center-landing.html">
+                      <a class="dropdown-item" href="../../../fase1/contactos.php">
                         <i class="bx bx-support me-2"></i>
                         <span class="align-middle">Contatos</span>
                       </a>
                     </li>
                     <li>
+                      <a class="dropdown-item" href="../../../fase1/sobre.php">
+                        <i class="bx bxs-info-circle me-2"></i>
+                        <span class="align-middle">Sobre</span>
+                      </a>
+                    </li>
+                    <li>
                       <a class="dropdown-item" href="../../../fase1/precos.php">
                         <i class="bx bx-dollar me-2"></i>
-                        <span class="align-middle">Planos</span>
+                        <span class="align-middle">Subscrição</span>
                       </a>
                     </li>
                     <li>
