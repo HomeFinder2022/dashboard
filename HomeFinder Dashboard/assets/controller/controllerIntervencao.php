@@ -118,8 +118,9 @@ class Intervencao{
         session_start();
               $nifUser = $_SESSION['nif'];
 
-        $sql = "SELECT pedidointervencao.*, utilizador.nome FROM pedidointervencao, utilizador
+        $sql = "SELECT pedidointervencao.*, utilizador.nome, imovel.morada FROM pedidointervencao, utilizador, imovel
          WHERE 
+         pedidointervencao.idimovel = imovel.idimovel and
          pedidointervencao.idremetente = utilizador.nif and
          iddestinatario = '".$nifUser."' and
          pedidointervencao.idestado = 1";
@@ -138,7 +139,7 @@ class Intervencao{
               $msg .= "<td>".$row['nome']."</td>";
               $msg .= "<td>".$row['data']."</td>";
               $msg .= "<td>".$row['descricao']."</td>";
-              $msg .= "<td style='text-align: center; vertical-align: middle;'><button type='button' class='btn btn-success btn-sm' onclick='aceitaInt(\"".$row['idpedido']."\", \"".$row['data']."\", \"".$row['descricao']."\")'>Aceitar</button></td>";
+              $msg .= "<td style='text-align: center; vertical-align: middle;'><button type='button' class='btn btn-success btn-sm' onclick='aceitaInt(\"".$row['idpedido']."\", \"".$row['data']."\", \"".$row['nome']."\", \"".$row['morada']."\")'>Aceitar</button></td>";
               $msg .= "<td style='text-align: center; vertical-align: middle;'><button type='button' class='btn btn-danger btn-sm' onclick='recusaInt(".$row['idpedido'].")'>Recusar</button></td>";
               $msg .= "</tr>";
                 }
@@ -230,7 +231,7 @@ class Intervencao{
     return $msg;
 }
 
-    function estadoAceite($id, $data, $descricao){
+    function estadoAceite($id, $data, $nome, $morada){
 
       global $conn;
     
@@ -240,7 +241,7 @@ class Intervencao{
       
       if ($conn->query($sql) === TRUE) {
         // $resp = $this -> criar evento();
-        $query = $this -> insertEvento($data, $descricao);
+        $query = $this -> insertEvento($data, $nome, $morada);
         $msg  = "Pedido de intervenção aceite";
       } else {
         $msg = "Error: " . $sql . "<br>" . $conn->error;
@@ -252,11 +253,11 @@ class Intervencao{
     
     }
 
-    function insertEvento($data, $descricao){
+    function insertEvento($data, $nome, $morada){
       global $conn; 
 
         $sql = "INSERT INTO eventos (title, description, start_datetime, end_datetime) 
-        VALUES('Intervenção:', '".$descricao."', '".$data."', '".$data."')";
+        VALUES('Intervenção: ".$nome."', 'Imóvel: ".$morada."', '".$data."', '".$data."')";
 
         $msg = "";
         
