@@ -288,6 +288,36 @@ function registoArr() {
   
   }
 
+  function concluiArr(id){
+
+    
+    let dados = new FormData();
+    dados.append('op',11);
+    dados.append('id', id);
+
+  
+    $.ajax({
+      url: "../assets/model/modelArr.php",
+      method: "POST",
+      data: dados,
+      cache:false,
+      processData:false,
+      contentType: false,
+      dataType: "html"
+    })
+     
+    .done(function( resposta ) {
+      sucesso(resposta);
+      tabArr();
+  
+    })
+     
+    .fail(function( jqXHR, textStatus ) {
+      alert( "Request failed: " + textStatus );
+    });
+  
+  }
+
   function sucesso(msg) {
     Swal.fire({
       position: "center",
