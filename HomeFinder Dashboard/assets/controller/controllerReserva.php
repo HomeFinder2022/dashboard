@@ -134,8 +134,9 @@ class Reserva{
         session_start();
               $nifUser = $_SESSION['nif'];
 
-        $sql = "SELECT pedidoreserva.*, utilizador.nome FROM pedidoreserva, utilizador
+        $sql = "SELECT pedidoreserva.*, utilizador.nome, imovel.morada FROM pedidoreserva, utilizador, imovel
          WHERE 
+         pedidoreserva.idimovel = imovel.idimovel and
          pedidoreserva.idremetente = utilizador.nif and
          iddestinatario = '".$nifUser."' and
          pedidoreserva.idestado = 1";
@@ -156,7 +157,7 @@ class Reserva{
               $msg .= "<td>".$row['datasaida']."</td>";
               $msg .= "<td>".$row['numpessoas']."</td>";
               $msg .= "<td>".$row['descricao']."</td>";
-              $msg .= "<td style='text-align: center; vertical-align: middle;'><button type='button' class='btn btn-success btn-sm' onclick='aceitaRes(\"".$row['idpedidoreserva']."\", \"".$row['data']."\", \"".$row['datasaida']."\")'>Aceitar</button></td>";
+              $msg .= "<td style='text-align: center; vertical-align: middle;'><button type='button' class='btn btn-success btn-sm' onclick='aceitaRes(\"".$row['idpedidoreserva']."\", \"".$row['data']."\", \"".$row['datasaida']."\", \"".$row['nome']."\", \"".$row['morada']."\")'>Aceitar</button></td>";
               $msg .= "<td style='text-align: center; vertical-align: middle;'><button type='button' class='btn btn-danger btn-sm' onclick='recusaRes(".$row['idpedidoreserva'].")'>Recusar</button></td>";
               $msg .= "</tr>";
                 }
@@ -235,7 +236,7 @@ class Reserva{
   }
 
 
-    function estadoAceite($id, $dataent, $datasaida){
+    function estadoAceite($id, $dataent, $datasaida, $nome, $morada){
       global $conn;
       $sql = "UPDATE pedidoreserva SET idestado = 2 WHERE idpedidoreserva = ".$id;
       $date = new DateTime();
@@ -243,7 +244,7 @@ class Reserva{
       $msg = "";
       if ($result = $conn->query($sql)) {
 
-          $query = $this -> insertEvento($dataent, $datasaida);
+          $query = $this -> insertEvento($dataent, $datasaida, $nome, $morada);
           $msg .= "Pedido de reserva aceite";
       } else {
           $msg = "Error: " . $sql . "<br>" . $conn->error;
@@ -252,11 +253,11 @@ class Reserva{
       return $msg;
   }
 
-  function insertEvento($dataent, $datasaida){
+  function insertEvento($dataent, $datasaida, $nome, $morada){
     global $conn; 
 
       $sql = "INSERT INTO eventos (title, description, start_datetime, end_datetime) 
-      VALUES('Reserva:', 'Alojamento:', '".$dataent."', '".$datasaida."')";
+      VALUES('Reserva: ".$nome."', 'Imóvel: ".$morada."', '".$dataent."', '".$datasaida."')";
 
       $msg = "";
       

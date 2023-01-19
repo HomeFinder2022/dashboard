@@ -16,9 +16,12 @@ require_once 'connection.php';
           $msg = "";
           
           if ($conn->query($sql) === TRUE) {
+            $lastID = mysqli_insert_id($conn);
+            $resp = $this -> getInfo($lastID);
+            $resp = json_decode($resp, TRUE);
             $query1 = $this -> insertListaArrend($imovel, $inquilino, $nifUser);
-            $query2 = $this -> insertCaucao($caucao, $nifUser);
-            $query3 = $this -> insertEvento($datapag);
+            $query2 = $this -> insertCaucao($caucao, $nifUser, $resp['nome']);
+            $query3 = $this -> insertEvento($datapag, $resp['nome'], $resp['morada']);
             // $query3 = $this -> insert_renda_mes($imovel, $nifUser);
             // inserir no historicomov a renda para o user proprietario e update das financas
             $msg = "Arrendamento registado com sucesso!";
@@ -31,13 +34,49 @@ require_once 'connection.php';
           return $msg;
        }
 
-       function insertEvento($datapag){
+       function getInfo($lastID){
+
+        global $conn;
+      $sql = "SELECT utilizador.nome, imovel.morada
+
+      FROM imovel, utilizador, arrendamento, inquilino
+
+              WHERE 
+
+
+              arrendamento.idinquilino = inquilino.id and
+              arrendamento.idimovel = imovel.idimovel and
+              inquilino.idnifinquilino = utilizador.nif AND 
+              arrendamento.idarrendamento = ".$lastID;
+        
+        $nome = "";
+        $morada = "";
+
+
+        $result = $conn->query($sql);
+        if ($result->num_rows > 0) {
+            // output data of each row
+            while($row = $result->fetch_assoc()) {
+                $nome = $row['nome'];
+                $morada = $row['morada'];
+            }
+        } 
+    
+        $res = array("nome"=>$nome, "morada"=>$morada);
+        $res = json_encode($res);
+      
+        return $res;
+      }
+
+
+
+       function insertEvento($datapag, $inquilino, $morada){
         global $conn; 
 
         $day = date('d', strtotime($datapag));
 
           $sql = "INSERT INTO eventos (title, description, start_datetime, end_datetime, rrule) 
-          VALUES('Prazo de Pagamento', 'Renda de:', '".$datapag."', '".$datapag."', 'FREQ=MONTHLY;BYMONTHDAY=".$day."')";
+          VALUES('Prazo de pagamento', 'Inquilino: ".$inquilino."  ' '|  Imóvel: ".$morada."', '".$datapag."', '".$datapag."', 'FREQ=MONTHLY;BYMONTHDAY=".$day."')";
           $msg = "";
           
           if ($conn->query($sql) === TRUE) {
@@ -99,14 +138,14 @@ require_once 'connection.php';
       // }
 
 
-       function insertCaucao($caucao, $nifUser){
+       function insertCaucao($caucao, $nifUser, $inquilino){
         global $conn; 
   
         $date = new DateTime();
         $current = $date->format("Y-m-d");
   
             $sql = "INSERT INTO historicomov (iduser, tipomovimento, valor, timestap, ref) 
-            VALUES('".$nifUser."', 1, '".$caucao."','".$current."', 'Caução')";
+            VALUES('".$nifUser."', 1, '".$caucao."','".$current."', 'Caução: ".$inquilino."')";
   
           $msg = "";
           

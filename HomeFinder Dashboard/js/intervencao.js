@@ -178,13 +178,14 @@ function registoIntervencao() {
   
   }
 
-  function aceitaInt(id, data, descricao) {
+  function aceitaInt(id, data, nome, morada) {
 
     let dados = new FormData();
     dados.append("op", 5);
     dados.append("id", id);
     dados.append("data", data);
-    dados.append("descricao", descricao);
+    dados.append("nome", nome);
+    dados.append("morada", morada);
 
 
     $.ajax({

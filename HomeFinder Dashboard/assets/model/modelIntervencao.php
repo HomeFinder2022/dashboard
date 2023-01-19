@@ -26,7 +26,7 @@ if($_POST['op'] == 1){
         echo($res);
     }else if($_POST['op'] == 5){
         $est = new Intervencao();
-        $res = $est -> estadoAceite($_POST['id'], $_POST['data'], $_POST['descricao']);
+        $res = $est -> estadoAceite($_POST['id'], $_POST['data'], $_POST['nome'], $_POST['morada']);
         echo($res);
     }else if($_POST['op'] == 6){
         $est = new Intervencao();
