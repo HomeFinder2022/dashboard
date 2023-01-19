@@ -364,19 +364,19 @@ require_once 'connection.php';
         session_start();
         $nifUser = $_SESSION['nif'];
         $sql = "SELECT arrendamento.*, inquilino.nome, imovel.morada,
-         tipopagamento.descricao as tipopagamento, imoveisarrendamento.precorenda, estadoarrendamento.descricao as estado
+        tipopagamento.descricao as tipopagamento, imoveisarrendamento.precorenda, estadoarrendamento.descricao as estado
 
 
-           FROM imovel, inquilino, tipopagamento, arrendamento, imoveisarrendamento, estadoarrendamento
-
-           WHERE
-           arrendamento.idestadoarrend = estadoarrendamento.id AND
-        imovel.idimovel = arrendamento.idimovel AND
-        inquilino.id = arrendamento.idinquilino AND
-        tipopagamento.idtipopagamento = arrendamento.idtipopagamento AND
-        imoveisarrendamento.idimovel = arrendamento.idimovel AND
-        arrendamento.idestadoarrend = 1 AND
-        arrendamento.idproprietario = ".$nifUser;
+          FROM arrendamento, inquilino, imovel, tipopagamento, imoveisarrendamento, estadoarrendamento
+          
+          WHERE
+          arrendamento.idinquilino = inquilino.id AND
+          arrendamento.idimovel = imovel.idimovel AND
+          arrendamento.idtipopagamento = tipopagamento.idtipopagamento AND
+          imoveisarrendamento.idimovel = imovel.idimovel AND
+          arrendamento.idestadoarrend = estadoarrendamento.id AND
+          arrendamento.idestadoarrend = 1 AND
+       arrendamento.idproprietario =".$nifUser;
     
         $result = $conn->query($sql);
     
