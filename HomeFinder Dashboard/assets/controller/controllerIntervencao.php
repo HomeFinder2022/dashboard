@@ -84,14 +84,17 @@ class Intervencao{
 
       function selectImovel(){
         global $conn;
+        session_start();
+              $nifUser = $_SESSION['nif'];
         $sql = "SELECT DISTINCT imovel.idimovel, imovel.morada ,utilizador.nome, utilizador.nif
 
         FROM listainquilino_imovel, imovel, utilizador, inquilino 
         
                 WHERE listainquilino_imovel.idimovel = imovel.idimovel and
                   listainquilino_imovel.idutilizador = utilizador.nif AND 
-                  listainquilino_imovel.idinquilino = inquilino.id
-        ";
+                  listainquilino_imovel.idinquilino = inquilino.id ANd
+                  inquilino.idnifinquilino =".$nifUser;
+
         $msg = "<option value='-1'>Escolha um imóvel</option>";
         
         $result = $conn->query($sql);
