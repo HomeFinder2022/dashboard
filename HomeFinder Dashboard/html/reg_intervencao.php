@@ -51,13 +51,13 @@
 
                     <div class="col-3">
                       <label for="dataInt" class="form-label">Data</label>
-                      <input type="date" class="form-control" id="dataInt">
+                      <input type="datetime-local" class="form-control" id="dataInt">
                     </div>
-
+<!-- 
                     <div class="col-3">
                       <label for="horaInt" class="form-label">Hora</label>
                       <input type="time" class="form-control" id="horaInt">
-                    </div>
+                    </div> -->
 
                     <div class="col-6">
                       <label for="descInt" class="form-label">Descrição</label>

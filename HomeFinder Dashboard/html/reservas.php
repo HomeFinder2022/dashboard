@@ -61,7 +61,7 @@
             <th class="sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1"
                 aria-label="Office: activate to sort column ascending" style="width: 80px;">Imóvel</th>
             <th class="sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1"
-                aria-label="Age: activate to sort column ascending" style="width: 61px;">Destinatário</th>
+                aria-label="Age: activate to sort column ascending" style="width: 61px;">Remetente</th>
             <th class="sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1"
                 aria-label="Salary: activate to sort column ascending" style="width: 122px;">Data de Entrada</th>
             <th class="sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1"
@@ -83,7 +83,7 @@
         <tr>
         <th rowspan="1" colspan="1">Id</th>
             <th rowspan="1" colspan="1">Imóvel</th>
-            <th rowspan="1" colspan="1">Destinatário</th>
+            <th rowspan="1" colspan="1">Remetente</th>
             <th rowspan="1" colspan="1">Data de Entrada</th>
             <th rowspan="1" colspan="1">Data de Saída</th>
             <th rowspan="1" colspan="1">Número de Pessoas</th>

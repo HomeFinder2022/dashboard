@@ -20,36 +20,30 @@ $(function() {
             center: 'title',
         },
         locale: 'pt',
-        // eventTimeFormat: { // like '14:30:00'
-        //     hour: '2-digit',
-        //     minute: '2-digit',
-        //     second: '2-digit',
-        //     meridiem: false
-        //   },
-        // timeZone: 'local',
-        // dateFormat: 'DD, d [de] MM [de] YYYY',
-        // timeFormat: 'HH:mm',
+        displayEventTime: false,
           navLinks: true, // can click day/week names to navigate views
           selectable: true,
           selectMirror: true,
           events: events,
-        eventClick: function(info) {
+          eventClick: function(info) {
             var _details = $('#event-details-modal')
             var id = info.event.id
             if (!!scheds[id]) {
                 _details.find('#title').text(scheds[id].title)
                 _details.find('#description').text(scheds[id].description)
-                _details.find('#start').text(scheds[id].sdate)
-                _details.find('#end').text(scheds[id].edate)
+                var sdate = moment(scheds[id].sdate).locale('pt-br').format('YYYY-MM-DD HH:mm:ss');
+                var edate = moment(scheds[id].edate).locale('pt-br').format('YYYY-MM-DD HH:mm:ss');
+                _details.find('#start').text(sdate)
+                _details.find('#end').text(edate)
                 _details.find('#edit,#delete').attr('data-id', id)
                 _details.modal('show')
             } else {
                 alert("Event is undefined");
             }
         },
-        eventDidMount: function(info) {
-            // Do Something after events mounted
-        },
+        // eventDidMount: function(info) {
+        //     // Do Something after events mounted
+        // },
         editable: true
     });
 
@@ -62,38 +56,17 @@ $(function() {
     // })
 
     // Edit Button
-    $('#edit').click(function() {
-        var id = $(this).attr('data-id')
-        if (!!scheds[id]) {
-            var _form = $('#schedule-form')
-            console.log(String(scheds[id].start_datetime), String(scheds[id].start_datetime).replace(" ", "\\t"))
-            _form.find('[name="id"]').val(id)
-            _form.find('[name="title"]').val(scheds[id].title)
-            _form.find('[name="description"]').val(scheds[id].description)
-            _form.find('[name="start_datetime"]').val(String(scheds[id].start_datetime).replace(" ", "T"))
-            _form.find('[name="end_datetime"]').val(String(scheds[id].end_datetime).replace(" ", "T"))
-            $('#event-details-modal').modal('hide')
-            _form.find('[name="title"]').focus()
-        } else {
-            alert("Event is undefined");
-        }
-    })
-
-    // Delete Button / Deleting an Event
-    // $('#delete').click(function() {
+    // $('#edit').click(function() {
     //     var id = $(this).attr('data-id')
     //     if (!!scheds[id]) {
-    //         var _conf = confirm("Are you sure to delete this scheduled event?");
-    //         if (_conf === true) {
-    //             location.href = "./delete_schedule.php?id=" + id;
-    //             $('#event-details-modal').modal('hide');
-    //             Swal.fire(
-    //                 'Evento eliminado com sucesso',
-    //                 'success'
-    //               );
-    //               calendar.render();
-                  
-    //         }
+    //         var _form = $('#schedule-form')
+    //         _form.find('[name="id"]').val(id)
+    //         _form.find('[name="title"]').val(scheds[id].title)
+    //         _form.find('[name="description"]').val(scheds[id].description)
+    //         _form.find('[name="start_datetime"]').val(moment(scheds[id].start_datetime).locale('pt-br').format('LLL')+'T'+moment(scheds[id].start_datetime).format('HH:mm'))
+    //         _form.find('[name="end_datetime"]').val(moment(scheds[id].end_datetime).locale('pt-br').format('LLL')+'T'+moment(scheds[id].end_datetime).format('HH:mm'))
+    //         $('#event-details-modal').modal('hide')
+    //         _form.find('[name="title"]').focus()
     //     } else {
     //         alert("Event is undefined");
     //     }
@@ -103,30 +76,37 @@ $(function() {
 
 
 $('#delete').click(function() {
+    $('#event-details-modal').modal('hide');
     var id = $(this).attr('data-id');
+    $.ajax({
+        type: "GET",
+        url: "delete_schedule.php",
+        data: {id: id}
+
+    });
     if (!!scheds[id]) {
-        // var _conf = confirm("Are you sure to delete this scheduled event?");
-        // if (_conf === true) {
-            $.ajax({
-                type: "GET",
-                url: "delete_schedule.php",
-                data: {id: id},
-                success: function (response) {
-                    $('#event-details-modal').modal('hide');
-                    if(response.success){
-                        sucesso("Evento eliminado com sucesso");
-                        calendar.refetchEvents();
-                        calendar.render();
-                    }
-                },
-                error: function(){
-                    Swal.fire(
-                        'Error deleting the event',
-                        'error'
-                    );
-                }
-            });
-        // }
+            Swal.fire({
+            title: 'Tem a certeza que pretende eliminar este evento?',
+            text: "Não será possivel recuperar o evento novamente.",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#2FCB6A',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Sim, apagar!'
+          }).then((result) => {
+            if (result.isConfirmed) {
+                Swal.fire({
+                    position: 'center',
+                    icon: 'success',
+                    title: 'Evento foi eliminado com sucesso',
+                    showConfirmButton: false,
+                    timer: 2500
+                  })
+                  setTimeout(function(){ location.reload(true); }, 2500);
+             
+            }
+          })
+
     } else {
         alert("Event is undefined");
     }
@@ -141,3 +121,5 @@ function sucesso(msg) {
       timer: 2000,
     });
   }
+
+ 

@@ -8,7 +8,6 @@ if($_POST['op'] == 1){
     $resp = $reg -> regInt(
         $_POST['tipoInt'],
         $_POST['dataInt'],
-        $_POST['horaInt'],
         $_POST['descInt'],
         $_POST['imovel']
     );
@@ -27,7 +26,7 @@ if($_POST['op'] == 1){
         echo($res);
     }else if($_POST['op'] == 5){
         $est = new Intervencao();
-        $res = $est -> estadoAceite($_POST['id']);
+        $res = $est -> estadoAceite($_POST['id'], $_POST['data'], $_POST['descricao']);
         echo($res);
     }else if($_POST['op'] == 6){
         $est = new Intervencao();

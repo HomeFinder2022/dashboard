@@ -17,7 +17,7 @@
         </div>
         <div class="card-body">
         <form class="row g-3">
-<P>NOTA: para associar um documento(contrato) tem que ser inserido antes do registo do arrendamento.<a class="mb-3" href='reg_doc.php'> Carregue aqui o seu contrato</a></P>
+<P>NOTA: para associar um documento ou o inventário do imóvel é necessário inserir nas suas áreas respectivamente antes do registo do arrendamento.<br><a class="mb-3" href='reg_doc.php'> Carregue aqui o seu contrato </a>ou<a class="mb-3" href='reg_inventario.php'> carregue aqui o seu inventário.</a></P>
                     <div class="col-4">
                       <div class="input-group">
                       <span class="input-group-text">Imóveis</span>

@@ -28,12 +28,12 @@
 
                     <div class="col-3">
                       <label for="dataEntRes" class="form-label">Data Entrada</label>
-                      <input type="date" class="form-control" id="dataEntRes">
+                      <input type="datetime-local" class="form-control" id="dataEntRes">
                     </div>
 
                     <div class="col-3">
                       <label for="dataSaiRes" class="form-label">Data Saída</label>
-                      <input type="date" class="form-control" id="dataSaiRes">
+                      <input type="datetime-local" class="form-control" id="dataSaiRes">
                     </div>
 
                     <div class="col-4">
@@ -58,7 +58,6 @@
 
             <!-- / Content -->
 
-          
   </body>
   <?php require_once 'footer.php'; ?>
   <script src="../js/reserva.js"></script>
