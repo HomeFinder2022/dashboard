@@ -18,6 +18,7 @@ require_once 'connection.php';
           if ($conn->query($sql) === TRUE) {
             $query1 = $this -> insertListaArrend($imovel, $inquilino, $nifUser);
             $query2 = $this -> insertCaucao($caucao, $nifUser);
+            $query3 = $this -> insertEvento($datapag);
             // $query3 = $this -> insert_renda_mes($imovel, $nifUser);
             // inserir no historicomov a renda para o user proprietario e update das financas
             $msg = "Arrendamento registado com sucesso!";
@@ -27,6 +28,24 @@ require_once 'connection.php';
           
           $conn->close();
   
+          return $msg;
+       }
+
+       function insertEvento($datapag){
+        global $conn; 
+
+        $day = date('d', strtotime($datapag));
+
+          $sql = "INSERT INTO eventos (title, description, start_datetime, end_datetime, rrule) 
+          VALUES('Prazo de Pagamento', 'Renda de:', '".$datapag."', '".$datapag."', 'FREQ=MONTHLY;BYMONTHDAY=".$day."')";
+          $msg = "";
+          
+          if ($conn->query($sql) === TRUE) {
+            $msg = "Evento adicionado com sucesso!";
+          } else {
+            $msg = "Error: " . $sql . "<br>" . $conn->error;
+          }
+    
           return $msg;
        }
 

@@ -26,7 +26,7 @@ if($_POST['op'] == 1){
     echo($res);
 }else if($_POST['op'] == 5){
     $est = new Reserva();
-    $res = $est -> estadoAceite($_POST['id']);
+    $res = $est -> estadoAceite($_POST['id'], $_POST['dataent'], $_POST['datasaida']);
     echo($res);
 }else if($_POST['op'] == 6){
     $est = new Reserva();

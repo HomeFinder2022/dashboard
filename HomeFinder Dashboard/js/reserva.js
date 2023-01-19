@@ -163,11 +163,13 @@
   
   }
   
-  function aceitaRes(id) {
+  function aceitaRes(id, dataent, datasaida) {
 
     let dados = new FormData();
     dados.append("op", 5);
     dados.append("id", id);
+    dados.append("dataent", dataent);
+    dados.append("datasaida", datasaida);
 
     $.ajax({
       url: "../assets/model/modelReserva.php",

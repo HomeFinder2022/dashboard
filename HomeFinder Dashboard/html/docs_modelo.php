@@ -97,7 +97,7 @@
 
 
 
-<h4 class="sub-header">Para Inquilinos</h4>
+<h4 class="sub-header">Para os inquilinos</h4>
 
 <ul class="unstyled">
 <li>

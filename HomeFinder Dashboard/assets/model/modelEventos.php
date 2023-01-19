@@ -3,8 +3,13 @@
 require_once '../controller/controllerEventos.php';
 
 if($_POST['op'] == 1){
-    $show = new Evento();
-    $res = $show -> infoEvento();
+    $reg = new Evento();
+    $res = $reg -> regEvento(
+    $_POST['titleEvent'],
+    $_POST['descEvent'],
+    $_POST['inicioEvent'],
+    $_POST['fimEvent']
+);
     echo($res);
 }
  

@@ -15,34 +15,33 @@
           <h3 class="title-form">Novo Evento</h3>
 
 
-        <form class="row g-3" action="save_schedule.php" method="post" id="schedule-form">
-                                <input type="hidden" name="id" value="">
-                                <div class="form-group mb-2">
-                                    <label class="form-label">Titulo</label>
-                                    <input class="form-control" type="text" name="title" id="title" required>
-                                </div>
-                                <div class="form-group mb-2">
-                                    <label class="form-label" for="description">Descrição</label>
-                                    <textarea class="form-control" rows="3" name="description" id="description" required></textarea>
-                                </div>
-                                <div class="col-6">
-                                <div class="form-group mb-2">
-                                    <label class="form-label" for="start_datetime">Data Inicio</label>
-                                    <input class="form-control" type="datetime-local" name="start_datetime" id="start_datetime" required>
-                                </div>
-                                </div>
-                                <div class="col-6">
-                                <div class="form-group mb-2">
-                                    <label class="form-label" for="end_datetime" class="control-label">Data Fim</label>
-                                    <input class="form-control" type="datetime-local" name="end_datetime" id="end_datetime" required>
-                                </div>
-                                </div>
-                            </form>
-        
-                            <div class="col-md-6 mt-3">
-                            <button class="btn btn-primary" type="submit" form="schedule-form"><i class="fa fa-save"></i>Registar evento</button>
-                           
-                            </div>
+          <form class="row g-3">
+
+<div class="col-6">
+  <label for="titleEvent" class="form-label">Titulo</label>
+  <input type="text" class="form-control" id="titleEvent">
+</div>
+
+<div class="col-6">
+  <label for="descEvent" class="form-label">Descrição</label>
+  <input type="text" class="form-control" id="descEvent">
+</div>
+
+<div class="col-6">
+  <label for="inicioEvent" class="form-label">Data Inicio</label>
+  <input type="datetime-local" class="form-control" id="inicioEvent">
+</div>
+
+<div class="col-6">
+  <label for="fimEvent" class="form-label">Data Fim</label>
+  <input class="form-control" type="datetime-local" id="fimEvent">
+</div>
+
+
+<div class="col-12 mt-3">
+  <button class="btn btn-primary" onclick="registoEvento()" type="button">Registar Evento</button>
+</div>
+</form>
                             </div>
       </div>
     </div>
@@ -54,5 +53,5 @@
           
   </body>
   <?php require_once 'footer.php'; ?>
-  <script src="../js/reserva.js"></script>
+  <script src="../js/evento.js"></script>
 </html>

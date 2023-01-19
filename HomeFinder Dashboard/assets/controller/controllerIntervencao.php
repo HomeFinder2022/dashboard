@@ -4,7 +4,7 @@ require_once 'connection.php';
 
 class Intervencao{
 
-    function regInt($tipo, $data, $hora, $desc, $imovel){
+    function regInt($tipo, $data, $desc, $imovel){
         global $conn; 
 
               session_start();
@@ -13,8 +13,8 @@ class Intervencao{
               $resp = $this -> getProp();
               // function p ir buscar o proprietario atraves do nif do user(inquilino)
               $resp = json_decode($resp, TRUE);
-              $sql = "INSERT INTO pedidointervencao (idtipointervencao, data, hora, descricao, idremetente, iddestinatario, idimovel, idestado) 
-                   VALUES('".$tipo."','".$data."','".$hora."', '".$desc."', '".$nifUser."','".$resp['idprop']."','".$imovel."', 1)";
+              $sql = "INSERT INTO pedidointervencao (idtipointervencao, data, descricao, idremetente, iddestinatario, idimovel, idestado) 
+                   VALUES('".$tipo."','".$data."', '".$desc."', '".$nifUser."','".$resp['idprop']."','".$imovel."', 1)";
 
           $msg = "";
           
@@ -84,7 +84,7 @@ class Intervencao{
 
       function selectImovel(){
         global $conn;
-        $sql = "SELECT imovel.idimovel, imovel.morada ,utilizador.nome, utilizador.nif
+        $sql = "SELECT DISTINCT imovel.idimovel, imovel.morada ,utilizador.nome, utilizador.nif
 
         FROM listainquilino_imovel, imovel, utilizador, inquilino 
         
@@ -120,7 +120,7 @@ class Intervencao{
 
         $sql = "SELECT pedidointervencao.*, utilizador.nome FROM pedidointervencao, utilizador
          WHERE 
-         pedidointervencao.iddestinatario = utilizador.nif and
+         pedidointervencao.idremetente = utilizador.nif and
          iddestinatario = '".$nifUser."' and
          pedidointervencao.idestado = 1";
 // mudar idremetente para iddestinatario para que apareça os pedidos que o proprietario tem para aceitar
@@ -136,10 +136,9 @@ class Intervencao{
               $msg .= "<td>".$row['idpedido']."</td>";
               $msg .= "<td>".$row['idimovel']."</td>";
               $msg .= "<td>".$row['nome']."</td>";
-              $msg .= "<td>".$row['hora']."</td>";
               $msg .= "<td>".$row['data']."</td>";
               $msg .= "<td>".$row['descricao']."</td>";
-              $msg .= "<td style='text-align: center; vertical-align: middle;'><button type='button' class='btn btn-success btn-sm' onclick='aceitaInt(".$row['idpedido'].")'>Aceitar</button></td>";
+              $msg .= "<td style='text-align: center; vertical-align: middle;'><button type='button' class='btn btn-success btn-sm' onclick='aceitaInt(\"".$row['idpedido']."\", \"".$row['data']."\", \"".$row['descricao']."\")'>Aceitar</button></td>";
               $msg .= "<td style='text-align: center; vertical-align: middle;'><button type='button' class='btn btn-danger btn-sm' onclick='recusaInt(".$row['idpedido'].")'>Recusar</button></td>";
               $msg .= "</tr>";
                 }
@@ -231,7 +230,7 @@ class Intervencao{
     return $msg;
 }
 
-    function estadoAceite($id){
+    function estadoAceite($id, $data, $descricao){
 
       global $conn;
     
@@ -239,9 +238,9 @@ class Intervencao{
      
       $msg = "";
       
-      
       if ($conn->query($sql) === TRUE) {
         // $resp = $this -> criar evento();
+        $query = $this -> insertEvento($data, $descricao);
         $msg  = "Pedido de intervenção aceite";
       } else {
         $msg = "Error: " . $sql . "<br>" . $conn->error;
@@ -252,6 +251,23 @@ class Intervencao{
       return $msg;
     
     }
+
+    function insertEvento($data, $descricao){
+      global $conn; 
+
+        $sql = "INSERT INTO eventos (title, description, start_datetime, end_datetime) 
+        VALUES('Intervenção:', '".$descricao."', '".$data."', '".$data."')";
+
+        $msg = "";
+        
+        if ($conn->query($sql) === TRUE) {
+          $msg = "Evento adicionado com sucesso!";
+        } else {
+          $msg = "Error: " . $sql . "<br>" . $conn->error;
+        }
+
+        return $msg;
+     }
 
     function estadoRecusado($id){
 
@@ -271,8 +287,8 @@ class Intervencao{
       $conn->close();
     
       return $msg;
-    
     }
+
 
 
 }

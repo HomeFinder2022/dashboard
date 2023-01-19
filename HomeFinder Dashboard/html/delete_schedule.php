@@ -1,5 +1,5 @@
 <?php 
-require_once('db-connect.php');
+require_once('../assets/controller/connection.php');
 if(!isset($_GET['id'])){
     echo "<script> erro('Undefined Schedule ID.');</script>";
     $conn->close();

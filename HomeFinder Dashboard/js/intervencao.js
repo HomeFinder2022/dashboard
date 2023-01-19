@@ -178,11 +178,14 @@ function registoIntervencao() {
   
   }
 
-  function aceitaInt(id) {
+  function aceitaInt(id, data, descricao) {
 
     let dados = new FormData();
     dados.append("op", 5);
     dados.append("id", id);
+    dados.append("data", data);
+    dados.append("descricao", descricao);
+
 
     $.ajax({
       url: "../assets/model/modelIntervencao.php",
