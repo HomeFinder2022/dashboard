@@ -10,8 +10,8 @@ require_once 'connection.php';
             session_start();
             $nifUser = $_SESSION['nif'];
 
-            $sql = "INSERT INTO arrendamento (idproprietario, idimovel, idinquilino, idinventario, idtipopagamento, valorcaucao, datapagamento, iddocumento, idestado) 
-            VALUES('".$nifUser."', '".$imovel."', '".$inquilino."', '".$inventario."', '".$tipopag."', '".$caucao."', '".$datapag."', '".$doc."', 2)";
+            $sql = "INSERT INTO arrendamento (idproprietario, idimovel, idinquilino, idinventario, idtipopagamento, valorcaucao, datapagamento, iddocumento, idestado, idestadoarrend) 
+            VALUES('".$nifUser."', '".$imovel."', '".$inquilino."', '".$inventario."', '".$tipopag."', '".$caucao."', '".$datapag."', '".$doc."', 2, 1)";
 
           $msg = "";
           
@@ -364,16 +364,18 @@ require_once 'connection.php';
         session_start();
         $nifUser = $_SESSION['nif'];
         $sql = "SELECT arrendamento.*, inquilino.nome, imovel.morada,
-         tipopagamento.descricao as tipopagamento, imoveisarrendamento.precorenda
+         tipopagamento.descricao as tipopagamento, imoveisarrendamento.precorenda, estadoarrendamento.descricao as estado
 
 
-           FROM imovel, inquilino, tipopagamento, arrendamento, imoveisarrendamento
+           FROM imovel, inquilino, tipopagamento, arrendamento, imoveisarrendamento, estadoarrendamento
 
            WHERE
+           arrendamento.idestadoarrend = estadoarrendamento.id AND
         imovel.idimovel = arrendamento.idimovel AND
         inquilino.id = arrendamento.idinquilino AND
         tipopagamento.idtipopagamento = arrendamento.idtipopagamento AND
         imoveisarrendamento.idimovel = arrendamento.idimovel AND
+        arrendamento.idestadoarrend = 1 AND
         arrendamento.idproprietario = ".$nifUser;
     
         $result = $conn->query($sql);
@@ -391,7 +393,9 @@ require_once 'connection.php';
                 $msg .= "<td>".$row['precorenda']." €</td>";
                 $msg .= "<td>".$row['tipopagamento']."</td>";
                 $msg .= "<td>".$row['datapagamento']."</td>";
+                $msg .= "<td>".$row['estado']."</td>";
                 $msg .= "<td><button type='button' class='btn btn-primary btn-sm' onclick='editArr(".$row['idarrendamento'].", ".$row['precorenda'].")'>Renda</button></td>";
+                $msg .= "<td><button type='button' class='btn btn-success btn-sm' onclick='concluiArr(".$row['idarrendamento'].")'>Concluido</button></td>";
                 $msg .= "<td><button type='button' class='btn btn-danger btn-sm' onclick='delArr(".$row['idarrendamento'].")'>Apagar</button></td>";
                 $msg .= "</tr>";
                 }
@@ -496,6 +500,25 @@ require_once 'connection.php';
         return $msg;
     }
 
+    function estadoArr($id){
+      global $conn; 
+
+            $sql = "UPDATE arrendamento SET idestadoarrend = 2
+            WHERE idarrendamento = ".$id;
+
+        $msg = "";
+        
+                 
+        if ($conn->query($sql) === TRUE) {
+          $msg  = "Arrendamento concluido";
+        } else {
+          $msg = "Error: " . $sql . "<br>" . $conn->error;
+        }
+        
+        $conn->close();
+  
+        return $msg;
+    }
 
     }
 

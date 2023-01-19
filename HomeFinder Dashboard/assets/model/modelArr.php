@@ -52,6 +52,10 @@ if($_POST['op'] == 1){
     $getDados = new Arrendamento();
     $res = $getDados -> confirmRenda($_POST['preco'], $_POST['inquilino']);
     echo($res);
+}else if($_POST['op'] == 11){
+    $getDados = new Arrendamento();
+    $res = $getDados -> estadoArr($_POST['id']);
+    echo($res);
     }
 
     
