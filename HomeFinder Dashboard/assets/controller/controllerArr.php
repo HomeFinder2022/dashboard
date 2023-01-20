@@ -376,6 +376,7 @@ require_once 'connection.php';
           imoveisarrendamento.idimovel = imovel.idimovel AND
           arrendamento.idestadoarrend = estadoarrendamento.id AND
           arrendamento.idestadoarrend = 1 AND
+          imoveisarrendamento.idimovel = imovel.idimovel AND 
        arrendamento.idproprietario =".$nifUser;
     
         $result = $conn->query($sql);

@@ -172,6 +172,9 @@ class Imovel{
         function listaImoveis(){
 
           global $conn;
+          session_start();
+              $nifUser = $_SESSION['nif'];
+             
         
           $sql = "SELECT imovel.idimovel, imovel.morada, distrito.nome AS nomedistrito, concelho.nome AS nomeconcelho, freguesias.nome AS nomefreg,
           tipologia.descricao AS tipologia , tipoimovel.descricao 
@@ -184,7 +187,8 @@ class Imovel{
           imovel.idconcelho = concelho.idconcelho AND
           imovel.idfreguesia = freguesias.idfreguesia AND
           imovel.idtipologia = tipologia.idtipologia AND
-          imovel.idtipoimovel = tipoimovel.idtipoimovel";
+          imovel.idtipoimovel = tipoimovel.idtipoimovel ANd 
+          imovel.nifutilizador =".$nifUser;
       
           $result = $conn->query($sql);
       
