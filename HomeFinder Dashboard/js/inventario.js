@@ -52,7 +52,11 @@ function registoInventario() {
     }
         $('#listaInventario').html(resposta);
 
-        $('#inventTable').DataTable();
+        $('#inventTable').DataTable({
+          language: {
+            url: "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Portuguese.json"
+          }
+        });
      
 
     })
@@ -141,7 +145,11 @@ function registoInventario() {
     }
         $('#listaDocss').html(resposta);
 
-        $('#docsTable').DataTable();
+        $('#docsTable').DataTable({
+          language: {
+            url: "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Portuguese.json"
+          }
+        });
      
 
     })

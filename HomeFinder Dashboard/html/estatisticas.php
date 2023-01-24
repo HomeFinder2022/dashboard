@@ -4,12 +4,18 @@
 
           <!-- Content wrapper -->
           <div class="content-wrapper">
-<div class="container-fluid">
-          <canvas id="myChart" ></canvas>
-          <canvas id="myChart2" ></canvas>
+<div class="container-fluid">        
+<div class="card mt-3">
+            
+            <div class="container-fluid mt-3">
+    <h3 class="title-form text-center mt-1">Finanças</h3>
+          <canvas class="mt-3" id="myChart" ></canvas>
+          <!-- <hr style = "height: 5px; color: #2FCB6A;"> -->
+          <h3 class="title-form text-center mt-4">Imóveis</h3>
+          <canvas class="mt-3" id="myChart2" ></canvas>
           </div>
-
-
+          </div>
+          </div>
 
           <script>
 var ctx = document.getElementById('myChart').getContext('2d');
