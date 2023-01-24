@@ -22,16 +22,6 @@
       });
   }
 
-  function sucesso(msg) {
-    Swal.fire({
-      position: "center",
-      icon: "success",
-      title: msg,
-      showConfirmButton: false,
-      timer: 2000,
-    });
-  }
-
   function registoReserva() {
 
     let imovelRes = $("#imovelRes").val();
@@ -61,7 +51,13 @@
     })
   
       .done(function (resposta) {
-        sucesso(resposta);
+        let obj = JSON.parse(resposta);
+        if(obj.flag){
+          sucesso(obj.msg);
+        }else{
+          erro(obj.msg);
+        }
+        
       })
   
       .fail(function (jqXHR, textStatus) {

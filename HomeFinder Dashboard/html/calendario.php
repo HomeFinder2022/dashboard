@@ -52,7 +52,8 @@
     
             <!-- / Content -->
             <?php 
-$schedules = $conn->query("SELECT * FROM eventos");
+            $nifUser = $_SESSION['nif'];
+$schedules = $conn->query("SELECT * FROM eventos WHERE nif = ".$nifUser);
 $sched_res = [];
 foreach($schedules->fetch_all(MYSQLI_ASSOC) as $row){
   // setlocale(LC_TIME, 'pt_PT');

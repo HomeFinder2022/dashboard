@@ -257,8 +257,11 @@ class Intervencao{
     function insertEvento($data, $nome, $morada){
       global $conn; 
 
-        $sql = "INSERT INTO eventos (title, description, start_datetime, end_datetime) 
-        VALUES('Intervenção: ".$nome."', 'Imóvel: ".$morada."', '".$data."', '".$data."')";
+      session_start();
+      $nifUser = $_SESSION['nif'];
+
+        $sql = "INSERT INTO eventos (title, description, start_datetime, end_datetime, nif) 
+        VALUES('Intervenção: ".$nome."', 'Imóvel: ".$morada."', '".$data."', '".$data."', '".$nifUser."')";
 
         $msg = "";
         
