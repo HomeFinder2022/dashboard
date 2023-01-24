@@ -87,7 +87,11 @@
   }
       $('#listaResFeitos').html(resposta);
 
-      $('#resTableFeitos').DataTable();
+      $('#resTableFeitos').DataTable({
+        language: {
+          url: "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Portuguese.json"
+        }
+      });
     })
      
     .fail(function( jqXHR, textStatus ) {
@@ -119,7 +123,11 @@
   }
       $('#listaRes').html(resposta);
 
-      $('#resTable').DataTable();
+      $('#resTable').DataTable({
+        language: {
+          url: "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Portuguese.json"
+        }
+      });
     })
      
     .fail(function( jqXHR, textStatus ) {
@@ -150,7 +158,11 @@
   }
       $('#listaResAceites').html(resposta);
 
-      $('#resTableAceites').DataTable();
+      $('#resTableAceites').DataTable({
+        language: {
+          url: "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Portuguese.json"
+        }
+      });
     })
      
     .fail(function( jqXHR, textStatus ) {
