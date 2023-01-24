@@ -14,17 +14,17 @@
     <thead>
         <tr>
             <th class="sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1"
-                aria-label="Office: activate to sort column ascending" style="width: 40px;">Imóvel</th>
+                aria-label="Office: activate to sort column ascending" style="width: 80px;">Imóvel</th>
             <th class="sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1"
                 aria-label="Age: activate to sort column ascending" style="width: 80px;">Inquilino</th>
             <th class="sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1"
-                aria-label="Salary: activate to sort column ascending" style="width: 80px;">Caução</th>
+                aria-label="Salary: activate to sort column ascending" style="width: 40px;">Caução</th>
                 <th class="sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1"
-                aria-label="Salary: activate to sort column ascending" style="width: 80px;">Renda</th>
+                aria-label="Salary: activate to sort column ascending" style="width: 40px;">Renda</th>
                 <th class="sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1"
-                aria-label="Salary: activate to sort column ascending" style="width: 80px;">Tipo de Pagamento</th>
+                aria-label="Salary: activate to sort column ascending" style="width: 40px;">Tipo de Pagamento</th>
                 <th class="sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1"
-                aria-label="Salary: activate to sort column ascending" style="width: 80px;">Data de Pagamento</th>
+                aria-label="Salary: activate to sort column ascending" style="width: 40px;">Data de Pagamento</th>
                 <th class="sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1"
                 aria-label="Salary: activate to sort column ascending" style="width: 80px;">Estado</th>
                 <th class="span1 center" style="width: 50px;">Ações</th>

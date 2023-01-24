@@ -11,14 +11,14 @@ require 'PHPMailer/src/SMTP.php';
 
   class Inquilino{
 
-    function regInqui($nome, $email, $morada, $tel, $distrito, $concelho, $freguesia, $obs, $nifInqui){
+    function regInqui($nome, $email, $morada, $tel, $obs, $nifInqui){
         global $conn; 
 
         session_start();
         $nifUser = $_SESSION['nif'];
   
-          $sql = "INSERT INTO inquilino (nome, email, morada, contato, iddistrito, idconcelho, idfreguesia, observacoes,idnifinquilino , idproprietario) 
-          VALUES('".$nome."', '".$email."', '".$morada."', '".$tel."', '".$distrito."', '".$concelho."', '".$freguesia."', '".$obs."', '".$nifInqui."', '".$nifUser."')";
+          $sql = "INSERT INTO inquilino (nome, email, morada, contato, observacoes,idnifinquilino , idproprietario) 
+          VALUES('".$nome."', '".$email."', '".$morada."', '".$tel."', '".$obs."', '".$nifInqui."', '".$nifUser."')";
          
           $msg = "";
           
@@ -28,7 +28,7 @@ require 'PHPMailer/src/SMTP.php';
             $msg = "Error: " . $sql . "<br>" . $conn->error;
           }
           
-          $conn->close();
+          // $conn->close();
   
           return $msg;
        }
@@ -119,15 +119,12 @@ a casa dos seus sonhos.</p>
         session_start();
         $nifUser = $_SESSION['nif'];
 
-        $sql = "SELECT inquilino.*, distrito.nome AS nomedistrito, concelho.nome AS nomeconcelho, freguesias.nome AS nomefreg
+        $sql = "SELECT *
 
-           FROM inquilino, distrito, concelho, 
-           freguesias
+           FROM inquilino
 
            WHERE
-           inquilino.iddistrito = distrito.iddistrito AND
-           inquilino.idconcelho = concelho.idconcelho AND
-           inquilino.idfreguesia = freguesias.idfreguesia AND
+   
            inquilino.idproprietario = ".$nifUser;
     
         $result = $conn->query($sql);
@@ -142,7 +139,6 @@ a casa dos seus sonhos.</p>
                 $msg .= "<td><a href='mailto:".$row['email']."'>".$row['email']."</a></td>";
                 $msg .= "<td><a href='tel:".$row['contato']."'>".$row['contato']."</a></td>";
                 $msg .= "<td>".$row['morada']."</td>";
-                $msg .= "<td>".$row['nomedistrito']."</td>";
                 $msg .= "<td>".$row['observacoes']."</td>";
 
                 $msg .= "<td style='text-align: center; vertical-align: middle;'><button type='button' class='btn btn-info btn-sm' onclick='editInqui(".$row['id'].")'>Info</button>";
@@ -198,31 +194,28 @@ a casa dos seus sonhos.</p>
               $email = $row['email'];
               $nif = $row['idnifinquilino'];
               $morada = $row['morada'];
-              $freguesia = $row['idfreguesia'];
-              $distrito = $row['iddistrito'];
-              $concelho = $row['idconcelho'];
               $obs = $row['observacoes'];
           }
       } 
       $conn->close();
   
-      $res = array("nome" => $nome, "morada"=>$morada, "contato"=>$contato, "email"=>$email, "freguesia"=>$freguesia, "distrito"=>$distrito, "concelho"=>$concelho, "obs"=>$obs, "nif"=>$nif);
+      $res = array("nome" => $nome, "morada"=>$morada, "contato"=>$contato, "email"=>$email, "obs"=>$obs, "nif"=>$nif);
       $res = json_encode($res);
     
       return $res;
     }
 
-    function guardaInquilino($id, $nome, $email, $nif, $morada, $tel, $distrito, $concelho, $freguesia, $obs){
+    function guardaInquilino($id, $nome, $email, $nif, $morada, $tel,$obs){
 
       global $conn;
     
-      $sql = "UPDATE inquilino SET nome='".$nome."', contato ='".$tel."', email ='".$email."', morada ='".$morada."', idnifinquilino ='".$nif."', idfreguesia ='".$freguesia."', iddistrito ='".$distrito."', idconcelho ='".$concelho."', observacoes ='".$obs."'
+      $sql = "UPDATE inquilino SET nome='".$nome."', contato ='".$tel."', email ='".$email."', morada ='".$morada."', idnifinquilino ='".$nif."', observacoes ='".$obs."'
       WHERE id=".$id;
      
       $msg = "";
           
       if ($conn->query($sql) === TRUE) {
-        $msg  = "Inquilino Editado com Sucesso!";
+        $msg  = "Inquilino editado com Sucesso!";
       } else {
         $msg = "Error: " . $sql . "<br>" . $conn->error;
       }
@@ -231,6 +224,45 @@ a casa dos seus sonhos.</p>
     
       return $msg;
     
+    }
+
+
+    function verifyInqui($email){
+
+      global $conn;
+      session_start();
+      $nifUser = $_SESSION['nif'];
+      $flag = "";
+
+      $select_query = "SELECT *
+      FROM utilizador WHERE email ='".$email."'";
+    $result = $conn->query($select_query);
+      if ($result->num_rows > 0) {
+        $row = mysqli_fetch_assoc($result);
+        // Email is present in the table
+        // Insert the values into another table
+        $flag = true;
+        $insert_query =  "INSERT INTO inquilino (nome, email, morada, contato, idnifinquilino , idproprietario) 
+        VALUES('".$row['nome']."','".$row['email']."','".$row['morada']."','".$row['telemovel']."','".$row['nif']."', $nifUser)";
+       
+        if ($conn->query($insert_query) === TRUE) {
+           $msg = "Inquilino registado com sucesso!";
+        } else {
+            echo "Error: " . $conn->error;
+        }
+    } else {
+        // Email is not present in the table
+        $flag = false;
+        $msg = "O email inserido não foi encontrado na base de dados. Tente novamente!";
+    }
+      
+      $conn->close();
+
+      $res = array("msg"=>$msg, "flag"=>$flag);
+      $res = json_encode($res);
+    
+      return $res;
+
     }
 
 

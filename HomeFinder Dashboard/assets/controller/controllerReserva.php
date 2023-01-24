@@ -47,7 +47,7 @@ class Reserva{
                   $msg = "Já existe uma marcação nas datas assinaladas!";
                   $flag = false;
               } else {
-                  // Insert the new event
+                 
                   $resp = $this -> getDesti($imovel);
                   //         function p ir buscar o proprietario atraves do nif do user(inquilino)
                               $resp = json_decode($resp, TRUE);
@@ -127,8 +127,9 @@ class Reserva{
         session_start();
         $nifUser = $_SESSION['nif'];
     
-        $sql = "SELECT estado.descricao as estado, pedidoreserva.descricao as obs, pedidoreserva.idpedidoreserva, pedidoreserva.idimovel, pedidoreserva.data, pedidoreserva.datasaida, pedidoreserva.numpessoas, utilizador.nome FROM pedidoreserva, utilizador, estado
+        $sql = "SELECT estado.descricao as estado, pedidoreserva.descricao as obs, pedidoreserva.idpedidoreserva, pedidoreserva.idimovel, pedidoreserva.data, pedidoreserva.datasaida, pedidoreserva.numpessoas, utilizador.nome, imovel.morada FROM pedidoreserva, utilizador, estado, imovel
          WHERE 
+         imovel.idimovel = pedidoreserva.idimovel and
          pedidoreserva.iddestinatario = utilizador.nif and
          estado.idestado = pedidoreserva.idestado and
          idremetente = '".$nifUser."'";
@@ -143,7 +144,7 @@ class Reserva{
             while($row = $result->fetch_assoc()) {
               $msg .= "<tr>";
               $msg .= "<td>".$row['idpedidoreserva']."</td>";
-              $msg .= "<td>".$row['idimovel']."</td>";
+              $msg .= "<td>".$row['morada']."</td>";
               $msg .= "<td>".$row['nome']."</td>";
               $msg .= "<td>".$row['data']."</td>";
               $msg .= "<td>".$row['datasaida']."</td>";
@@ -185,7 +186,7 @@ class Reserva{
             while($row = $result->fetch_assoc()) {
               $msg .= "<tr>";
               $msg .= "<td>".$row['idpedidoreserva']."</td>";
-              $msg .= "<td>".$row['idimovel']."</td>";
+              $msg .= "<td>".$row['morada']."</td>";
               $msg .= "<td>".$row['nome']."</td>";
               $msg .= "<td>".$row['data']."</td>";
               $msg .= "<td>".$row['datasaida']."</td>";
@@ -209,8 +210,9 @@ class Reserva{
         session_start();
               $nifUser = $_SESSION['nif'];
   
-        $sql = "SELECT pedidoreserva.*, utilizador.nome FROM pedidoreserva, utilizador
+        $sql = "SELECT pedidoreserva.*, utilizador.nome, imovel.morada FROM pedidoreserva, utilizador, imovel
          WHERE 
+         imovel.idimovel = pedidoreserva.idimovel and
          pedidoreserva.iddestinatario = utilizador.nif and
          iddestinatario = '".$nifUser."' and
          pedidoreserva.idestado = 2";
@@ -225,7 +227,7 @@ class Reserva{
             while($row = $result->fetch_assoc()) {
               $msg .= "<tr>";
               $msg .= "<td>".$row['idpedidoreserva']."</td>";
-              $msg .= "<td>".$row['idimovel']."</td>";
+              $msg .= "<td>".$row['morada']."</td>";
               $msg .= "<td>".$row['nome']."</td>";
               $msg .= "<td>".$row['data']."</td>";
               $msg .= "<td>".$row['datasaida']."</td>";

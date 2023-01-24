@@ -10,7 +10,7 @@
             
             <div class="container-fluid mt-3">
             <div class="col-12">
-                        <p>Para registar um novo inventário é necessário fazer download do nosso modelo para preenchimento e de seguida fazer upload para a plataforma. <a class="mb-3" href='../assets/img/docs/InventarioHomeFinder.xlsx' download>Faça aqui o download do seu ficheiro </a></p>
+                        <p>Para registar um novo inventário é necessário fazer download do nosso modelo para preenchimento e de seguida fazer upload para a plataforma. <a class="mb-3" href='../assets/img/Modelos/InventarioHomeFinder.xlsx' download>Faça aqui o download do seu ficheiro </a></p>
                       
                     </div>
             <table id="inventTable" class="dataTable display cell-border compact" style="width: 100%;" aria-describedby="example_info">
