@@ -19,10 +19,12 @@
         <form class="row g-3">
                     
                     <div class="col-12">
-                    <p>Para registar um novo inventário é necessário fazer download do nosso modelo para preenchimento e de seguida fazer upload para a plataforma. <a class="mb-3" href='../assets/img/docs/InventarioHomeFinder.xlsx' download>Faça aqui o download do seu ficheiro </a></p>
+                    <p>Para registar um novo inventário é necessário fazer download do nosso modelo para preenchimento e de seguida fazer upload para a plataforma. <a class="mb-3" href='../assets/img/Modelos/InventarioHomeFinder.xlsx' download>Faça aqui o download do seu ficheiro </a></p>
                     </div>
 
-                    <hr>
+                    <hr style = "height: 5px; color: #2FCB6A;">
+
+                    
                     <div class="col-6">
                     <label for="imovelArr1" class="form-label">Escolha o imóvel</label>
                       <div class="input-group">

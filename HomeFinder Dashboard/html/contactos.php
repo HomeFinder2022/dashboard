@@ -21,7 +21,7 @@
 <div class="modal-dialog">
   <div class="modal-content">
     <div class="modal-header">
-      <h5 class="modal-title fs-3 text-center title-form" id="exampleModalLabel">Informação do Contato
+      <h5 class="modal-title fs-3 text-center title-form" id="exampleModalLabel">Informação do Contacto
       </h5>
       <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
     </div>
@@ -36,7 +36,7 @@
                     </div>
 
                     <div class="col-6">
-                      <label for="numContato1" class="form-label">Contato</label>
+                      <label for="numContato1" class="form-label">Contacto</label>
                       <input type="number" class="form-control" id="numContato1">
                     </div>
 

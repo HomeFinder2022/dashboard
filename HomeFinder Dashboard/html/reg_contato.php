@@ -13,7 +13,7 @@
       <div class="card mt-3">
         <div
           class="card-header d-flex align-items-center justify-content-between">
-          <h3 class="title-form">Novo Contato</h3>
+          <h3 class="title-form">Novo Contacto</h3>
         </div>
         <div class="card-body">
         <form class="row g-3">
@@ -24,7 +24,7 @@
                     </div>
 
                     <div class="col-6">
-                      <label for="numContato" class="form-label">Contato</label>
+                      <label for="numContato" class="form-label">Contacto</label>
                       <input type="number" class="form-control" id="numContato">
                     </div>
 

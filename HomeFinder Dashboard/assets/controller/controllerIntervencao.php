@@ -138,7 +138,7 @@ class Intervencao{
             while($row = $result->fetch_assoc()) {
               $msg .= "<tr>";
               $msg .= "<td>".$row['idpedido']."</td>";
-              $msg .= "<td>".$row['idimovel']."</td>";
+              $msg .= "<td>".$row['morada']."</td>";
               $msg .= "<td>".$row['nome']."</td>";
               $msg .= "<td>".$row['data']."</td>";
               $msg .= "<td>".$row['descricao']."</td>";
@@ -161,8 +161,9 @@ class Intervencao{
       session_start();
             $nifUser = $_SESSION['nif'];
 
-      $sql = "SELECT pedidointervencao.idpedido, pedidointervencao.idimovel, pedidointervencao.data, pedidointervencao.descricao, utilizador.nome FROM pedidointervencao, utilizador
+      $sql = "SELECT pedidointervencao.idpedido, pedidointervencao.idimovel, pedidointervencao.data, pedidointervencao.descricao, utilizador.nome, imovel.morada FROM pedidointervencao, utilizador, imovel
        WHERE 
+       pedidointervencao.idimovel = imovel.idimovel and
        pedidointervencao.iddestinatario = utilizador.nif and
        iddestinatario = '".$nifUser."' and
        pedidointervencao.idestado = 2";
@@ -177,7 +178,7 @@ class Intervencao{
           while($row = $result->fetch_assoc()) {
             $msg .= "<tr>";
             $msg .= "<td>".$row['idpedido']."</td>";
-            $msg .= "<td>".$row['idimovel']."</td>";
+            $msg .= "<td>".$row['morada']."</td>";
             $msg .= "<td>".$row['nome']."</td>";
             $msg .= "<td>".$row['data']."</td>";
             $msg .= "<td>".$row['descricao']."</td>";
@@ -199,8 +200,9 @@ class Intervencao{
     session_start();
           $nifUser = $_SESSION['nif'];
 
-    $sql = "SELECT estado.descricao as estado, pedidointervencao.idpedido, pedidointervencao.idimovel, pedidointervencao.data, pedidointervencao.descricao, utilizador.nome FROM pedidointervencao, utilizador, estado
+    $sql = "SELECT estado.descricao as estado, pedidointervencao.idpedido, pedidointervencao.idimovel, pedidointervencao.data, pedidointervencao.descricao, utilizador.nome, imovel.morada FROM pedidointervencao, utilizador, estado, imovel
      WHERE 
+     pedidointervencao.idimovel = imovel.idimovel and
      pedidointervencao.iddestinatario = utilizador.nif and
      estado.idestado = pedidointervencao.idestado and
      idremetente = '".$nifUser."'";
@@ -215,7 +217,7 @@ class Intervencao{
         while($row = $result->fetch_assoc()) {
           $msg .= "<tr>";
           $msg .= "<td>".$row['idpedido']."</td>";
-          $msg .= "<td>".$row['idimovel']."</td>";
+          $msg .= "<td>".$row['morada']."</td>";
           $msg .= "<td>".$row['nome']."</td>";
           $msg .= "<td>".$row['data']."</td>";
           $msg .= "<td>".$row['descricao']."</td>";

@@ -11,6 +11,18 @@
     <!-- Basic Layout -->
     <div class="col-xxl">
       <div class="card mt-3">
+
+     
+<div class="card-body"> 
+  <p>Verifique se o seu inquilino já está registado na plataforma e obtenha os seus dados automaticamente.</p>
+                    <div class="col-6">
+                      <label for="confirmEmail" class="form-label">Email</label>
+                      <input type="email" class="form-control" id="confirmEmail">
+                      <button class="btn btn-primary mt-3" onclick="verificaInqui()" type="button">Verificar Email</button>
+                    </div>
+    </div>
+       
+
         <div
           class="card-header d-flex align-items-center justify-content-between">
           <h3 class="title-form">Novo Inquilino</h3>
@@ -43,7 +55,7 @@
                       <input type="number" class="form-control" id="telInqui">
                     </div>
 
-                    <div class="col-4">
+                    <!-- <div class="col-4">
                       <div class="input-group">
                       <span class="input-group-text">Distrito</span>
                       <select class="form-select" onchange ="filtroDistrito(this.value)" id="listaDistritos1">
@@ -65,7 +77,7 @@
                       <select class="form-select" id="listaFreguesias1">
                       </select>
                       </div>
-                    </div>
+                    </div> -->
 
                     <div class="col-12">
                       <label for="obsInqui" class="form-label">Observações</label>

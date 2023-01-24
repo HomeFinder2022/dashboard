@@ -14,20 +14,20 @@
     <thead>
         <tr>
             <th class="sorting sorting_asc" tabindex="0" aria-controls="example" rowspan="1" colspan="1"
-                aria-sort="ascending" aria-label="Name: activate to sort column descending" style="width: 61px;">ID Imóvel
+                aria-sort="ascending" aria-label="Name: activate to sort column descending" style="width: 11px;">ID Imóvel
             </th>
             <th class="sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1"
-                aria-label="Office: activate to sort column ascending" style="width: 80px;">Morada</th>
+                aria-label="Office: activate to sort column ascending" style="width: 150px;">Morada</th>
             <th class="sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1"
-                aria-label="Age: activate to sort column ascending" style="width: 61px;">Distrito</th>
+                aria-label="Age: activate to sort column ascending" style="width: 71px;">Distrito</th>
             <th class="sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1"
-                aria-label="Salary: activate to sort column ascending" style="width: 122px;">Concelho</th>
+                aria-label="Salary: activate to sort column ascending" style="width: 82px;">Concelho</th>
             <th class="sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1"
-            aria-label="Salary: activate to sort column ascending" style="width: 61px;">Freguesia</th>
+            aria-label="Salary: activate to sort column ascending" style="width: 182px;">Freguesia</th>
             <th class="sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1"
-                aria-label="Salary: activate to sort column ascending" style="width: 93px;">Tipo de Imóvel</th>
+                aria-label="Salary: activate to sort column ascending" style="width: 83px;">Tipo de Imóvel</th>
                 <th class="sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1"
-                aria-label="Salary: activate to sort column ascending" style="width: 93px;">Tipologia</th>
+                aria-label="Salary: activate to sort column ascending" style="width: 13px;">Tipologia</th>
                 <th class="span1 center" style="width: 50px;">Ações</th>
                 <th class="span1 center" style="width: 50px;">Ações</th>
         </tr>

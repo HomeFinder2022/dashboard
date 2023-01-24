@@ -3,9 +3,9 @@ function registoInqui() {
     let emailInqui = $("#emailInqui").val();
     let moradaInqui = $("#moradaInqui").val();
     let telInqui = $("#telInqui").val();
-    let listaDistritos1 = $("#listaDistritos1").val();
-    let listaConcelhos1 = $("#listaConcelhos1").val();
-    let listaFreguesias1 = $("#listaFreguesias1").val();
+    // let listaDistritos1 = $("#listaDistritos1").val();
+    // let listaConcelhos1 = $("#listaConcelhos1").val();
+    // let listaFreguesias1 = $("#listaFreguesias1").val();
     let obsInqui = $("#obsInqui").val();
 
     let nifInqui = $("#nifInqui").val();
@@ -18,9 +18,9 @@ function registoInqui() {
     dados.append("emailInqui", emailInqui);
     dados.append("moradaInqui", moradaInqui);
     dados.append("telInqui", telInqui);
-    dados.append("listaDistritos1", listaDistritos1);
-    dados.append("listaConcelhos1", listaConcelhos1);
-    dados.append("listaFreguesias1", listaFreguesias1);
+    // dados.append("listaDistritos1", listaDistritos1);
+    // dados.append("listaConcelhos1", listaConcelhos1);
+    // dados.append("listaFreguesias1", listaFreguesias1);
     dados.append("obsInqui", obsInqui);
     dados.append("nifInqui", nifInqui);
    
@@ -159,9 +159,7 @@ function registoInqui() {
       $('#nifInquiEdit').val(obj.nif);
       $('#moradaInquiEdit').val(obj.morada);
       $('#telInquiEdit').val(obj.contato);
-      $('#listaDistritos1Edit').val(obj.distrito);
-      $('#listaConcelhos1Edit').val(obj.concelho);
-      $('#listaFreguesias1Edit').val(obj.freguesia);
+
       $('#obsInquiEdit').val(obj.obs);
 
       $('#btnInquilino').attr('onclick', 'guardaInquilino('+id+')');
@@ -182,9 +180,7 @@ function registoInqui() {
     let nifInquiEdit = $('#nifInquiEdit').val();
     let moradaInquiEdit = $('#moradaInquiEdit').val();
     let telInquiEdit = $('#telInquiEdit').val();
-    let listaDistritos1Edit = $('#listaDistritos1Edit').val();
-    let listaConcelhos1Edit = $('#listaConcelhos1Edit').val();
-    let listaFreguesias1Edit = $('#listaFreguesias1Edit').val();
+
     let obsInquiEdit = $('#obsInquiEdit').val();
 
     let dados = new FormData();
@@ -195,9 +191,7 @@ function registoInqui() {
     dados.append('nifInquiEdit', nifInquiEdit);
     dados.append('moradaInquiEdit', moradaInquiEdit);
     dados.append('telInquiEdit', telInquiEdit);
-    dados.append('listaDistritos1Edit', listaDistritos1Edit);
-    dados.append('listaConcelhos1Edit', listaConcelhos1Edit);
-    dados.append('listaFreguesias1Edit', listaFreguesias1Edit);
+
     dados.append('obsInquiEdit', obsInquiEdit);
     
     $.ajax({
@@ -224,6 +218,39 @@ function registoInqui() {
   }
 
 
+  function verificaInqui() {
+   
+    let confirmEmail = $("#confirmEmail").val();
+
+    let dados = new FormData();
+    dados.append("op", 7);
+    dados.append("confirmEmail", confirmEmail);
+
+    $.ajax({
+      url: "../assets/model/modelInqui.php",
+      method: "POST",
+      data: dados,
+      cache: false,
+      processData: false,
+      contentType: false,
+      dataType: "html",
+    })
+  
+      .done(function (resposta) {
+        let obj = JSON.parse(resposta);
+        if(obj.flag){
+          sucesso(obj.msg);
+        }else{
+          erro(obj.msg);
+        }
+      })
+  
+      .fail(function (jqXHR, textStatus) {
+        alert("Request failed: " + textStatus);
+      });
+  }
+
+
   function sucesso(msg) {
     Swal.fire({
       position: "center",
@@ -233,6 +260,18 @@ function registoInqui() {
       timer: 2000,
     });
   }
+
+  function erro(msg) {
+    Swal.fire({
+      position: "center",
+      icon: "error",
+      title: msg,
+      showConfirmButton: false,
+      timer: 2000,
+    });
+  }
+
+
 
   $(function () {
     tabInqui();

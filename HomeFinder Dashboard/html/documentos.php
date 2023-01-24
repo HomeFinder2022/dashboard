@@ -17,9 +17,9 @@
     <thead>
         <tr>
             <th class="sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1"
-                aria-label="Office: activate to sort column ascending" style="width: 40px;">Referência Documento</th>
+                aria-label="Office: activate to sort column ascending" style="width: 60px;">Referência Documento</th>
             <th class="sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1"
-                aria-label="Age: activate to sort column ascending" style="width: 80px;">Tipo de Documento</th>
+                aria-label="Age: activate to sort column ascending" style="width: 40px;">Tipo de Documento</th>
             <th class="sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1"
                 aria-label="Salary: activate to sort column ascending" style="width: 80px;">Ficheiro</th>
                 <th class="span1 center" style="width: 50px;">Ações</th>

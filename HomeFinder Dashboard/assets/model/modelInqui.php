@@ -10,9 +10,9 @@ if($_POST['op'] == 1){
         $_POST['emailInqui'],
         $_POST['moradaInqui'],
         $_POST['telInqui'],
-        $_POST['listaDistritos1'],
-        $_POST['listaConcelhos1'],
-        $_POST['listaFreguesias1'],
+        // $_POST['listaDistritos1'],
+        // $_POST['listaConcelhos1'],
+        // $_POST['listaFreguesias1'],
         $_POST['obsInqui'],
         $_POST['nifInqui']
     );
@@ -45,12 +45,16 @@ if($_POST['op'] == 1){
         $_POST['nifInquiEdit'],
         $_POST['moradaInquiEdit'],
         $_POST['telInquiEdit'],
-        $_POST['listaDistritos1Edit'],
-        $_POST['listaConcelhos1Edit'],
-        $_POST['listaFreguesias1Edit'],
+        // $_POST['listaDistritos1Edit'],
+        // $_POST['listaConcelhos1Edit'],
+        // $_POST['listaFreguesias1Edit'],
         $_POST['obsInquiEdit']
     );
     echo($resp);
+}else if($_POST['op'] == 7){
+    $getDados = new Inquilino();
+    $res = $getDados -> verifyInqui($_POST['confirmEmail']);
+    echo($res);
     }
 
     

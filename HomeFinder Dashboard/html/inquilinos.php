@@ -17,11 +17,9 @@
             <th class="sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1"
                 aria-label="Office: activate to sort column ascending" style="width: 80px;">Email</th>
             <th class="sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1"
-                aria-label="Age: activate to sort column ascending" style="width: 41px;">Contato</th>
+                aria-label="Age: activate to sort column ascending" style="width: 41px;">Contacto</th>
             <th class="sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1"
                 aria-label="Salary: activate to sort column ascending" style="width: 122px;">Morada</th>
-            <th class="sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1"
-            aria-label="Salary: activate to sort column ascending" style="width: 61px;">Distrito</th>
             <th class="sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1"
                 aria-label="Salary: activate to sort column ascending" style="width: 93px;">Observações</th>
                 <th class="span1 center" style="width: 10px;">Ações</th>
@@ -36,9 +34,8 @@
         <tr>
             <th rowspan="1" colspan="1">Nome</th>
             <th rowspan="1" colspan="1">Email</th>
-            <th rowspan="1" colspan="1">Contato</th>
+            <th rowspan="1" colspan="1">Contacto</th>
             <th rowspan="1" colspan="1">Morada</th>
-            <th rowspan="1" colspan="1">Distrito</th>
             <th rowspan="1" colspan="1">Observações</th>
             <th class="span1 center" style="width: 10px;">Ações</th>
             <th class="span1 center" style="width: 10px;">Ações</th>
@@ -90,29 +87,7 @@
   <input type="number" class="form-control" id="telInquiEdit">
 </div>
 
-<div class="col-5">
-  <div class="input-group">
-  <span class="input-group-text">Distrito</span>
-  <select class="form-select" onchange ="filtroDistrito(this.value)" id="listaDistritos1Edit">
-  </select>
-  </div>
-</div>
 
-<div class="col-7">
-  <div class="input-group">
-  <span class="input-group-text">Concelho</span>
-  <select class="form-select" onchange="filtroConcelho(this.value)" id="listaConcelhos1Edit">
-  </select>
-  </div>
-</div>
-
-<div class="col-12">
-  <div class="input-group">
-  <span class="input-group-text">Freguesia</span>
-  <select class="form-select" id="listaFreguesias1Edit">
-  </select>
-  </div>
-</div>
 
 <div class="col-12">
   <label for="obsInquiEdit" class="form-label">Observações</label>

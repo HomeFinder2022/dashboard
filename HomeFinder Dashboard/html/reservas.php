@@ -14,22 +14,22 @@
     <thead>
         <tr>
             <th class="sorting sorting_asc" tabindex="0" aria-controls="example" rowspan="1" colspan="1"
-                aria-sort="ascending" aria-label="Name: activate to sort column descending" style="width: 61px;">Id
+                aria-sort="ascending" aria-label="Name: activate to sort column descending" style="width: 5px;">Id
             </th>
             <th class="sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1"
-                aria-label="Office: activate to sort column ascending" style="width: 80px;">Imóvel</th>
+                aria-label="Office: activate to sort column ascending" style="width: 120px;">Imóvel</th>
             <th class="sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1"
-                aria-label="Age: activate to sort column ascending" style="width: 61px;">Destinatário</th>
+                aria-label="Age: activate to sort column ascending" style="width: 41px;">Destinatário</th>
             <th class="sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1"
-                aria-label="Salary: activate to sort column ascending" style="width: 122px;">Data de Entrada</th>
+                aria-label="Salary: activate to sort column ascending" style="width: 110px;">Data de Entrada</th>
             <th class="sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1"
-            aria-label="Salary: activate to sort column ascending" style="width: 61px;">Data de Saída</th>
+            aria-label="Salary: activate to sort column ascending" style="width: 110px;">Data de Saída</th>
             <th class="sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1"
-                aria-label="Salary: activate to sort column ascending" style="width: 93px;">Número de Pessoas</th>
+                aria-label="Salary: activate to sort column ascending" style="width: 23px;">Número de Pessoas</th>
             <th class="sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1"
-                aria-label="Salary: activate to sort column ascending" style="width: 93px;">Observações</th>
+                aria-label="Salary: activate to sort column ascending" style="width: 63px;">Observações</th>
                 <th class="sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1"
-                aria-label="Salary: activate to sort column ascending" style="width: 70px;">Estado</th>
+                aria-label="Salary: activate to sort column ascending" style="width: 50px;">Estado</th>
         </tr>
     </thead>
     <tbody id="listaResFeitos">
@@ -56,24 +56,24 @@
             <thead>
         <tr>
             <th class="sorting sorting_asc" tabindex="0" aria-controls="example" rowspan="1" colspan="1"
-                aria-sort="ascending" aria-label="Name: activate to sort column descending" style="width: 61px;">Id
+                aria-sort="ascending" aria-label="Name: activate to sort column descending" style="width: 5px;">Id
             </th>
             <th class="sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1"
-                aria-label="Office: activate to sort column ascending" style="width: 80px;">Imóvel</th>
+                aria-label="Office: activate to sort column ascending" style="width: 120px;">Imóvel</th>
             <th class="sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1"
-                aria-label="Age: activate to sort column ascending" style="width: 61px;">Remetente</th>
+                aria-label="Age: activate to sort column ascending" style="width: 41px;">Remetente</th>
             <th class="sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1"
-                aria-label="Salary: activate to sort column ascending" style="width: 122px;">Data de Entrada</th>
+                aria-label="Salary: activate to sort column ascending" style="width: 110px;">Data de Entrada</th>
             <th class="sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1"
-            aria-label="Salary: activate to sort column ascending" style="width: 61px;">Data de Saída</th>
+            aria-label="Salary: activate to sort column ascending" style="width: 110px;">Data de Saída</th>
             <th class="sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1"
-                aria-label="Salary: activate to sort column ascending" style="width: 93px;">Número de Pessoas</th>
+                aria-label="Salary: activate to sort column ascending" style="width: 23px;">Número de Pessoas</th>
             <th class="sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1"
-                aria-label="Salary: activate to sort column ascending" style="width: 93px;">Observações</th>
+                aria-label="Salary: activate to sort column ascending" style="width: 63px;">Observações</th>
                 <th class="sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1"
-                aria-label="Salary: activate to sort column ascending" style="width: 70px;">Ações</th>
+                aria-label="Salary: activate to sort column ascending" style="width: 50px;">Ações</th>
                 <th class="sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1"
-                aria-label="Salary: activate to sort column ascending" style="width: 70px;">Ações</th>
+                aria-label="Salary: activate to sort column ascending" style="width: 50px;">Ações</th>
         </tr>
     </thead>
     <tbody id="listaRes">
@@ -101,22 +101,22 @@
             <thead>
         <tr>
             <th class="sorting sorting_asc" tabindex="0" aria-controls="example" rowspan="1" colspan="1"
-                aria-sort="ascending" aria-label="Name: activate to sort column descending" style="width: 61px;">Id
+                aria-sort="ascending" aria-label="Name: activate to sort column descending" style="width: 5px;">Id
             </th>
             <th class="sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1"
-                aria-label="Office: activate to sort column ascending" style="width: 80px;">Imóvel</th>
+                aria-label="Office: activate to sort column ascending" style="width: 120px;">Imóvel</th>
             <th class="sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1"
-                aria-label="Age: activate to sort column ascending" style="width: 61px;">Destinatário</th>
+                aria-label="Age: activate to sort column ascending" style="width: 41px;">Destinatário</th>
             <th class="sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1"
-                aria-label="Salary: activate to sort column ascending" style="width: 122px;">Data de Entrada</th>
+                aria-label="Salary: activate to sort column ascending" style="width: 110px;">Data de Entrada</th>
             <th class="sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1"
-            aria-label="Salary: activate to sort column ascending" style="width: 61px;">Data de Saída</th>
+            aria-label="Salary: activate to sort column ascending" style="width: 110px;">Data de Saída</th>
             <th class="sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1"
-                aria-label="Salary: activate to sort column ascending" style="width: 93px;">Número de Pessoas</th>
+                aria-label="Salary: activate to sort column ascending" style="width: 23px;">Número de Pessoas</th>
             <th class="sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1"
-                aria-label="Salary: activate to sort column ascending" style="width: 93px;">Observações</th>
+                aria-label="Salary: activate to sort column ascending" style="width: 63px;">Observações</th>
                 <th class="sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1"
-                aria-label="Salary: activate to sort column ascending" style="width: 70px;">Ações</th>
+                aria-label="Salary: activate to sort column ascending" style="width: 50px;">Ações</th>
         </tr>
     </thead>
     <tbody id="listaResAceites">

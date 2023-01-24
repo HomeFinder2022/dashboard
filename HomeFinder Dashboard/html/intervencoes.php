@@ -14,10 +14,10 @@
     <thead>
         <tr>
             <th class="sorting sorting_asc" tabindex="0" aria-controls="example" rowspan="1" colspan="1"
-                aria-sort="ascending" aria-label="Name: activate to sort column descending" style="width: 61px;">Id
+                aria-sort="ascending" aria-label="Name: activate to sort column descending" style="width: 5px;">Id
             </th>
             <th class="sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1"
-                aria-label="Office: activate to sort column ascending" style="width: 80px;">Imóvel</th>
+                aria-label="Office: activate to sort column ascending" style="width: 120px;">Imóvel</th>
             <th class="sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1"
                 aria-label="Age: activate to sort column ascending" style="width: 61px;">Destinatário</th>
             <th class="sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1"
@@ -25,7 +25,7 @@
             <th class="sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1"
                 aria-label="Salary: activate to sort column ascending" style="width: 93px;">Observações</th>
                 <th class="sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1"
-                aria-label="Salary: activate to sort column ascending" style="width: 70px;">Estado</th>
+                aria-label="Salary: activate to sort column ascending" style="width: 60px;">Estado</th>
         </tr>
     </thead>
     <tbody id="listaIntsFeitos">
@@ -50,10 +50,10 @@
     <thead>
         <tr>
             <th class="sorting sorting_asc" tabindex="0" aria-controls="example" rowspan="1" colspan="1"
-                aria-sort="ascending" aria-label="Name: activate to sort column descending" style="width: 61px;">Id
+                aria-sort="ascending" aria-label="Name: activate to sort column descending" style="width: 5px;">Id
             </th>
             <th class="sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1"
-                aria-label="Office: activate to sort column ascending" style="width: 80px;">Imóvel</th>
+                aria-label="Office: activate to sort column ascending" style="width: 120px;">Imóvel</th>
             <th class="sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1"
                 aria-label="Age: activate to sort column ascending" style="width: 61px;">Remetente</th>
             <th class="sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1"
@@ -88,10 +88,10 @@
     <thead>
         <tr>
             <th class="sorting sorting_asc" tabindex="0" aria-controls="example" rowspan="1" colspan="1"
-                aria-sort="ascending" aria-label="Name: activate to sort column descending" style="width: 61px;">Id
+                aria-sort="ascending" aria-label="Name: activate to sort column descending" style="width: 5px;">Id
             </th>
             <th class="sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1"
-                aria-label="Office: activate to sort column ascending" style="width: 80px;">Imóvel</th>
+                aria-label="Office: activate to sort column ascending" style="width: 120px;">Imóvel</th>
             <th class="sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1"
                 aria-label="Age: activate to sort column ascending" style="width: 61px;">Destinatário</th>
             <th class="sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1"
