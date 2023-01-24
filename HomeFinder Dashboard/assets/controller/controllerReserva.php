@@ -33,33 +33,67 @@ class Reserva{
         return $msg;
     
       }
-    
-    
+
       function regRes($imovel, $dataentrada, $datasaida, $obs, $num){
         global $conn; 
 
               session_start();
               $nifUser = $_SESSION['nif'];
 
-              $resp = $this -> getDesti($imovel);
-              // function p ir buscar o proprietario atraves do nif do user(inquilino)
-              $resp = json_decode($resp, TRUE);
-              $sql = "INSERT INTO pedidoreserva (idimovel, data, datasaida, idremetente, iddestinatario, idestado, descricao, numpessoas) 
-                   VALUES('".$imovel."','".$dataentrada."','".$datasaida."', '".$nifUser."', '".$resp['iddesti']."', 1, '".$obs."',  '".$num."')";
-
-          $msg = "";
-          
-                   
-          if ($conn->query($sql) === TRUE) {          
-              $msg = "Pedido de reserva registado com sucesso";
-          } else {
-            $msg = "Error: " . $sql . "<br>" . $conn->error;
-          }
-          
+              $flag = "";
+              $check_query = "SELECT * FROM pedidoreserva WHERE data BETWEEN '".$dataentrada."' AND '".$datasaida."' AND datasaida BETWEEN '".$dataentrada."' and '".$datasaida."'";
+              $result = $conn->query($check_query);
+              if ($result->num_rows > 0) {
+                  $msg = "Já existe uma marcação nas datas assinaladas!";
+                  $flag = false;
+              } else {
+                  // Insert the new event
+                  $resp = $this -> getDesti($imovel);
+                  //         function p ir buscar o proprietario atraves do nif do user(inquilino)
+                              $resp = json_decode($resp, TRUE);
+                  $insert_query = "INSERT INTO pedidoreserva (idimovel, data, datasaida, idremetente, iddestinatario, idestado, descricao, numpessoas) 
+                                   VALUES('".$imovel."','".$dataentrada."','".$datasaida."', '".$nifUser."', '".$resp['iddesti']."', 1, '".$obs."',  '".$num."')";
+            
+                  $conn->query($insert_query);
+                  $msg = "Pedido de reserva registada com sucesso!";
+                  $flag = true;
+              }
+              // echo ($check_query);
           $conn->close();
     
-          return $msg;
+
+        $res = array("msg"=>$msg, "flag"=>$flag);
+        $res = json_encode($res);
+      
+        return $res;
       }
+    
+    
+      // function regRes($imovel, $dataentrada, $datasaida, $obs, $num){
+      //   global $conn; 
+
+      //         session_start();
+      //         $nifUser = $_SESSION['nif'];
+            
+      //         $resp = $this -> getDesti($imovel);
+      //         // function p ir buscar o proprietario atraves do nif do user(inquilino)
+      //         $resp = json_decode($resp, TRUE);
+      //         $sql = "INSERT INTO pedidoreserva (idimovel, data, datasaida, idremetente, iddestinatario, idestado, descricao, numpessoas) 
+      //              VALUES('".$imovel."','".$dataentrada."','".$datasaida."', '".$nifUser."', '".$resp['iddesti']."', 1, '".$obs."',  '".$num."')";
+
+      //     $msg = "";
+          
+                   
+      //     if ($conn->query($sql) === TRUE) {          
+      //         $msg = "Pedido de reserva registado com sucesso";
+      //     } else {
+      //       $msg = "Error: " . $sql . "<br>" . $conn->error;
+      //     }
+          
+      //     $conn->close();
+    
+      //     return $msg;
+      // }
 
       function getDesti($imovel){
 
@@ -255,9 +289,11 @@ class Reserva{
 
   function insertEvento($dataent, $datasaida, $nome, $morada){
     global $conn; 
+    session_start();
+    $nifUser = $_SESSION['nif'];
 
-      $sql = "INSERT INTO eventos (title, description, start_datetime, end_datetime) 
-      VALUES('Reserva: ".$nome."', 'Imóvel: ".$morada."', '".$dataent."', '".$datasaida."')";
+      $sql = "INSERT INTO eventos (title, description, start_datetime, end_datetime, nif) 
+      VALUES('Reserva: ".$nome."', 'Imóvel: ".$morada."', '".$dataent."', '".$datasaida."', '".$nifUser."')";
 
       $msg = "";
       

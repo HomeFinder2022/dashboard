@@ -6,10 +6,11 @@ require_once 'connection.php';
 
     function regEvento($titulo, $descricao, $datainicio, $datafim){
       global $conn; 
+      session_start();
+      $nifUser = $_SESSION['nif'];
 
-
-        $sql = "INSERT INTO eventos (title, description, start_datetime, end_datetime) 
-        VALUES('".$titulo."', '".$descricao."', '".$datainicio."', '".$datafim."')";
+        $sql = "INSERT INTO eventos (title, description, start_datetime, end_datetime, nif) 
+        VALUES('".$titulo."', '".$descricao."', '".$datainicio."', '".$datafim."', '".$nifUser."')";
 
         $msg = "";
         

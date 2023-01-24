@@ -21,7 +21,7 @@ require_once 'connection.php';
             $resp = json_decode($resp, TRUE);
             $query1 = $this -> insertListaArrend($imovel, $inquilino, $nifUser);
             $query2 = $this -> insertCaucao($caucao, $nifUser, $resp['nome']);
-            $query3 = $this -> insertEvento($datapag, $resp['nome'], $resp['morada']);
+            $query3 = $this -> insertEvento($datapag, $resp['nome'], $resp['morada'], $nifUser);
             // $query3 = $this -> insert_renda_mes($imovel, $nifUser);
             // inserir no historicomov a renda para o user proprietario e update das financas
             $msg = "Arrendamento registado com sucesso!";
@@ -70,13 +70,13 @@ require_once 'connection.php';
 
 
 
-       function insertEvento($datapag, $inquilino, $morada){
+       function insertEvento($datapag, $inquilino, $morada, $nifUser){
         global $conn; 
 
         $day = date('d', strtotime($datapag));
 
-          $sql = "INSERT INTO eventos (title, description, start_datetime, end_datetime, rrule) 
-          VALUES('Prazo de pagamento', 'Inquilino: ".$inquilino."  ' '|  Imóvel: ".$morada."', '".$datapag."', '".$datapag."', 'FREQ=MONTHLY;BYMONTHDAY=".$day."')";
+          $sql = "INSERT INTO eventos (title, description, start_datetime, end_datetime, rrule, nif) 
+          VALUES('Prazo de pagamento', 'Inquilino: ".$inquilino."  ' '|  Imóvel: ".$morada."', '".$datapag."', '".$datapag."', 'FREQ=MONTHLY;BYMONTHDAY=".$day."', ".$nifUser.")";
           $msg = "";
           
           if ($conn->query($sql) === TRUE) {
