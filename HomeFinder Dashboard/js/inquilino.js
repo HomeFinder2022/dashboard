@@ -46,11 +46,11 @@ function registoInqui() {
 
 
 
-  function sendEmail() {
+  function sendEmail(emailInqui, nomeInqui) {
 
 
-    let nomeInqui = "Paulo Pedras"; 
-    let emailInqui = "paulopedras93@gmail.com";
+    // let nomeInqui = "Paulo Pedras"; 
+    // let emailInqui = "paulopedras93@gmail.com";
     let dados = new FormData();
     dados.append("op", 2);
     dados.append("emailInqui", emailInqui);

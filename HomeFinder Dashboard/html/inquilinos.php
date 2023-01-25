@@ -49,6 +49,7 @@
             </div>
 <!-- <button onclick="sendEmail()">Enviar Email</button> -->
 
+<!-- <img src='../assets/img/logo-HomeFinder-mini.png' alt='logo'> -->
 <!-- MODAL -->
 <div class="modal fade" id="infoInquilino" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
