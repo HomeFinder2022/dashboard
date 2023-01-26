@@ -7,6 +7,11 @@ if($_POST['op'] == 1){
     $reg = new Estatistica();
     $resp = $reg -> getStat();
     echo($resp);
+}
+
+
+
+
 // }else if($_POST['op'] == 2){
 //     $get = new Intervencao();
 //     $resp = $get -> selectTipoInt();
@@ -27,6 +32,5 @@ if($_POST['op'] == 1){
 //         $table = new Inventario();
 //         $res = $table -> listaDocs();
 //         echo($res);
-    }
-
+    
 ?>

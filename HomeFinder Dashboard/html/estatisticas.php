@@ -6,16 +6,52 @@
           <div class="content-wrapper">
 <div class="container-fluid">        
 <div class="card mt-3">
+
+                <div class="col-3 mt-3 ms-3">
+                    <div class="input-group">
+                      <label class="input-group-text">Ano</label>
+                      <select class="form-select" aria-label="Default select example" onchange="filtroesta()">
+                        <option selected>2023</option>
+                        <option value="1">2022</option>
+                        
+                        </select>
+                    </div>
+                </div>
             
             <div class="container-fluid mt-3">
-    <h3 class="title-form text-center mt-1">Finanças</h3>
+            <div id="graf" style="display: none;">
+            <h3 class="title-form text-center mt-1">Finanças</h3>
           <canvas class="mt-3" id="myChart" ></canvas>
+
           <!-- <hr style = "height: 5px; color: #2FCB6A;"> -->
           <h3 class="title-form text-center mt-4">Imóveis</h3>
           <canvas class="mt-3" id="myChart2" ></canvas>
+
+          </div>
+
+
+          <div>
+            <div id="graf1">
+            <h3 class="title-form text-center mt-4">Finanças</h3>
+            <canvas class="mt-3" id="myChart3" ></canvas>
+
+
+            <h3 class="title-form text-center mt-4">Imóveis</h3>
+            <canvas class="mt-3" id="myChart4" ></canvas>
+            </div>
+          </div>
+          
+
+
+
           </div>
           </div>
           </div>
+
+
+
+
+
 
           <script>
 var ctx = document.getElementById('myChart').getContext('2d');
@@ -58,7 +94,6 @@ var chart = new Chart(ctx, {
 
 </script>
 
-
 <script>
 var ctx = document.getElementById('myChart2').getContext('2d');
 var chart = new Chart(ctx, {
@@ -74,6 +109,86 @@ var chart = new Chart(ctx, {
         }, {
             label: 'Número de casas',
             data: [2, 3, 3, 4, 4, 4, 4, 5, 5, 5, 5, 5],
+            backgroundColor: 'rgba(54, 162, 235, 0.2)',
+            borderColor: 'rgba(0, 0, 0, 1)',
+            borderWidth: 1
+        }]
+    },
+    options: {
+        scales: {
+            y: {
+                beginAtZero: true
+            }
+        }
+    }
+});
+
+
+
+
+
+</script>
+
+
+
+<script>
+var ctx = document.getElementById('myChart3').getContext('2d');
+var chart = new Chart(ctx, {
+    type: 'line',
+    data: {
+        labels: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'],
+        datasets: [{
+            label: 'Saldo ',
+            data: [500,0,0,0,0,00,0,],
+            backgroundColor: 'rgba(0, 0, 255, 0.2 )',
+            borderColor: 'rgba(0, 0, 255, 1 )',
+            borderWidth: 1
+        }, {
+            label: 'Receitas',
+            data: [500,0,0,0,0,0,0,0],
+            backgroundColor: 'rgba(54, 162, 235, 0.2)',
+            borderColor: 'rgba(0, 0, 0, 1)',
+            borderWidth: 1
+        }, {
+            label: 'Despesas',
+            data: [200,0,0,0,0,0,0,0,0,0],
+            backgroundColor: 'rgba(220, 20, 60, 0.2)',
+            borderColor: 'rgba(220, 20, 60, 1)',
+            borderWidth: 1
+        }]
+    },
+    options: {
+        scales: {
+            y: {
+                beginAtZero: true
+            }
+        }
+    }
+});
+
+
+
+
+
+</script>
+
+
+
+<script>
+var ctx = document.getElementById('myChart4').getContext('2d');
+var chart = new Chart(ctx, {
+    type: 'line',
+    data: {
+        labels: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'],
+        datasets: [{
+            label: 'Número de inquilinos ',
+            data: [4,6],
+            backgroundColor: 'rgba(47, 203, 106, 0.2)',
+            borderColor: 'rgba(47, 203, 106, 2)',
+            borderWidth: 1
+        }, {
+            label: 'Número de casas',
+            data: [2,3],
             backgroundColor: 'rgba(54, 162, 235, 0.2)',
             borderColor: 'rgba(0, 0, 0, 1)',
             borderWidth: 1
