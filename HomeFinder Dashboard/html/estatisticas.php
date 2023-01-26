@@ -61,15 +61,15 @@ var chart = new Chart(ctx, {
         labels: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'],
         datasets: [{
             label: 'Saldo ',
-            data: [500, 1500, 3500, 2000, 4500, 3500, 4000, 5000, 3500, 4500, 6000, 5500],
+            data: [500, 1500, 2500, 2000, 3500, 3500, 3000, 4000, 3500, 4500, 4000, 4500],
             backgroundColor: 'rgba(0, 0, 255, 0.2 )',
             borderColor: 'rgba(0, 0, 255, 1 )',
             borderWidth: 1
         }, {
             label: 'Receitas',
             data: [500, 2000, 3000, 440, 400, 200, 500, 50, 555, 545, 524, 574],
-            backgroundColor: 'rgba(54, 162, 235, 0.2)',
-            borderColor: 'rgba(0, 0, 0, 1)',
+            backgroundColor: 'rgba(47, 203, 106, 0.2)',
+            borderColor: 'rgba(47, 203, 106, 1)',
             borderWidth: 1
         }, {
             label: 'Despesas',
@@ -109,7 +109,7 @@ var chart = new Chart(ctx, {
         }, {
             label: 'Número de casas',
             data: [2, 3, 3, 4, 4, 4, 4, 5, 5, 5, 5, 5],
-            backgroundColor: 'rgba(54, 162, 235, 0.2)',
+            backgroundColor: 'rgba(0, 0, 0, .2)',
             borderColor: 'rgba(0, 0, 0, 1)',
             borderWidth: 1
         }]
@@ -139,19 +139,19 @@ var chart = new Chart(ctx, {
         labels: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'],
         datasets: [{
             label: 'Saldo ',
-            data: [500,0,0,0,0,00,0,],
+            data: [1000,900,0,0,0,0,0,0,0,0,0,0],
             backgroundColor: 'rgba(0, 0, 255, 0.2 )',
             borderColor: 'rgba(0, 0, 255, 1 )',
             borderWidth: 1
         }, {
             label: 'Receitas',
-            data: [500,0,0,0,0,0,0,0],
-            backgroundColor: 'rgba(54, 162, 235, 0.2)',
-            borderColor: 'rgba(0, 0, 0, 1)',
+            data: [500,500,0,0,0,0,0,0,0,0,0,0],
+            backgroundColor: 'rgba(47, 203, 106, 0.2)',
+            borderColor: 'rgba(47, 203, 106, 1)',
             borderWidth: 1
         }, {
             label: 'Despesas',
-            data: [200,0,0,0,0,0,0,0,0,0],
+            data: [200,400,0,0,0,0,0,0,0,0,0,0],
             backgroundColor: 'rgba(220, 20, 60, 0.2)',
             borderColor: 'rgba(220, 20, 60, 1)',
             borderWidth: 1
@@ -182,13 +182,13 @@ var chart = new Chart(ctx, {
         labels: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'],
         datasets: [{
             label: 'Número de inquilinos ',
-            data: [4,6],
+            data: [10,10,0,0,0,0,0,0,0,0,0,0],
             backgroundColor: 'rgba(47, 203, 106, 0.2)',
             borderColor: 'rgba(47, 203, 106, 2)',
             borderWidth: 1
         }, {
             label: 'Número de casas',
-            data: [2,3],
+            data: [5,5,0,0,0,0,0,0,0,0,0,0],
             backgroundColor: 'rgba(54, 162, 235, 0.2)',
             borderColor: 'rgba(0, 0, 0, 1)',
             borderWidth: 1

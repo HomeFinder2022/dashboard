@@ -213,7 +213,7 @@ require_once 'connection.php';
         session_start();
         $nifUser = $_SESSION['nif'];
 
-        $sql = "SELECT idimovel, morada FROM imovel WHERE nifutilizador = ".$nifUser;
+        $sql = "SELECT distinct idimovel, morada FROM imovel, tiponegocio WHERE imovel.idtiponegocio = 2 AND  nifutilizador = ".$nifUser;
         $msg = "<option value='-1'>Escolha um imóvel</option>";
         
         $result = $conn->query($sql);
