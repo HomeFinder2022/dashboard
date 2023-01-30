@@ -37,6 +37,14 @@ function registoInqui() {
   
       .done(function (resposta) {
         sucesso(resposta);
+        setTimeout(function() {
+          $("#nomeInqui").val("");
+          $("#emailInqui").val("");
+          $("#moradaInqui").val("");
+          $("#telInqui").val("");
+          $("#obsInqui").val("");
+          $("#nifInqui").val("");
+      }, 500);
       })
   
       .fail(function (jqXHR, textStatus) {
@@ -244,6 +252,10 @@ function registoInqui() {
         let obj = JSON.parse(resposta);
         if(obj.flag){
           sucesso(obj.msg);
+          setTimeout(function() {
+            $("#confirmEmail").val("");
+            
+        }, 500);
         }else{
           erro(obj.msg);
         }

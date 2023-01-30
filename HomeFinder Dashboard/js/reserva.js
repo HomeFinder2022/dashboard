@@ -54,6 +54,13 @@
         let obj = JSON.parse(resposta);
         if(obj.flag){
           sucesso(obj.msg);
+          setTimeout(function() {
+            $("#imovelRes").val("");
+            $("#dataEntRes").val("");
+            $("#dataSaiRes").val("");
+            $("#descRes").val("");
+            $("#numPessoas").val("");
+        }, 500);
         }else{
           erro(obj.msg);
         }

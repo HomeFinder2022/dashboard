@@ -25,7 +25,7 @@ require_once 'connection.php';
               $msg = $this -> insertFoto($resp['target'], $lastID);
             }else{
            
-              $msg = "Contato registado sem foto";
+              $msg = "Contato registado sem foto!";
             }
           } else {
             $msg = "Error: " . $sql . "<br>" . $conn->error;
@@ -45,7 +45,7 @@ require_once 'connection.php';
         idcontatos = ".$id;
     
         if ($conn->query($sql) === TRUE) {
-          $msg  = "Contato registado com Sucesso!";
+          $msg  = "Contato registado com sucesso!";
         } else {
           $msg = "Error: " . $sql . "<br>" . $conn->error;
         }
@@ -118,8 +118,8 @@ require_once 'connection.php';
                   $msg .= "<p class='small text-muted text-center'>".$row['email']."</p>";
                   $msg .= "<p class='text-muted text-center'>".$row['contato']."</p>";
                   // $msg .= "<div class='card-footer'>";
-                  $msg .= "<ul class='social mb-0 ms-4 list-inline'>";
-                  $msg .= "<li class='list-inline-item ms-3'><a href='tel:".$row['contato']."' class='social-link'><i class='bx bxs-phone-call bx-md'></i></a></li>";
+                  $msg .= "<ul class='social text-center list-inline'>";
+                  $msg .= "<li class='list-inline-item ms-2'><a href='tel:".$row['contato']."' class='social-link'><i class='bx bxs-phone-call bx-md'></i></a></li>";
                   $msg .= "<li class='list-inline-item ms-2'><a href='mailto:".$row['email']."' class='social-link'><i class='bx bxs-envelope bx-md'></i></a></li>";
                   $msg .= "<li class='list-inline-item ms-2'><a href='#' onclick='infoContato(".$row['idcontatos'].")' class='social-link'><i class='bx bxs-info-circle bx-md'></i></a></li>";
                   $msg .= "<li class='list-inline-item ms-2'><a href='#' onclick='delContato(".$row['idcontatos'].")' class='social-link'><i class='delbtn bx bxs-x-circle bx-md'></i></a></li>";
@@ -204,7 +204,7 @@ require_once 'connection.php';
         }
       
         if ($conn->query($sql) === TRUE) {
-          $msg  = "Contato Editado com Sucesso!";
+          $msg  = "Contato editado com sucesso!";
         } else {
           $msg = "Error: " . $sql . "<br>" . $conn->error;
         }

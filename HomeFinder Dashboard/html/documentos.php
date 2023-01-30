@@ -17,12 +17,12 @@
     <thead>
         <tr>
             <th class="sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1"
-                aria-label="Office: activate to sort column ascending" style="width: 60px;">Referência Documento</th>
+                aria-label="Office: activate to sort column ascending" style="width: 100px;">Referência Documento</th>
             <th class="sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1"
                 aria-label="Age: activate to sort column ascending" style="width: 40px;">Tipo de Documento</th>
             <th class="sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1"
                 aria-label="Salary: activate to sort column ascending" style="width: 80px;">Ficheiro</th>
-                <th class="span1 center" style="width: 50px;">Ações</th>
+                <th class="span1 center" style="width: 10px;">Ações</th>
         </tr>
     </thead>
     <tbody id="listaDocss">
@@ -33,7 +33,7 @@
             <th rowspan="1" colspan="1">Referência Documento</th>
             <th rowspan="1" colspan="1">Tipo de Documento</th>
             <th rowspan="1" colspan="1">Ficheiro</th>
-            <th class="span1 center" style="width: 50px;">Ações</th>
+            <th class="span1 center" style="width: 10px;">Ações</th>
         </tr>
     </tfoot>
 </table>

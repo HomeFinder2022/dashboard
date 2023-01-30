@@ -395,9 +395,9 @@ require_once 'connection.php';
                 $msg .= "<td>".$row['tipopagamento']."</td>";
                 $msg .= "<td>".$row['datapagamento']."</td>";
                 $msg .= "<td>".$row['estado']."</td>";
-                $msg .= "<td><button type='button' class='btn btn-primary btn-sm' onclick='editArr(".$row['idarrendamento'].", ".$row['precorenda'].")'>Renda</button></td>";
-                $msg .= "<td><button type='button' class='btn btn-success btn-sm' onclick='concluiArr(".$row['idarrendamento'].")'>Concluido</button></td>";
-                $msg .= "<td><button type='button' class='btn btn-danger btn-sm' onclick='delArr(".$row['idarrendamento'].")'>Apagar</button></td>";
+                $msg .= "<td style='text-align: center; vertical-align: middle;'><button type='button' class='btn btn-primary btn-sm' onclick='editArr(".$row['idarrendamento'].", ".$row['precorenda'].")'>Renda</button></td>";
+                $msg .= "<td style='text-align: center; vertical-align: middle;'><button type='button' class='btn btn-success btn-sm' onclick='concluiArr(".$row['idarrendamento'].")'>Concluido</button></td>";
+                $msg .= "<td style='text-align: center; vertical-align: middle;'><button type='button' class='btn btn-danger btn-sm' onclick='delArr(".$row['idarrendamento'].")'>Apagar</button></td>";
                 $msg .= "</tr>";
                 }
                 
@@ -511,7 +511,7 @@ require_once 'connection.php';
         
                  
         if ($conn->query($sql) === TRUE) {
-          $msg  = "Arrendamento concluido";
+          $msg  = "Arrendamento concluido!";
         } else {
           $msg = "Error: " . $sql . "<br>" . $conn->error;
         }

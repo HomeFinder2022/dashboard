@@ -372,7 +372,7 @@ require 'PHPMailer/src/SMTP.php';
 
 
         if(!$mail->send()) {
-          echo 'Não foi possível enviar o convite<br>';
+          echo 'Não foi possível enviar o convite!<br>';
           echo 'Erro: ' . $mail->ErrorInfo;
       } else {
           echo 'Convite enviado com sucesso!';
@@ -492,7 +492,7 @@ require 'PHPMailer/src/SMTP.php';
       $msg = "";
           
       if ($conn->query($sql) === TRUE) {
-        $msg  = "Inquilino editado com Sucesso!";
+        $msg  = "Inquilino editado com sucesso!";
       } else {
         $msg = "Error: " . $sql . "<br>" . $conn->error;
       }
