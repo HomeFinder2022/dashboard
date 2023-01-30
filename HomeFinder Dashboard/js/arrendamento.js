@@ -32,6 +32,15 @@ function registoArr() {
   
       .done(function (resposta) {
         sucesso(resposta);
+        setTimeout(function() {
+          $("#imovelArr").val("");
+          $("#inquiArr").val("");
+          $("#inventArr").val("");
+          $("#tipoPagArr").val("");
+          $("#caucaoArr").val("");
+          $("#docArr").val("");
+          $("#dataPagamentoArr").val("");
+      }, 500);
       })
   
       .fail(function (jqXHR, textStatus) {

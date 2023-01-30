@@ -233,7 +233,7 @@ class Reserva{
               $msg .= "<td>".$row['datasaida']."</td>";
               $msg .= "<td>".$row['numpessoas']."</td>";
               $msg .= "<td>".$row['descricao']."</td>";
-              $msg .= "<td><button type='button' class='btn btn-success btn-sm' onclick='aceitaPag(".$row['idpedidoreserva'].")'>Aceitar Pagamento</button></td>";
+              $msg .= "<td style='text-align: center; vertical-align: middle;'><button type='button' class='btn btn-success btn-sm' onclick='aceitaPag(".$row['idpedidoreserva'].")'>Aceitar Pagamento</button></td>";
               // $msg .= "<td><button type='button' class='btn btn-danger btn-sm' onclick='recusaInt(".$row['idpedido'].")'>Recusar</button></td>";
               $msg .= "</tr>";
                 }
@@ -263,7 +263,7 @@ class Reserva{
           $dias = intval(abs($resp1['diasferias']));
 
           $resp2 = $this -> updateFinancasFerias($preco, $dias, $inquilino);
-          $msg .= "Pagamento recebido";
+          $msg .= "Pagamento recebido!";
       } else {
           $msg = "Error: " . $sql . "<br>" . $conn->error;
       }
@@ -281,7 +281,7 @@ class Reserva{
       if ($result = $conn->query($sql)) {
 
           $query = $this -> insertEvento($dataent, $datasaida, $nome, $morada);
-          $msg .= "Pedido de reserva aceite";
+          $msg .= "Pedido de reserva aceite!";
       } else {
           $msg = "Error: " . $sql . "<br>" . $conn->error;
       }
@@ -374,7 +374,7 @@ class Reserva{
           
           if ($result = $conn->query($sql)) {
             $query = $this -> histReceitaFerias($total, $nifUser, $inquilino);
-            $msg  = "Pedido de reserva aceite";
+            $msg  = "Pedido de reserva aceite!";
           } else {
             $msg = "Error: " . $sql . "<br>" . $conn->error;
           }
@@ -395,7 +395,7 @@ class Reserva{
           
                    
           if ($conn->query($sql) === TRUE) {
-            $msg  = "Pedido de reserva aceite";
+            $msg  = "Pedido de reserva aceite!";
           } else {
             $msg = "Error: " . $sql . "<br>" . $conn->error;
           }
@@ -415,7 +415,7 @@ class Reserva{
         
       
         if ($conn->query($sql) === TRUE) {
-          $msg  = "Pedido de reserva recusado";
+          $msg  = "Pedido de reserva recusado!";
         } else {
           $msg = "Error: " . $sql . "<br>" . $conn->error;
         }

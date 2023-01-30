@@ -19,7 +19,7 @@ class Inventario{
           if ($conn->query($sql) === TRUE) {          
     
             if($resp['flag']){
-              $msg = "Inventário registado com sucesso";
+              $msg = "Inventário registado com sucesso!";
             }else{
            
               $msg = "Não foi possível guardar o inventário, tente carregar o ficheiro novamente.";
@@ -97,7 +97,7 @@ class Inventario{
                   $msg .= "<td>".$row['idinventario']."</td>";
                   $msg .= "<td>".$row['imovel']."</td>";
                   $msg .= "<td><a href='../".$row['descricao']."' download>Download</a></td>";
-                  $msg .= "<td><button type='button' class='btn btn-danger btn-sm' onclick='deleteInvent(".$row['idinventario'].")'>Apagar</button></td>";
+                  $msg .= "<td style='text-align: center; vertical-align: middle;'><button type='button' class='btn btn-danger btn-sm' onclick='deleteInvent(".$row['idinventario'].")'>Apagar</button></td>";
                   $msg .= "</tr>";
                   }
                   
@@ -151,14 +151,14 @@ class Inventario{
 
             $lastID = mysqli_insert_id($conn);
               $resp = $this -> uploadDoc($doc, $lastID);
-              $msg = "Documento registado com sucesso";
+              $msg = "Documento registado com sucesso!";
               $resp = json_decode($resp, TRUE);
     
               if($resp['flag']){
                 $msg = $this -> guardarDoc($resp['target'], $lastID);
               }else{
              
-                $msg = "O documento não foi carregado";
+                $msg = "O documento não foi carregado!";
               }
       
           } else {
@@ -251,7 +251,7 @@ class Inventario{
                   $msg .= "<td>".$row['ref']."</td>";
                   $msg .= "<td>".$row['tipodocumento']."</td>";
                   $msg .= "<td><a href='../".$row['descricao']."' download>Download</a></td>";
-                  $msg .= "<td><button type='button' class='btn btn-danger btn-sm' onclick='deleteFicheiro(".$row['iddocumento'].")'>Apagar</button></td>";
+                  $msg .= "<td style='text-align: center; vertical-align: middle;'><button type='button' class='btn btn-danger btn-sm' onclick='deleteFicheiro(".$row['iddocumento'].")'>Apagar</button></td>";
                   $msg .= "</tr>";
                   }
                   

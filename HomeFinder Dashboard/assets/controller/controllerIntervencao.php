@@ -20,7 +20,7 @@ class Intervencao{
           
                    
           if ($conn->query($sql) === TRUE) {          
-              $msg = "Pedido de intervenção registado com sucesso";
+              $msg = "Pedido de intervenção registado com sucesso!";
           } else {
             $msg = "Error: " . $sql . "<br>" . $conn->error;
           }
@@ -245,7 +245,7 @@ class Intervencao{
       if ($conn->query($sql) === TRUE) {
         // $resp = $this -> criar evento();
         $query = $this -> insertEvento($data, $nome, $morada);
-        $msg  = "Pedido de intervenção aceite";
+        $msg  = "Pedido de intervenção aceite!";
       } else {
         $msg = "Error: " . $sql . "<br>" . $conn->error;
       }
@@ -286,7 +286,7 @@ class Intervencao{
       
     
       if ($conn->query($sql) === TRUE) {
-        $msg  = "Pedido de intervenção recusado";
+        $msg  = "Pedido de intervenção recusado!";
       } else {
         $msg = "Error: " . $sql . "<br>" . $conn->error;
       }

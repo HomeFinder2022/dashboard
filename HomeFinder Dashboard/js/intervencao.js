@@ -27,6 +27,12 @@ function registoIntervencao() {
   
       .done(function (resposta) {
         sucesso(resposta);
+        setTimeout(function() {
+          $("#tipoInt").val("");
+          $("#dataInt").val("");
+          $("#descInt").val("");
+          $("#imovelInt").val("");
+      }, 500);
       })
   
       .fail(function (jqXHR, textStatus) {
@@ -52,6 +58,8 @@ function registoIntervencao() {
   
       .done(function (resposta) {
         $("#tipoInt").html(resposta);
+
+
         })
   
       .fail(function (jqXHR, textStatus) {
